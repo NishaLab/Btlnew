@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package View;
-
+import Controller.*;
 /**
  *
  * @author LEGION
@@ -16,6 +16,8 @@ public class LoginFrame extends javax.swing.JFrame {
      */
     public LoginFrame() {
         initComponents();
+        LoginController a = new LoginController(this);
+        a.init();
     }
 
     /**
