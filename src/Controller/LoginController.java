@@ -4,11 +4,19 @@
  * and open the template in the editor.
  */
 package Controller;
-
+import View.*;
 /**
  *
  * @author LEGION
  */
 public class LoginController {
+    private LoginFrame frame;
+
+    public LoginController(LoginFrame frame) {
+        this.frame = frame;
+    }
     
+    public void init(){
+        
+    }
 }
