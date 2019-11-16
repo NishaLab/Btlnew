@@ -41,7 +41,7 @@ public class LoginController {
         setActionLogin();
     }
 
-    public void setActionLogin() {
+    public void setActionLogin() {  // xu ly dang nhap
 //        JTextField tf1 = frame.getPassword();
 //        tf1.addFocusListener(new FocusListener() {
 //            @Override
@@ -73,13 +73,13 @@ public class LoginController {
                     ResultSet rs;
                     String user = frame.getUsr().getText();
                     String pass = String.valueOf(frame.getPswrd().getPassword());
-                    if (user.equals("admin") && pass.equals("123456")) {
+                    if (user.equals("admin") && pass.equals("123456")) {  // neu nhap admin thi vao form quan li(them sua xoa)
                         QuanLiFrame form = new QuanLiFrame();
                         form.setVisible(true);
                         form.setLocationRelativeTo(null);
                         frame.dispose();
                         
-                    } else {
+                    } else {   // con neu nhap nguoi dung thi vao frame nguoi dung(pick tkb)
                         ps.setString(1, user);
                         ps.setString(2, pass);
                         rs = ps.executeQuery();
