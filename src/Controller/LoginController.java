@@ -11,11 +11,14 @@ import View.QuanLi.QuanLiFrame;
 import View.SinhVien.SVFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -104,11 +107,10 @@ public class LoginController {
             }
         }
         );
-
-        JButton register = frame.getRegisterBtt();
-        register.addActionListener(new ActionListener() {
+        JLabel register = frame.getRegisterLabel();
+        register.addMouseListener(new MouseListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
                 RegisterFrame reg = new RegisterFrame();
                 reg.setVisible(true);
                 frame.setVisible(false);
@@ -136,11 +138,62 @@ public class LoginController {
                             }
 
                         }
-
                     }
                 });
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
         });
+//        register.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                RegisterFrame reg = new RegisterFrame();
+//                reg.setVisible(true);
+//                frame.setVisible(false);
+//                JButton ok = reg.getOkBtt();
+//                ok.addActionListener(new ActionListener() {
+//                    @Override
+//                    public void actionPerformed(ActionEvent e) {
+//                        String usr = reg.getUsr().getText();
+//                        String pswrd = String.valueOf(reg.getPwrd().getPassword());
+//                        String pswrd2 = String.valueOf(reg.getPsrd2().getPassword());
+//                        if (pswrd.equalsIgnoreCase(pswrd2)) {
+//                            try {
+//                                SinhVien sv = new SinhVien();
+//                                sv.setTenSv(reg.getTenSV().getText());
+//                                String address = reg.getAddress().getText();
+//                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//                                sv.setDob(sdf.parse(reg.getDob().getText()));
+//                                sv.setSdt(reg.getPhoneNUM().getText());
+//                                sv.setGioitinh(reg.getGenderCB().getSelectedItem().toString());
+//                                addSV(usr, pswrd, sv);
+//                                frame.setVisible(true);
+//                                reg.dispose();
+//                            } catch (Exception f) {
+//                                f.printStackTrace();
+//                            }
+//
+//                        }
+//
+//                    }
+//                });
+//            }
+//        });
 
     }
 
