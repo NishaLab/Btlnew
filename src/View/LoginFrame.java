@@ -42,6 +42,14 @@ public class LoginFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         usr.setText("username");
+        usr.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usrFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usrFocusLost(evt);
+            }
+        });
         usr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usrActionPerformed(evt);
@@ -112,6 +120,21 @@ public class LoginFrame extends javax.swing.JFrame {
     private void loginBttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginBttActionPerformed
+
+    private void usrFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrFocusGained
+        // TODO add your handling code here:
+           if (usr.getText().trim().toLowerCase().equals("username")) {
+                    usr.setText("");
+                }
+    }//GEN-LAST:event_usrFocusGained
+
+    private void usrFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrFocusLost
+        // TODO add your handling code here:
+           if (usr.getText().trim().toLowerCase().equals("username")
+                        || usr.getText().trim().toLowerCase().equals("")) {
+                    usr.setText("username");
+                }
+    }//GEN-LAST:event_usrFocusLost
 
     public JButton getLoginBtt() {
         return loginBtt;
