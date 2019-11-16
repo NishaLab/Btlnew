@@ -31,6 +31,55 @@ public class SinhVien implements Serializable {
     public String toString() {
         return "SinhVien{" + "tenSv=" + tenSv + ", maSv=" + maSv + ", dob=" + dob + ", address=" + address + ", sdt=" + sdt + ", gioitinh=" + gioitinh + '}';
     }
+
+    public String getTenSv() {
+        return tenSv.toString();
+    }
+
+    public void setTenSv(String tenSv) {
+        Name a = new Name(tenSv);
+        this.tenSv = a;
+    }
+
+    public int getMaSv() {
+        return maSv;
+    }
+
+    public void setMaSv(int maSv) {
+        this.maSv = maSv;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getGioitinh() {
+        return gioitinh;
+    }
+
+    public void setGioitinh(String gioitinh) {
+        this.gioitinh = gioitinh;
+    }
     private Name tenSv;
     private int maSv;
     private Date dob;

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.*;
 import View.*;
 import View.QuanLi.QuanLiFrame;
 import View.SinhVien.SVFrame;
@@ -13,6 +14,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -78,7 +81,7 @@ public class LoginController {
                         form.setVisible(true);
                         form.setLocationRelativeTo(null);
                         frame.dispose();
-                        
+
                     } else {   // con neu nhap nguoi dung thi vao frame nguoi dung(pick tkb)
                         ps.setString(1, user);
                         ps.setString(2, pass);
@@ -101,5 +104,67 @@ public class LoginController {
             }
         }
         );
+
+        JButton register = frame.getRegisterBtt();
+        register.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegisterFrame reg = new RegisterFrame();
+                reg.setVisible(true);
+                frame.setVisible(false);
+                JButton ok = reg.getOkBtt();
+                ok.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        String usr = reg.getUsr().getText();
+                        String pswrd = String.valueOf(reg.getPwrd().getPassword());
+                        String pswrd2 = String.valueOf(reg.getPsrd2().getPassword());
+                        if (pswrd.equalsIgnoreCase(pswrd2)) {
+                            try {
+                                SinhVien sv = new SinhVien();
+                                sv.setTenSv(reg.getTenSV().getText());
+                                String address = reg.getAddress().getText();
+                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                sv.setDob(sdf.parse(reg.getDob().getText()));
+                                sv.setSdt(reg.getPhoneNUM().getText());
+                                sv.setGioitinh(reg.getGenderCB().getSelectedItem().toString());
+                                addSV(usr, pswrd, sv);
+                                frame.setVisible(true);
+                                reg.dispose();
+                            } catch (Exception f) {
+                                f.printStackTrace();
+                            }
+
+                        }
+
+                    }
+                });
+            }
+        });
+
+    }
+
+    public void addSV(String usr, String pswrd, SinhVien a) {
+        String sql = "INSERT INTO realbtl.user(username,password) VALUES (?,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usr);
+            ps.setString(2, pswrd);
+            ps.executeUpdate();
+            System.out.println("Through");
+            sql = "INSERT INTO realbtl.student (name, dob, address, sdt, Sex) VALUES(?,?,?,?,?)";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, a.getTenSv());
+            ps.setDate(2, new Date(a.getDob().getTime()));
+            ps.setString(3, a.getAddress());
+            ps.setString(4, a.getSdt());
+            ps.setString(5, a.getGioitinh());
+            ps.executeUpdate();
+            System.out.println("Through");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "SinhVien khong hop le");
+            e.printStackTrace();
+        }
+
     }
 }
