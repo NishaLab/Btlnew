@@ -4,25 +4,32 @@
  * and open the template in the editor.
  */
 package Model;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.StringTokenizer;
+
 /**
  *
  * @author LEGION
  */
-public class SinhVien implements Serializable{
+public class SinhVien implements Serializable {
 
     public SinhVien() {
     }
 
-    public SinhVien(Name tenSv, int maSv, Date dob, String address, String sdt, String gioitinh) {
-        this.tenSv = tenSv;
+    public SinhVien(int maSv,String s, Date dob, String address, String sdt, String gioitinh) {
+        this.tenSv = new Name(s);
         this.maSv = maSv;
         this.dob = dob;
         this.address = address;
         this.sdt = sdt;
         this.gioitinh = gioitinh;
+    }
+
+    @Override
+    public String toString() {
+        return "SinhVien{" + "tenSv=" + tenSv + ", maSv=" + maSv + ", dob=" + dob + ", address=" + address + ", sdt=" + sdt + ", gioitinh=" + gioitinh + '}';
     }
     private Name tenSv;
     private int maSv;
@@ -31,19 +38,29 @@ public class SinhVien implements Serializable{
     private String sdt;
     private String gioitinh;
 }
-class Name{
+
+class Name {
 
     public Name() {
     }
 
-    public Name(String ho, String ten, String dem) {
+    public Name(String s) {
+        StringTokenizer strtok = new StringTokenizer(s);
+        String ho = "";
+        String ten = "";
+        while (strtok.hasMoreTokens()) {
+            String tmp = strtok.nextToken();
+            if (strtok.hasMoreTokens() == false) {
+                ten += tmp;
+            } else {
+                ho += tmp + " ";
+            }
+        }
         this.ho = ho;
         this.ten = ten;
-        this.dem = dem;
     }
 
-
-    private String ho,ten,dem;
+    private String ho, ten;
 
     public String getHo() {
         return ho;
@@ -61,11 +78,9 @@ class Name{
         this.ten = ten;
     }
 
-    public String getDem() {
-        return dem;
+    @Override
+    public String toString() {
+        return ho + ten;
     }
 
-    public void setDem(String dem) {
-        this.dem = dem;
-    }
 }
