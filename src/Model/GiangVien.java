@@ -10,5 +10,34 @@ package Model;
  * @author LEGION
  */
 public class GiangVien {
-    
+
+    public int getMaGv() {
+        return maGv;
+    }
+
+    public Name getTenGv() {
+        return tenGv;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public GiangVien() {
+    }
+
+    public GiangVien(int maGv, Name tenGv, String address, String sdt) {
+        this.maGv = maGv;
+        this.tenGv = tenGv;
+        this.address = address;
+        this.sdt = sdt;
+    }
+    private int maGv;
+    private Name tenGv;
+    private String address;
+    private String sdt;
 }
