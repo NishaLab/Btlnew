@@ -112,6 +112,7 @@ public class LoginController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 RegisterFrame reg = new RegisterFrame();
+                //wwut
                 reg.setVisible(true);
                 frame.setVisible(false);
                 JButton ok = reg.getOkBtt();
