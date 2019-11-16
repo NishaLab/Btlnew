@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Model;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.StringTokenizer;
 /**
  *
  * @author LEGION
  */
-public class SinhVien {
+public class SinhVien implements Serializable{
 
     public SinhVien() {
     }

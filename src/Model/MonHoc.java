@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author LEGION
  */
-public class MonHoc {
+public class MonHoc implements Serializable{
     private int maMon;
     private String tenMon;
     private int sotinchi;

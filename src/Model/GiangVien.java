@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author LEGION
  */
-public class GiangVien {
+public class GiangVien implements Serializable{
 
     public int getMaGv() {
         return maGv;
