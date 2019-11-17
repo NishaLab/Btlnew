@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package View;
+
 import Controller.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 /**
  *
  * @author LEGION
@@ -71,7 +73,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
 
         usr.setForeground(new java.awt.Color(146, 134, 134));
-        usr.setText("Enter your Username...");
+        usr.setText("Username...");
         usr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         usr.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -98,8 +100,16 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3.setText("User Name");
 
         pswrd.setForeground(new java.awt.Color(146, 134, 134));
-        pswrd.setText("Enter your Userna");
+        pswrd.setText("enter password");
         pswrd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pswrd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pswrdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pswrdFocusLost(evt);
+            }
+        });
         pswrd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pswrdActionPerformed(evt);
@@ -237,17 +247,17 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void usrFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrFocusGained
         // TODO add your handling code here:
-           if (usr.getText().trim().toLowerCase().equals("username")) {
-                    usr.setText("");
-                }
+        if (usr.getText().trim().equals("Username...")) {
+            usr.setText("");
+        }
     }//GEN-LAST:event_usrFocusGained
 
     private void usrFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usrFocusLost
         // TODO add your handling code here:
-           if (usr.getText().trim().toLowerCase().equals("username")
-                        || usr.getText().trim().toLowerCase().equals("")) {
-                    usr.setText("username");
-                }
+        if (usr.getText().trim().toLowerCase().equals("Username...")
+                || usr.getText().trim().toLowerCase().equals("")) {
+            usr.setText("Username...");
+        }
     }//GEN-LAST:event_usrFocusLost
 
     private void pswrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswrdActionPerformed
@@ -260,12 +270,23 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void LoginBttKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginBttKeyPressed
         // TODO add your handling code here:
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {              //press Enter to SIGN IN
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {              //press Enter to SIGN IN
             
         }
     }//GEN-LAST:event_LoginBttKeyPressed
 
+    private void pswrdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pswrdFocusGained
+        if (String.valueOf(pswrd.getPassword()).trim().equals("enter password")) {
+            pswrd.setText("");
+        }
+    }//GEN-LAST:event_pswrdFocusGained
 
+    private void pswrdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pswrdFocusLost
+        if (String.valueOf(pswrd.getPassword()).trim().equals("enter password") 
+             || String.valueOf(pswrd.getPassword()).trim().equals("")){
+            pswrd.setText("enter password");
+        }
+    }//GEN-LAST:event_pswrdFocusLost
 
     public JPasswordField getPswrd() {
         return pswrd;
@@ -282,12 +303,6 @@ public class LoginFrame extends javax.swing.JFrame {
     public void setLoginBtt(JButton LoginBtt) {
         this.LoginBtt = LoginBtt;
     }
-
-
-
-
-
-
 
     public JTextField getUsr() {
         return usr;
