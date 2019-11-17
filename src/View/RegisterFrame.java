@@ -6,8 +6,10 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -45,15 +47,15 @@ public class RegisterFrame extends javax.swing.JFrame {
         tenSV = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        termAccept = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         dob = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        femaleChechbox = new javax.swing.JCheckBox();
         usr = new javax.swing.JTextField();
         phoneNUM = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        maleCheckbox = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -95,10 +97,10 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Date Of Birth");
 
-        jRadioButton1.setText("I have read and agree to the");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        termAccept.setText("I have read and agree to the");
+        termAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                termAcceptActionPerformed(evt);
             }
         });
 
@@ -106,11 +108,11 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         jLabel7.setText("Phone Number");
 
-        jCheckBox2.setText("Female");
+        femaleChechbox.setText("Female");
 
         jLabel3.setText("Re-password");
 
-        jCheckBox1.setText("Male");
+        maleCheckbox.setText("Male");
 
         jLabel10.setForeground(new java.awt.Color(248, 21, 7));
         jLabel10.setText("*");
@@ -134,7 +136,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(termAccept)
                                 .addGap(1, 1, 1)
                                 .addComponent(jLabel9))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -165,9 +167,9 @@ public class RegisterFrame extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel12))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
+                                        .addComponent(maleCheckbox)
                                         .addGap(40, 40, 40)
-                                        .addComponent(jCheckBox2)
+                                        .addComponent(femaleChechbox)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -204,8 +206,8 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox1)
-                        .addComponent(jCheckBox2))
+                        .addComponent(maleCheckbox)
+                        .addComponent(femaleChechbox))
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -224,7 +226,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
+                    .addComponent(termAccept)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(okBtt)
@@ -259,9 +261,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tenSVActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void termAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termAcceptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_termAcceptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,6 +334,30 @@ public class RegisterFrame extends javax.swing.JFrame {
         return tenSV;
     }
 
+    public JCheckBox getFemaleChechbox() {
+        return femaleChechbox;
+    }
+
+    public void setFemaleChechbox(JCheckBox femaleChechbox) {
+        this.femaleChechbox = femaleChechbox;
+    }
+
+    public JCheckBox getMaleCheckbox() {
+        return maleCheckbox;
+    }
+
+    public void setMaleCheckbox(JCheckBox maleCheckbox) {
+        this.maleCheckbox = maleCheckbox;
+    }
+
+    public JRadioButton getTermAccept() {
+        return termAccept;
+    }
+
+    public void setTermAccept(JRadioButton termAccept) {
+        this.termAccept = termAccept;
+    }
+
     public void setTenSV(JTextField tenSV) {
         this.tenSV = tenSV;
     }
@@ -379,9 +405,8 @@ public class RegisterFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private javax.swing.JTextField dob;
+    private javax.swing.JCheckBox femaleChechbox;
     private javax.swing.JComboBox<String> genderCB;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
@@ -396,12 +421,13 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JCheckBox maleCheckbox;
     private javax.swing.JButton okBtt;
     private javax.swing.JTextField phoneNUM;
     private javax.swing.JPasswordField psrd2;
     private javax.swing.JPasswordField pwrd;
     private javax.swing.JTextField tenSV;
+    private javax.swing.JRadioButton termAccept;
     private javax.swing.JTextField usr;
     // End of variables declaration//GEN-END:variables
 }
