@@ -11,6 +11,8 @@ import View.QuanLi.QuanLiFrame;
 import View.SinhVien.SVFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -48,24 +50,6 @@ public class LoginController {
     }
 
     public void setActionLogin() {  // xu ly dang nhap
-//        JTextField tf1 = frame.getPassword();
-//        tf1.addFocusListener(new FocusListener() {
-//            @Override
-//            public void focusGained(FocusEvent e) {
-//                if (tf1.getText().trim().toLowerCase().equals("username")) {
-//                    tf1.setText("");
-//                }
-//            }
-//
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                if (tf1.getText().trim().toLowerCase().equals("username")
-//                        || tf1.getText().trim().toLowerCase().equals("")) {
-//                    tf1.setText("username");
-//                }
-//            }
-//        });
-
         JButton login = frame.getLoginBtt();
 
         login.addActionListener(
@@ -111,7 +95,7 @@ public class LoginController {
         register.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                RegisterFrame reg = new RegisterFrame();
+                RegisterFrame reg = setException();
                 //wwut
                 reg.setVisible(true);
                 frame.setVisible(false);
@@ -169,42 +153,25 @@ public class LoginController {
             public void mouseExited(MouseEvent e) {
             }
         });
-//        register.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                RegisterFrame reg = new RegisterFrame();
-//                reg.setVisible(true);
-//                frame.setVisible(false);
-//                JButton ok = reg.getOkBtt();
-//                ok.addActionListener(new ActionListener() {
-//                    @Override
-//                    public void actionPerformed(ActionEvent e) {
-//                        String usr = reg.getUsr().getText();
-//                        String pswrd = String.valueOf(reg.getPwrd().getPassword());
-//                        String pswrd2 = String.valueOf(reg.getPsrd2().getPassword());
-//                        if (pswrd.equalsIgnoreCase(pswrd2)) {
-//                            try {
-//                                SinhVien sv = new SinhVien();
-//                                sv.setTenSv(reg.getTenSV().getText());
-//                                String address = reg.getAddress().getText();
-//                                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//                                sv.setDob(sdf.parse(reg.getDob().getText()));
-//                                sv.setSdt(reg.getPhoneNUM().getText());
-//                                sv.setGioitinh(reg.getGenderCB().getSelectedItem().toString());
-//                                addSV(usr, pswrd, sv);
-//                                frame.setVisible(true);
-//                                reg.dispose();
-//                            } catch (Exception f) {
-//                                f.printStackTrace();
-//                            }
-//
-//                        }
-//
-//                    }
-//                });
-//            }
-//        });
 
+
+    }
+    
+    public RegisterFrame setException(){
+        RegisterFrame register = new RegisterFrame();
+        register.getTenSV().addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(register.getTenSV().getText().trim().equals("")){
+                    register.getNameLabel().setText("Vui Long Nhap ten Sinh Vien");
+                }
+            }
+        });
+        return register;
     }
 
     public void addSV(String usr, String pswrd, SinhVien a) {
@@ -223,7 +190,7 @@ public class LoginController {
             ps.setString(4, a.getSdt());
             ps.setString(5, a.getGioitinh());
             ps.executeUpdate();
-            System.out.println("Through");
+            JOptionPane.showMessageDialog(null, "Them Sinh Vien thanh cong");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "SinhVien khong hop le");
             e.printStackTrace();
