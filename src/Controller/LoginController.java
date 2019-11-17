@@ -130,12 +130,21 @@ public class LoginController {
                                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                                 sv.setDob(sdf.parse(reg.getDob().getText()));
                                 sv.setSdt(reg.getPhoneNUM().getText());
-                                sv.setGioitinh(reg.getGenderCB().getSelectedItem().toString());
-                                addSV(usr, pswrd, sv);
-                                frame.setVisible(true);
-                                reg.dispose();
+                                String gioitinh;
+                                if (reg.getMaleCheckbox().isSelected()) {
+                                    gioitinh = "M";
+                                } else {
+                                    gioitinh = "F";
+
+                                }
+                                sv.setGioitinh(gioitinh);
+                                if (reg.getTermAccept().isSelected()) {
+                                    addSV(usr, pswrd, sv);
+                                    frame.setVisible(true);
+                                    reg.dispose();
+                                }
+
                             } catch (Exception f) {
-                                f.printStackTrace();
                             }
 
                         }
