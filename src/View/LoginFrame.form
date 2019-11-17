@@ -95,12 +95,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel2" min="-2" pref="97" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                      <Component id="usr" alignment="0" pref="342" max="32767" attributes="0"/>
-                      <Component id="pswrd" alignment="0" max="32767" attributes="0"/>
-                      <Component id="LoginBtt" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel2" linkSize="2" min="-2" pref="97" max="-2" attributes="0"/>
+                      <Component id="jLabel3" linkSize="2" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="usr" alignment="0" pref="342" max="32767" attributes="0"/>
+                          <Component id="pswrd" alignment="0" max="32767" attributes="0"/>
+                          <Component id="LoginBtt" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
@@ -149,6 +151,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e0" green="b0" red="25" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/ImageIcon/user.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Password"/>
           </Properties>
         </Component>
@@ -160,6 +165,9 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e0" green="b0" red="25" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/View/ImageIcon/key.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="User Name"/>
           </Properties>
         </Component>
@@ -168,7 +176,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="86" green="86" red="92" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Enter your Username"/>
+            <Property name="text" type="java.lang.String" value="Enter your Userna"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
