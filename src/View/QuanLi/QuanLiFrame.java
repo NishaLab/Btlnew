@@ -5,6 +5,11 @@
  */
 package View.QuanLi;
 
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import Controller.QuanLi.*;
+
 /**
  *
  * @author LEGION
@@ -16,6 +21,9 @@ public class QuanLiFrame extends javax.swing.JFrame {
      */
     public QuanLiFrame() {
         initComponents();
+        QLMainController ctr = new QLMainController(this);
+        ctr.init();
+        
     }
 
     /**
@@ -66,7 +74,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
                         .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(mainSP, javax.swing.GroupLayout.PREFERRED_SIZE, 1085, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mainSP, javax.swing.GroupLayout.DEFAULT_SIZE, 1085, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(lectureLabel)
@@ -74,20 +82,20 @@ public class QuanLiFrame extends javax.swing.JFrame {
                         .addComponent(studetnLabel)
                         .addGap(34, 34, 34)
                         .addComponent(courseLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lectureLabel)
                     .addComponent(studetnLabel)
                     .addComponent(courseLabel))
                 .addGap(43, 43, 43)
-                .addComponent(mainSP, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainSP, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -127,6 +135,54 @@ public class QuanLiFrame extends javax.swing.JFrame {
                 new QuanLiFrame().setVisible(true);
             }
         });
+    }
+
+    public JLabel getCourseLabel() {
+        return courseLabel;
+    }
+
+    public void setCourseLabel(JLabel courseLabel) {
+        this.courseLabel = courseLabel;
+    }
+
+    public JLabel getLectureLabel() {
+        return lectureLabel;
+    }
+
+    public void setLectureLabel(JLabel lectureLabel) {
+        this.lectureLabel = lectureLabel;
+    }
+
+    public JScrollPane getMainSP() {
+        return mainSP;
+    }
+
+    public void setMainSP(JScrollPane mainSP) {
+        this.mainSP = mainSP;
+    }
+
+    public JTable getMainTable() {
+        return mainTable;
+    }
+
+    public void setMainTable(JTable mainTable) {
+        this.mainTable = mainTable;
+    }
+
+    public JLabel getStudetnLabel() {
+        return studetnLabel;
+    }
+
+    public void setStudetnLabel(JLabel studetnLabel) {
+        this.studetnLabel = studetnLabel;
+    }
+
+    public JLabel getTitlePanel() {
+        return titlePanel;
+    }
+
+    public void setTitlePanel(JLabel titlePanel) {
+        this.titlePanel = titlePanel;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
