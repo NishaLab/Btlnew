@@ -13,12 +13,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import javax.swing.AbstractAction;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -51,12 +54,9 @@ public class LoginController {
 
     public void setActionLogin() {  // xu ly dang nhap
         JButton login = frame.getLoginBtt();
-
-        login.addActionListener(
-                new ActionListener() {
+        AbstractAction logPressed = new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e
-            ) {
+            public void actionPerformed(ActionEvent e) {
                 String sql = "SELECT username, password FROM realbtl.user WHERE username = ? AND password = ?";
                 try {
                     PreparedStatement ps = conn.prepareStatement(sql);
@@ -89,8 +89,8 @@ public class LoginController {
                     f.printStackTrace();
                 }
             }
-        }
-        );
+        };
+        login.addActionListener(logPressed);
         JLabel register = frame.getRegisterLabel();
         register.addMouseListener(new MouseListener() {
             @Override

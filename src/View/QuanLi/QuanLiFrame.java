@@ -27,19 +27,19 @@ public class QuanLiFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        titlePanel = new javax.swing.JLabel();
+        mainSP = new javax.swing.JScrollPane();
+        mainTable = new javax.swing.JTable();
+        lectureLabel = new javax.swing.JLabel();
+        studetnLabel = new javax.swing.JLabel();
+        courseLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Management");
+        titlePanel.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        titlePanel.setText("Management");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        mainTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -47,13 +47,13 @@ public class QuanLiFrame extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        mainSP.setViewportView(mainTable);
 
-        jLabel2.setText("Lectures");
+        lectureLabel.setText("Lectures");
 
-        jLabel3.setText("Students");
+        studetnLabel.setText("Students");
 
-        jLabel4.setText("Course");
+        courseLabel.setText("Course");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,31 +63,31 @@ public class QuanLiFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(318, 318, 318)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1085, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(mainSP, javax.swing.GroupLayout.PREFERRED_SIZE, 1085, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel2)
+                        .addComponent(lectureLabel)
                         .addGap(39, 39, 39)
-                        .addComponent(jLabel3)
+                        .addComponent(studetnLabel)
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel4)))
+                        .addComponent(courseLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(lectureLabel)
+                    .addComponent(studetnLabel)
+                    .addComponent(courseLabel))
                 .addGap(43, 43, 43)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainSP, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -130,11 +130,11 @@ public class QuanLiFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel courseLabel;
+    private javax.swing.JLabel lectureLabel;
+    private javax.swing.JScrollPane mainSP;
+    private javax.swing.JTable mainTable;
+    private javax.swing.JLabel studetnLabel;
+    private javax.swing.JLabel titlePanel;
     // End of variables declaration//GEN-END:variables
 }
