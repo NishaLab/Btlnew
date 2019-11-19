@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package View.QuanLi.SinhVien;
-
+import Model.*;
 /**
  *
  * @author ducnam
@@ -15,6 +15,10 @@ public class GiangVienComponent extends javax.swing.JPanel {
      * Creates new form GiangVienComponent
      */
     public GiangVienComponent() {
+        initComponents();
+    }
+
+    public GiangVienComponent(GiangVien s) {
         initComponents();
     }
 
