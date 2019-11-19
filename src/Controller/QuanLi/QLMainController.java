@@ -41,7 +41,7 @@ public class QLMainController {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                QLViewController view = new QLViewController(frame, frame.getMainSP());
+                QLViewController view = new QLViewController(frame);
                 try {
                     view.setStudentView();
                 } catch (SQLException ex) {

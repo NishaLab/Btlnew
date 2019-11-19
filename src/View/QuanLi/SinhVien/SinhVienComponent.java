@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package View.QuanLi.SinhVien;
-
+import  Model.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author ducnam
@@ -18,6 +20,18 @@ public class SinhVienComponent extends javax.swing.JPanel {
         initComponents();
     }
 
+    public SinhVienComponent(SinhVien s) {
+        initComponents();
+        int a = s.getMaSv();
+        String tmp = String.format("%3d", a).replace(' ', '0');
+        this.getIdLabel().setText("B17DCCN"+tmp);
+        this.getNameLabel().setText(s.getTenSv());
+        this.getDobLabel().setText(s.getDob().toString());
+        this.getSexLabel().setText(s.getGioitinh());
+        this.getPhoneLabel().setText(s.getSdt());
+        this.getAddressLabel().setText(s.getAddress());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,27 +42,27 @@ public class SinhVienComponent extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        dobLabel = new javax.swing.JLabel();
+        sexLabel = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        jLabel1.setText("D17DCCN252");
+        idLabel.setText("D17DCCN252");
 
-        jLabel2.setText("Nguyễn Gì Gì Đó");
+        nameLabel.setText("Nguyễn Gì Gì Đó");
 
-        jLabel3.setText("29/02/2019");
+        dobLabel.setText("29/02/2019");
 
-        jLabel4.setText("Nữ");
+        sexLabel.setText("Nữ");
 
-        jLabel5.setText("09125125125");
+        phoneLabel.setText("09125125125");
 
-        jLabel6.setText("Hà Nội");
+        addressLabel.setText("Hà Nội");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -56,17 +70,17 @@ public class SinhVienComponent extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(idLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(nameLabel)
                 .addGap(108, 108, 108)
-                .addComponent(jLabel3)
+                .addComponent(dobLabel)
                 .addGap(85, 85, 85)
-                .addComponent(jLabel4)
+                .addComponent(sexLabel)
                 .addGap(82, 82, 82)
-                .addComponent(jLabel5)
+                .addComponent(phoneLabel)
                 .addGap(69, 69, 69)
-                .addComponent(jLabel6)
+                .addComponent(addressLabel)
                 .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,12 +88,12 @@ public class SinhVienComponent extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
+                    .addComponent(idLabel)
+                    .addComponent(nameLabel)
+                    .addComponent(dobLabel)
+                    .addComponent(addressLabel)
+                    .addComponent(phoneLabel)
+                    .addComponent(sexLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -97,12 +111,68 @@ public class SinhVienComponent extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel dobLabel;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel sexLabel;
     // End of variables declaration//GEN-END:variables
+
+    public JLabel getAddressLabel() {
+        return addressLabel;
+    }
+
+    public void setAddressLabel(JLabel addressLabel) {
+        this.addressLabel = addressLabel;
+    }
+
+    public JLabel getDobLabel() {
+        return dobLabel;
+    }
+
+    public void setDobLabel(JLabel dobLabel) {
+        this.dobLabel = dobLabel;
+    }
+
+    public JLabel getIdLabel() {
+        return idLabel;
+    }
+
+    public void setIdLabel(JLabel idLabel) {
+        this.idLabel = idLabel;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(JLabel nameLabel) {
+        this.nameLabel = nameLabel;
+    }
+
+    public JLabel getPhoneLabel() {
+        return phoneLabel;
+    }
+
+    public void setPhoneLabel(JLabel phoneLabel) {
+        this.phoneLabel = phoneLabel;
+    }
+
+    public JLabel getSexLabel() {
+        return sexLabel;
+    }
+
+    public void setSexLabel(JLabel sexLabel) {
+        this.sexLabel = sexLabel;
+    }
 }

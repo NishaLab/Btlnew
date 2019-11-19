@@ -7,6 +7,7 @@ package Controller.QuanLi;
 
 import View.*;
 import View.QuanLi.QuanLiFrame;
+import View.QuanLi.SvDisplayPanel;
 import javax.swing.*;
 import java.awt.*;
 import DAO.*;
@@ -21,11 +22,10 @@ public class QLViewController {
     private StudentQuery qr;
     private QuanLiFrame frame;
     private JPanel main;
-    private JScrollPane pane;
 
-    public QLViewController(QuanLiFrame frame, JScrollPane pane) {
+    public QLViewController(QuanLiFrame frame) {
         this.frame = frame;
-        this.pane = pane;
+        this.main = frame.getDisplayPanel();
         this.qr =  new StudentQuery();
     }
 
@@ -38,9 +38,12 @@ public class QLViewController {
     }
 
     public void setStudentView() throws SQLException{
+        System.out.println("through");
         ArrayList<SinhVien> sv = qr.getSinhVien();
-        for (SinhVien sinhVien : sv) {
-            System.out.println(sinhVien);
-        }
+        SvDisplayPanel sdp = new SvDisplayPanel(sv);
+        main.removeAll();
+        setMainPanel(sdp);
+        main.revalidate();
     }
+
 }
