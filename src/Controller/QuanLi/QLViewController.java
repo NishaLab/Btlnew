@@ -66,4 +66,8 @@ public class QLViewController {
         setMainPanel(mdp);
         main.revalidate();
     }
+    
+    public void setCourseDetail(){
+        
+    }
 }
