@@ -8,6 +8,7 @@ package View;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -17,12 +18,17 @@ import javax.swing.JTextField;
  * @author LEGION
  */
 public class RegisterFrame extends javax.swing.JFrame {
+    private boolean canAdd=false;
 
+    public void setCanAdd(boolean canAdd) {
+        this.canAdd = canAdd;
+    }
     /**
      * Creates new form RegisterFrame
      */
     public RegisterFrame() {
         initComponents();
+        canAdd=true;
     }
 
     /**
@@ -56,7 +62,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         phoneNUM = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         maleCheckbox = new javax.swing.JCheckBox();
-        jLabel10 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -114,8 +120,8 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         maleCheckbox.setText("Male");
 
-        jLabel10.setForeground(new java.awt.Color(248, 21, 7));
-        jLabel10.setText("*");
+        nameLabel.setForeground(new java.awt.Color(248, 21, 7));
+        nameLabel.setText("*");
 
         jLabel12.setForeground(new java.awt.Color(248, 21, 7));
         jLabel12.setText("*");
@@ -161,7 +167,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                                             .addComponent(tenSV)
                                             .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel10))
+                                        .addComponent(nameLabel))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(usr, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -190,7 +196,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tenSV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel10))
+                    .addComponent(nameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,6 +304,14 @@ public class RegisterFrame extends javax.swing.JFrame {
                 new RegisterFrame().setVisible(true);
             }
         });
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(JLabel nameLabel) {
+        this.nameLabel = nameLabel;
     }
 
 
@@ -408,7 +422,6 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox femaleChechbox;
     private javax.swing.JComboBox<String> genderCB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -422,6 +435,7 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox maleCheckbox;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JButton okBtt;
     private javax.swing.JTextField phoneNUM;
     private javax.swing.JPasswordField psrd2;
