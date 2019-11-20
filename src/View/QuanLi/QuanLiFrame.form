@@ -34,11 +34,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="displayPanel" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="lectureLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="studetnLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="courseLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="lectureLabel" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="studetnLabel" min="-2" pref="67" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="courseLabel" min="-2" pref="67" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -54,13 +54,13 @@
               <Component id="titlePanel" min="-2" pref="64" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lectureLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="studetnLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="courseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lectureLabel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="studetnLabel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="courseLabel" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="displayPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

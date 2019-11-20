@@ -5,6 +5,8 @@
  */
 package View.QuanLi.SinhVien;
 import Model.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author ducnam
@@ -20,7 +22,14 @@ public class GiangVienComponent extends javax.swing.JPanel {
 
     public GiangVienComponent(GiangVien s) {
         initComponents();
-    }
+        getNameLabel().setText(s.getTenGv());
+        String a = s.getKhoa() + String.format("%3d", s.getMaGv()).replace(' ', '0');
+        getIdLabel().setText(a);
+        getAddressLabel().setText(s.getAddress());
+        getSexLabel().setText(s.getGioitinh());
+        getPhoneLabel().setText(s.getSdt());
+        getDobLabel().setText(s.getDob().toString());
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,23 +41,27 @@ public class GiangVienComponent extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        phoneLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        dobLabel = new javax.swing.JLabel();
+        sexLabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        jLabel1.setText("CNTT001");
+        idLabel.setText("CNTT001");
 
-        jLabel2.setText("Nguyễn Gì Gì Đó");
+        nameLabel.setText("Nguyễn Gì Gì Đó");
 
-        jLabel5.setText("09125125125");
+        phoneLabel.setText("09125125125");
 
-        jLabel6.setText("Hà Nội");
+        addressLabel.setText("Hà Nội");
+
+        dobLabel.setText("01/01/1999");
+
+        sexLabel.setText("Gioi Tinh");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -56,30 +69,30 @@ public class GiangVienComponent extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3)
+                .addComponent(idLabel)
+                .addGap(44, 44, 44)
+                .addComponent(nameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(phoneLabel)
+                .addGap(65, 65, 65)
+                .addComponent(addressLabel)
                 .addGap(89, 89, 89)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(121, 121, 121)
-                .addComponent(jLabel6)
-                .addGap(40, 40, 40))
+                .addComponent(dobLabel)
+                .addGap(65, 65, 65)
+                .addComponent(sexLabel)
+                .addGap(54, 54, 54))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4))
+                    .addComponent(idLabel)
+                    .addComponent(nameLabel)
+                    .addComponent(addressLabel)
+                    .addComponent(phoneLabel)
+                    .addComponent(dobLabel)
+                    .addComponent(sexLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -95,14 +108,70 @@ public class GiangVienComponent extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getAddressLabel() {
+        return addressLabel;
+    }
+
+    public void setAddressLabel(JLabel addressLabel) {
+        this.addressLabel = addressLabel;
+    }
+
+    public JLabel getDobLabel() {
+        return dobLabel;
+    }
+
+    public void setDobLabel(JLabel dobLabel) {
+        this.dobLabel = dobLabel;
+    }
+
+    public JLabel getIdLabel() {
+        return idLabel;
+    }
+
+    public void setIdLabel(JLabel idLabel) {
+        this.idLabel = idLabel;
+    }
+
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(JLabel nameLabel) {
+        this.nameLabel = nameLabel;
+    }
+
+    public JLabel getPhoneLabel() {
+        return phoneLabel;
+    }
+
+    public void setPhoneLabel(JLabel phoneLabel) {
+        this.phoneLabel = phoneLabel;
+    }
+
+    public JLabel getSexLabel() {
+        return sexLabel;
+    }
+
+    public void setSexLabel(JLabel sexLabel) {
+        this.sexLabel = sexLabel;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel dobLabel;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel sexLabel;
     // End of variables declaration//GEN-END:variables
 }
