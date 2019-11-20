@@ -6,12 +6,18 @@
 package View.QuanLi;
 
 import Model.*;
+import Controller.QuanLi.*;
 import View.QuanLi.SinhVien.MonHocComponent1;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,25 +28,32 @@ public class MhDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form MhDisplayPanel
      */
-    public MhDisplayPanel() {
-        initComponents();
 
-    }
 
-    public MhDisplayPanel(ArrayList<MonHoc> mh) {
+    public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh));
+        JScrollPane sp = new JScrollPane(createMhList(mh,frame));
         add(sp);
     }
 
-    public JPanel createMhList(ArrayList<MonHoc> mh) {
+    public static JPanel createMhList(ArrayList<MonHoc> mh,QuanLiFrame frame) throws SQLException{
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(mh.size(), 1, 0, 0));
-        for (int i = 0; i < mh.size(); i++) {
-            MonHocComponent1 tmp = new MonHocComponent1(mh.get(i));
+        for (MonHoc a:mh) {
+            MonHocComponent1 tmp = new MonHocComponent1(a);
             p1.add(tmp);
-
+            tmp.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    QLViewController qvc = new QLViewController(frame);
+                    try {
+                        qvc.setCourseDetail(a);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(MhDisplayPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
         }
         return p1;
     }

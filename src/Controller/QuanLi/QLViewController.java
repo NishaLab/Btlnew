@@ -23,6 +23,9 @@ public class QLViewController {
 
     private QuanLiFrame frame;
     private JPanel main;
+    ArrayList<GiangVien> gv;
+    ArrayList<SinhVien> sv;
+    ArrayList<MonHoc> mh;
 
     public QLViewController(QuanLiFrame frame) {
         this.frame = frame;
@@ -39,9 +42,7 @@ public class QLViewController {
 
     public void setStudentView() throws SQLException {
         StudentQuery qr = new StudentQuery();
-        System.out.println(
-                "through");
-        ArrayList<SinhVien> sv = qr.getSinhVien();
+        sv = qr.getSinhVien();
         SvDisplayPanel sdp = new SvDisplayPanel(sv);
         main.removeAll();
         setMainPanel(sdp);
@@ -50,24 +51,30 @@ public class QLViewController {
 
     public void setProfessorView() throws SQLException {
         ProfessorQuery qr = new ProfessorQuery();
-        System.out.println("through");
-        ArrayList<GiangVien> gv = qr.getGiangVien();
+        gv = qr.getGiangVien();
         GvDisplayPanel gdp = new GvDisplayPanel(gv);
         main.removeAll();
         setMainPanel(gdp);
         main.revalidate();
     }
-    
-    public void setCouresView() throws SQLException{
+
+    public void setCouresView() throws SQLException {
         CourseQuery qr = new CourseQuery();
-        ArrayList<MonHoc> mh = qr.getMonHoc();
-        MhDisplayPanel mdp = new MhDisplayPanel(mh);
+        mh = qr.getMonHoc();
+        MhDisplayPanel mdp = new MhDisplayPanel(mh,this.frame);
         main.removeAll();
         setMainPanel(mdp);
         main.revalidate();
     }
-    
-    public void setCourseDetail(){
-        
+
+    public void setCourseDetail(MonHoc a) throws SQLException{
+        ProfessorQuery qr = new ProfessorQuery();
+        gv = qr.getGiangVien();
+        TimetableQuery tq = new TimetableQuery();
+        ArrayList<Lich> lich = tq.getLich(a,gv);
+        LichDisplayPanel ldp = new LichDisplayPanel(lich);
+        main.removeAll();
+        setMainPanel(ldp);
+        main.revalidate();
     }
 }
