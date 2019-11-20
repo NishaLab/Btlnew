@@ -24,7 +24,6 @@ public class GvDisplayPanel extends javax.swing.JPanel {
      */
     public GvDisplayPanel(ArrayList<GiangVien> gv) {
         initComponents();
-        initComponents();
         setLayout(new BorderLayout());
         JScrollPane sp = new JScrollPane(createGvList(gv));
         add(sp);

@@ -31,6 +31,7 @@ public class QLMainController {
     public void init() {
         setStudentLabelAction();
         setProfessorLabelAction();
+        setCourseLabelAction();
     }
 
     void setStudentLabelAction() {
@@ -96,6 +97,44 @@ public class QLMainController {
                 professor.setOpaque(false);
                 professor.setBackground(Color.WHITE);
                 professor.setForeground(Color.BLACK);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+            }
+        });
+    }
+
+    void setCourseLabelAction() {
+        JLabel course = frame.getCourseLabel();
+        course.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                QLViewController view = new QLViewController(frame);
+                try {
+                    view.setCouresView();
+                } catch (SQLException ex) {
+                    Logger.getLogger(QLMainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                course.setOpaque(true);
+                course.setBackground(Color.DARK_GRAY);
+                course.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                course.setOpaque(false);
+                course.setBackground(Color.WHITE);
+                course.setForeground(Color.BLACK);
             }
 
             @Override

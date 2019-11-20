@@ -29,7 +29,6 @@ public class CourseQuery {
         try {
             String sql = "INSERT INTO realbtl.course (name, sotinchi, khoa) VALUES(?,?,?)";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
-
             ps = qr.getConnection().prepareStatement(sql);
             ps.setString(1, a.getTenMon());
             ps.setInt(2, a.getSotinchi());
@@ -44,15 +43,15 @@ public class CourseQuery {
 
     ;
     
-    public ArrayList<MonHoc> getGiangVien() throws SQLException {
+    public ArrayList<MonHoc> getMonHoc() throws SQLException {
         ArrayList<MonHoc> res = new ArrayList();
-        String sql = "SELECT * FROM realbtl.professor";
+        String sql = "SELECT * FROM realbtl.course";
         ResultSet rs = qr.query(sql);
         while (rs.next()) {
             MonHoc s = new MonHoc();
             s.setMaMon(rs.getInt(1));
-            s.setKhoa(rs.getString(2));
-            s.setTenMon(rs.getString(3));
+            s.setTenMon(rs.getString(2));
+            s.setSotinchi(rs.getInt(3));
             s.setKhoa(rs.getString(4));
             res.add(s);
         }
@@ -60,4 +59,3 @@ public class CourseQuery {
 
     }
 }
-

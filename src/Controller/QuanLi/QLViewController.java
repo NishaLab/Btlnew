@@ -57,4 +57,13 @@ public class QLViewController {
         setMainPanel(gdp);
         main.revalidate();
     }
+    
+    public void setCouresView() throws SQLException{
+        CourseQuery qr = new CourseQuery();
+        ArrayList<MonHoc> mh = qr.getMonHoc();
+        MhDisplayPanel mdp = new MhDisplayPanel(mh);
+        main.removeAll();
+        setMainPanel(mdp);
+        main.revalidate();
+    }
 }
