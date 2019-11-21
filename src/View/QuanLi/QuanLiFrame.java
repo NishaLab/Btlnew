@@ -29,7 +29,24 @@ public class QuanLiFrame extends javax.swing.JFrame {
     }
 
     private MonHoc mh = new MonHoc();
+    private SinhVien sv = new SinhVien();
+    private GiangVien gv = new GiangVien();
 
+    public GiangVien getGv() {
+        return gv;
+    }
+
+    public void setGv(GiangVien gv) {
+        this.gv = gv;
+    }
+
+    public SinhVien getSv() {
+        return sv;
+    }
+
+    public void setSv(SinhVien sv) {
+        this.sv = sv;
+    }
     public MonHoc getMh() {
         return mh;
     }
@@ -38,13 +55,13 @@ public class QuanLiFrame extends javax.swing.JFrame {
         this.mh = a;
     }
     
-    private ArrayList<GiangVien> gv = new ArrayList<>();
+    private ArrayList<GiangVien> gvlist = new ArrayList<>();
     
     public ArrayList<GiangVien> getGvList(){
-        return gv;
+        return gvlist;
     }
     public void setGvList(ArrayList<GiangVien> a){
-        this.gv = a;
+        this.gvlist = a;
     }
     /**
      * This method is called from within the constructor to initialize the form.

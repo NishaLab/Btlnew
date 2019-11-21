@@ -45,21 +45,41 @@ public class StudentQuery {
         }
     }
 
-    ;
-    
-    public ArrayList<SinhVien> getSinhVien() throws SQLException{
+    public void updateStudent(SinhVien a) {
+        try {
+            String sql = "UPDATE realbtl.student SET name = ?, dob=?, address=?, sdt=?, Sex=? WHERE idStudent = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps = qr.getConnection().prepareStatement(sql);
+            ps.setString(1, a.getTenSv());
+            ps.setDate(2, new Date(a.getDob().getTime()));
+            ps.setString(3, a.getAddress());
+            ps.setString(4, a.getSdt());
+            ps.setString(5, a.getGioitinh());
+            ps.setInt(6, a.getMaSv());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update Sinh Vien thanh cong");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Update Sinh Vien that bai");
+
+        }
+
+    }
+
+    public ArrayList<SinhVien> getSinhVien() throws SQLException {
         ArrayList<SinhVien> res = new ArrayList();
         String sql = "SELECT * FROM realbtl.student";
         ResultSet rs = qr.query(sql);
-        while(rs.next()){
-           SinhVien s = new SinhVien();
-           s.setMaSv(rs.getInt(1));
-           s.setTenSv(rs.getString(2));
-           s.setDob(rs.getDate(3));
-           s.setAddress(rs.getString(4));
-           s.setSdt(rs.getString(5));
-           s.setGioitinh(rs.getString(6));
-           res.add(s);
+        while (rs.next()) {
+            SinhVien s = new SinhVien();
+            s.setMaSv(rs.getInt(1));
+            s.setTenSv(rs.getString(2));
+            s.setDob(rs.getDate(3));
+            s.setAddress(rs.getString(4));
+            s.setSdt(rs.getString(5));
+            s.setGioitinh(rs.getString(6));
+            res.add(s);
         }
         return res;
 

@@ -5,6 +5,7 @@
  */
 package View.QuanLi.SinhVien;
 import Model.*;
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**
@@ -30,7 +31,14 @@ public class GiangVienComponent extends javax.swing.JPanel {
         getPhoneLabel().setText(s.getSdt());
         getDobLabel().setText(s.getDob().toString());
    }
-
+    public void setColorCustom(Color c) {
+        this.getIdLabel().setForeground(c);
+        this.getNameLabel().setForeground(c);
+        this.getDobLabel().setForeground(c);
+        this.getSexLabel().setForeground(c);
+        this.getPhoneLabel().setForeground(c);
+        this.getAddressLabel().setForeground(c);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

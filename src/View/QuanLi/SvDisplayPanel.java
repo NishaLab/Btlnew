@@ -10,7 +10,10 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.*;
 import View.QuanLi.SinhVien.*;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -21,20 +24,29 @@ public class SvDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form SvDisplayPanel
      */
-    public SvDisplayPanel(ArrayList<SinhVien> sv) {
+    public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createSvList(sv));
+        JScrollPane sp = new JScrollPane(createSvList(sv,frame));
         add(sp);
     }
 
-    public JPanel createSvList(ArrayList<SinhVien> sv) {
+    public JPanel createSvList(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(sv.size(), 1, 0, 0));
         ArrayList<SinhVienComponent> list = new ArrayList<>();
-        for (int i = 0; i < sv.size(); i++) {
-            SinhVienComponent tmp = new SinhVienComponent(sv.get(i));
+        for (SinhVien sinh:sv) {
+            SinhVienComponent tmp = new SinhVienComponent(sinh);
             p1.add(tmp);
+            tmp.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    frame.setSv(sinh);
+                    tmp.setOpaque(true);
+                    tmp.setColorCustom(Color.RED);
+                }
+
+            });
         }
         return p1;
     }

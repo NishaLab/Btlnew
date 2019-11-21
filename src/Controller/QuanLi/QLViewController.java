@@ -55,7 +55,7 @@ public class QLViewController {
     public void setStudentView() throws SQLException {
         StudentQuery qr = new StudentQuery();
         sv = qr.getSinhVien();
-        SvDisplayPanel sdp = new SvDisplayPanel(sv);
+        SvDisplayPanel sdp = new SvDisplayPanel(sv,frame);
         main.removeAll();
         setMainPanel(sdp);
         main.revalidate();
@@ -64,7 +64,7 @@ public class QLViewController {
     public void setProfessorView() throws SQLException {
         ProfessorQuery qr = new ProfessorQuery();
         gv = qr.getGiangVien();
-        GvDisplayPanel gdp = new GvDisplayPanel(gv);
+        GvDisplayPanel gdp = new GvDisplayPanel(gv,frame);
         main.removeAll();
         setMainPanel(gdp);
         main.revalidate();

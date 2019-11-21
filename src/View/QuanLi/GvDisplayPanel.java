@@ -10,7 +10,10 @@ import javax.swing.JScrollPane;
 import java.util.ArrayList;
 import Model.*;
 import View.QuanLi.SinhVien.GiangVienComponent;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 
 /**
@@ -22,19 +25,28 @@ public class GvDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form GvDisplayPanel
      */
-    public GvDisplayPanel(ArrayList<GiangVien> gv) {
+    public GvDisplayPanel(ArrayList<GiangVien> gv,QuanLiFrame frame) {
         initComponents();
         setLayout(new BorderLayout(0,0));
-        JScrollPane sp = new JScrollPane(createGvList(gv));
+        JScrollPane sp = new JScrollPane(createGvList(gv,frame));
         add(sp);
     }
-     public JPanel createGvList(ArrayList<GiangVien> gv) {
+     public JPanel createGvList(ArrayList<GiangVien> gv,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(gv.size(), 1, 0, 0));
         ArrayList<GiangVienComponent> list = new ArrayList<>();
-        for (int i = 0; i < gv.size(); i++) {
-            GiangVienComponent tmp = new GiangVienComponent(gv.get(i));
+        for (GiangVien giang:gv) {
+            GiangVienComponent tmp = new GiangVienComponent(giang);
             p1.add(tmp);
+            tmp.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    frame.setGv(giang);
+                    tmp.setOpaque(true);
+                    tmp.setColorCustom(Color.RED);
+                }
+
+            });
         }
         return p1;
     }
