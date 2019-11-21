@@ -34,9 +34,9 @@ public class CourseQuery {
             ps.setInt(2, a.getSotinchi());
             ps.setString(3, a.getKhoa());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Them Giang Vien thanh cong");
+            JOptionPane.showMessageDialog(null, "Them Mon Hoc thanh cong");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Giang Vien khong hop le");
+            JOptionPane.showMessageDialog(null, "Mon Hoc khong hop le");
             e.printStackTrace();
         }
     }

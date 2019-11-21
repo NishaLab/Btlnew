@@ -24,7 +24,7 @@ public class ProfessorQuery {
 
     public void addProfessor(GiangVien a) {
         try {
-            String sql = "INSERT INTO realbtl.professor (name, dob, address, sdt, sex, falcuty) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO realbtl.professor (name, dob, address, sdt, sex, faculty) VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps = qr.getConnection().prepareStatement(sql);
             ps.setString(1, a.getTenGv());

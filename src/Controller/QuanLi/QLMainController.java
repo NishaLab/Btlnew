@@ -149,8 +149,7 @@ public class QLMainController {
                     qvc.setAddProfessorView();
                 } else if (frame.isIsCourse()) {
                     qvc.setAddCourseView();
-                }
-                else if(frame.isIsCourseDetail()){
+                } else if (frame.isIsCourseDetail()) {
                     qvc.setAddCourseDetailView();
                 }
                 addLabel.setOpaque(true);

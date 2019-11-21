@@ -10,7 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import Controller.QuanLi.*;
 import javax.swing.JPanel;
-
+import Model.*;
+import java.util.ArrayList;
 /**
  *
  * @author LEGION
@@ -27,6 +28,24 @@ public class QuanLiFrame extends javax.swing.JFrame {
 
     }
 
+    private MonHoc mh = new MonHoc();
+
+    public MonHoc getMh() {
+        return mh;
+    }
+
+    public void setMh(MonHoc a) {
+        this.mh = a;
+    }
+    
+    private ArrayList<GiangVien> gv = new ArrayList<>();
+    
+    public ArrayList<GiangVien> getGvList(){
+        return gv;
+    }
+    public void setGvList(ArrayList<GiangVien> a){
+        this.gv = a;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

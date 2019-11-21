@@ -24,20 +24,23 @@ public class TimetableQuery {
         this.qr = new DBQuery();
     }
 
-    public void addTimetable(Lich a) {
-//        try {
-//            String sql = "INSERT INTO realbtl.course (name, sotinchi, khoa) VALUES(?,?,?)";
-//            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
-//            ps = qr.getConnection().prepareStatement(sql);
-//            ps.setString(1, a.getTenMon());
-//            ps.setInt(2, a.getSotinchi());
-//            ps.setString(3, a.getKhoa());
-//            ps.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "Them Giang Vien thanh cong");
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Giang Vien khong hop le");
-//            e.printStackTrace();
-//        }
+    public void addTimetable(int C_id,String time,int period, int day,String phong,int p_id,String khoa) {
+        try {
+            String sql = "INSERT INTO realbtl.course_time (idCourse_time,time,tietBatdau, day,phong,P_ID, khoa) VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, C_id);
+            ps.setString(2, time);
+            ps.setInt(3, period);
+            ps.setInt(4,day);
+            ps.setString(5, phong);
+            ps.setInt(6, p_id);
+            ps.setString(7, khoa);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Them Lich thanh cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Lich khong hop le");
+            e.printStackTrace();
+        }
     }
 
     ;
