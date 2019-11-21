@@ -28,19 +28,17 @@ public class MhDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form MhDisplayPanel
      */
-
-
     public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh,frame));
+        JScrollPane sp = new JScrollPane(createMhList(mh, frame));
         add(sp);
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh,QuanLiFrame frame) throws SQLException{
+    public static JPanel createMhList(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(mh.size(), 1, 0, 0));
-        for (MonHoc a:mh) {
+        for (MonHoc a : mh) {
             MonHocComponent1 tmp = new MonHocComponent1(a);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
@@ -49,6 +47,10 @@ public class MhDisplayPanel extends javax.swing.JPanel {
                     QLViewController qvc = new QLViewController(frame);
                     try {
                         qvc.setCourseDetail(a);
+                        frame.setIsStudent(false);
+                        frame.setIsCourse(false);
+                        frame.setIsProfessor(false);
+                        frame.setIsCourseDetail(true);
                     } catch (SQLException ex) {
                         Logger.getLogger(MhDisplayPanel.class.getName()).log(Level.SEVERE, null, ex);
                     }
