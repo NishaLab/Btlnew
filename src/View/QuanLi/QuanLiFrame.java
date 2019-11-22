@@ -10,7 +10,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import Controller.QuanLi.*;
 import javax.swing.JPanel;
-
+import Model.*;
+import java.util.ArrayList;
 /**
  *
  * @author LEGION
@@ -24,9 +25,44 @@ public class QuanLiFrame extends javax.swing.JFrame {
         initComponents();
         QLMainController ctr = new QLMainController(this);
         ctr.init();
-        
+
     }
 
+    private MonHoc mh = new MonHoc();
+    private SinhVien sv = new SinhVien();
+    private GiangVien gv = new GiangVien();
+
+    public GiangVien getGv() {
+        return gv;
+    }
+
+    public void setGv(GiangVien gv) {
+        this.gv = gv;
+    }
+
+    public SinhVien getSv() {
+        return sv;
+    }
+
+    public void setSv(SinhVien sv) {
+        this.sv = sv;
+    }
+    public MonHoc getMh() {
+        return mh;
+    }
+
+    public void setMh(MonHoc a) {
+        this.mh = a;
+    }
+    
+    private ArrayList<GiangVien> gvlist = new ArrayList<>();
+    
+    public ArrayList<GiangVien> getGvList(){
+        return gvlist;
+    }
+    public void setGvList(ArrayList<GiangVien> a){
+        this.gvlist = a;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,9 +74,9 @@ public class QuanLiFrame extends javax.swing.JFrame {
 
         titlePanel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        addLabel = new javax.swing.JLabel();
+        changeLabel = new javax.swing.JLabel();
+        deleteLabel = new javax.swing.JLabel();
         displayPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         lectureLabel = new javax.swing.JLabel();
@@ -57,11 +93,11 @@ public class QuanLiFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(185, 232, 244));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/add.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/add.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/edit.png"))); // NOI18N
+        changeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/edit.png"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/delete.png"))); // NOI18N
+        deleteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/delete.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,11 +108,11 @@ public class QuanLiFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
+                        .addComponent(changeLabel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))
+                            .addComponent(deleteLabel)
+                            .addComponent(addLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -84,11 +120,11 @@ public class QuanLiFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(addLabel)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel2)
+                .addComponent(changeLabel)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel3)
+                .addComponent(deleteLabel)
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -222,9 +258,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_mouseEntered
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -284,8 +318,6 @@ public class QuanLiFrame extends javax.swing.JFrame {
         this.displayPanel = displayPanel;
     }
 
-
-
     public JLabel getStudetnLabel() {
         return studetnLabel;
     }
@@ -302,12 +334,72 @@ public class QuanLiFrame extends javax.swing.JFrame {
         this.titlePanel = titlePanel;
     }
 
+
+    public boolean isIsStudent() {
+        return isStudent;
+    }
+
+    public void setIsStudent(boolean isStudent) {
+        this.isStudent = isStudent;
+    }
+
+    public boolean isIsProfessor() {
+        return isProfessor;
+    }
+
+    public void setIsProfessor(boolean isProfessor) {
+        this.isProfessor = isProfessor;
+    }
+
+    public boolean isIsCourse() {
+        return isCourse;
+    }
+
+    public void setIsCourse(boolean isCourse) {
+        this.isCourse = isCourse;
+    }
+
+    public boolean isIsCourseDetail() {
+        return isCourseDetail;
+    }
+
+    public void setIsCourseDetail(boolean isCourseDetail) {
+        this.isCourseDetail = isCourseDetail;
+    }
+
+    public JLabel getAddLabel() {
+        return addLabel;
+    }
+
+    public void setAddLabel(JLabel addLabel) {
+        this.addLabel = addLabel;
+    }
+
+    public JLabel getChangeLabel() {
+        return changeLabel;
+    }
+
+    public void setChangeLabel(JLabel changeLabel) {
+        this.changeLabel = changeLabel;
+    }
+
+    public JLabel getDeleteLabel() {
+        return deleteLabel;
+    }
+
+    public void setDeleteLabel(JLabel deleteLabel) {
+        this.deleteLabel = deleteLabel;
+    }
+    private boolean isStudent = false;
+    private boolean isProfessor = false;
+    private boolean isCourse = false;
+    private boolean isCourseDetail = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JLabel changeLabel;
     private javax.swing.JLabel courseLabel;
+    private javax.swing.JLabel deleteLabel;
     private javax.swing.JPanel displayPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
