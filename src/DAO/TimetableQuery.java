@@ -24,14 +24,14 @@ public class TimetableQuery {
         this.qr = new DBQuery();
     }
 
-    public void addTimetable(int C_id,String time,int period, int day,String phong,int p_id,String khoa) {
+    public void addTimetable(int C_id, String time, int period, int day, String phong, int p_id, String khoa) {
         try {
             String sql = "INSERT INTO realbtl.course_time (idCourse,time,tietBatdau, day,phong,P_ID, khoa) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, C_id);
             ps.setString(2, time);
             ps.setInt(3, period);
-            ps.setInt(4,day);
+            ps.setInt(4, day);
             ps.setString(5, phong);
             ps.setInt(6, p_id);
             ps.setString(7, khoa);
@@ -43,9 +43,27 @@ public class TimetableQuery {
         }
     }
 
-    ;
-    
-   public GiangVien searchGv(ArrayList<GiangVien> gv, int id) {
+    public void updateTimtable(int idCT, int C_id, String time, int period, int day, String phong, int p_id, String khoa) {
+        try {
+            String sql = "UPDATE  realbtl.course_time set idCourse= ? ,time=?,tietBatdau=?, day=?,phong=?,P_ID=?, khoa=? WHERE idCT=?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, C_id);
+            ps.setString(2, time);
+            ps.setInt(3, period);
+            ps.setInt(4, day);
+            ps.setString(5, phong);
+            ps.setInt(6, p_id);
+            ps.setString(7, khoa);
+            ps.setInt(8, idCT);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update Lich thanh cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Update khong hop le");
+            e.printStackTrace();
+        }
+    }
+
+    public GiangVien searchGv(ArrayList<GiangVien> gv, int id) {
         GiangVien res = new GiangVien();
         for (int i = 0; i < gv.size(); i++) {
             if (gv.get(i).getMaGv() == id) {

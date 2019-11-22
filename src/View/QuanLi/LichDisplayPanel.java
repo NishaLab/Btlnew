@@ -8,7 +8,10 @@ package View.QuanLi;
 import Model.*;
 import View.QuanLi.SinhVien.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -25,24 +28,34 @@ public class LichDisplayPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public LichDisplayPanel(ArrayList<Lich> lich) {
+    public LichDisplayPanel(ArrayList<Lich> lich,QuanLiFrame frame) {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createLichList(lich));
+        JScrollPane sp = new JScrollPane(createLichList(lich,frame));
         add(sp);
     }
-    public JPanel createLichList(ArrayList<Lich> lich) {
+
+    public JPanel createLichList(ArrayList<Lich> lich,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size()+1, 1, 0, 0));
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         ArrayList<LichHocComponent> list = new ArrayList<>();
-        LichHocComponent a = new  LichHocComponent();
+        LichHocComponent a = new LichHocComponent();
         p1.add(a);
-        for (int i = 0; i < lich.size(); i++) {
-            LichHocComponent tmp = new LichHocComponent(lich.get(i));
+        for (Lich li:lich) {
+            LichHocComponent tmp = new LichHocComponent(li);
             p1.add(tmp);
+            tmp.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    frame.setLich(li);
+                    tmp.setOpaque(true);
+                    tmp.setColorCustom(Color.RED);
+                }
+            });
         }
         return p1;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

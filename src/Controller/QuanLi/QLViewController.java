@@ -86,7 +86,7 @@ public class QLViewController {
         frame.setGvList(gv);
         TimetableQuery tq = new TimetableQuery();
         ArrayList<Lich> lich = tq.getLich(a, gv);
-        LichDisplayPanel ldp = new LichDisplayPanel(lich);
+        LichDisplayPanel ldp = new LichDisplayPanel(lich,frame);
         main.removeAll();
         setMainPanel(ldp);
         main.revalidate();
