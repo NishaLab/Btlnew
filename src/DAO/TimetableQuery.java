@@ -26,7 +26,7 @@ public class TimetableQuery {
 
     public void addTimetable(int C_id,String time,int period, int day,String phong,int p_id,String khoa) {
         try {
-            String sql = "INSERT INTO realbtl.course_time (idCourse_time,time,tietBatdau, day,phong,P_ID, khoa) VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO realbtl.course_time (idCourse,time,tietBatdau, day,phong,P_ID, khoa) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, C_id);
             ps.setString(2, time);
@@ -58,7 +58,7 @@ public class TimetableQuery {
     public ArrayList<Lich> getLich(MonHoc a, ArrayList<GiangVien> gv) throws SQLException {
         ArrayList<Lich> res = new ArrayList();
         int mhId = a.getMaMon();
-        String sql = "SELECT * FROM realbtl.course_time WHERE idCourse_time = ? ; ";
+        String sql = "SELECT * FROM realbtl.course_time WHERE idCourse = ? ; ";
         PreparedStatement ps = qr.getConnection().prepareStatement(sql);
         ps.setInt(1, mhId);
         ResultSet rs = ps.executeQuery();
@@ -66,12 +66,13 @@ public class TimetableQuery {
             Lich s = new Lich();
             s.setTen(a.getTenMon());
             s.setIdLich(rs.getInt(1));
-            s.setTime(rs.getString(2));
-            s.setStart(rs.getInt(3));
-            s.setDay(rs.getInt(4));
-            s.setRoomNum(rs.getString(5));
-            s.setGv(searchGv(gv, rs.getInt(6)));
-            s.setKhoa(rs.getString(7));
+            s.setIdMon(rs.getInt(2));
+            s.setTime(rs.getString(3));
+            s.setStart(rs.getInt(4));
+            s.setDay(rs.getInt(5));
+            s.setRoomNum(rs.getString(6));
+            s.setGv(searchGv(gv, rs.getInt(7)));
+            s.setKhoa(rs.getString(8));
             res.add(s);
         }
         return res;

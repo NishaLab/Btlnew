@@ -44,15 +44,21 @@ public class MhDisplayPanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    QLViewController qvc = new QLViewController(frame);
-                    try {
-                        qvc.setCourseDetail(a);
-                        frame.setIsStudent(false);
-                        frame.setIsCourse(false);
-                        frame.setIsProfessor(false);
-                        frame.setIsCourseDetail(true);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MhDisplayPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    if (tmp.isClick() == false) {
+                        frame.setMh(a);
+                        tmp.setColorCustom(Color.red);
+                        tmp.setClick(true);
+                    } else if (tmp.isClick()) {
+                        QLViewController qvc = new QLViewController(frame);
+                        try {
+                            qvc.setCourseDetail(a);
+                            frame.setIsStudent(false);
+                            frame.setIsCourse(false);
+                            frame.setIsProfessor(false);
+                            frame.setIsCourseDetail(true);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MhDisplayPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             });

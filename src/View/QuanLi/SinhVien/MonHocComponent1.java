@@ -5,6 +5,7 @@
  */
 package View.QuanLi.SinhVien;
 import  Model.*;
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 /**
@@ -16,6 +17,15 @@ public class MonHocComponent1 extends javax.swing.JPanel {
     /**
      * Creates new form SinhVienComponent
      */
+    private boolean click = false;
+
+    public boolean isClick() {
+        return click;
+    }
+
+    public void setClick(boolean click) {
+        this.click = click;
+    }
     public MonHocComponent1() {
         initComponents();
     }
@@ -28,7 +38,11 @@ public class MonHocComponent1 extends javax.swing.JPanel {
         this.getNameLabel().setText(s.getTenMon());
         this.getStcLabel().setText(s.getSotinchi()+"");
     }
-
+    public void setColorCustom(Color c) {
+        this.getIdLabel().setForeground(c);
+        this.getNameLabel().setForeground(c);
+        this.getStcLabel().setForeground(c);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

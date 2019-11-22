@@ -41,8 +41,22 @@ public class CourseQuery {
         }
     }
 
-    ;
-    
+    public void updateCourse(MonHoc a) {
+        try {
+            String sql = "UPDATE realbtl.course SET name = ?, sotinchi = ?,khoa = ? WHERE idCourse = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps = qr.getConnection().prepareStatement(sql);
+            ps.setString(1, a.getTenMon());
+            ps.setInt(2, a.getSotinchi());
+            ps.setString(3, a.getKhoa());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Them Mon Hoc thanh cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Mon Hoc khong hop le");
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<MonHoc> getMonHoc() throws SQLException {
         ArrayList<MonHoc> res = new ArrayList();
         String sql = "SELECT * FROM realbtl.course";

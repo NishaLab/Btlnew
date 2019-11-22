@@ -86,10 +86,6 @@ public class Lich {
         this.khoa = khoa;
     }
 
-
-    private int idMon;
-    private String ten;
-
     public String getTen() {
         return ten;
     }
@@ -97,11 +93,21 @@ public class Lich {
     public void setTen(String ten) {
         this.ten = ten;
     }
+    private int idMon;
+
+    public int getIdMon() {
+        return idMon;
+    }
+
+    public void setIdMon(int idMon) {
+        this.idMon = idMon;
+    }
+    private String ten;
     private String time;
     private int start;
     private int day;
     private int idLich;
     private String roomNum;
     private GiangVien gv;
-    private String khoa;    
+    private String khoa;
 }
