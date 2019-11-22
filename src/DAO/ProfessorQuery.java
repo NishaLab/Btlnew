@@ -24,7 +24,7 @@ public class ProfessorQuery {
 
     public void addProfessor(GiangVien a) {
         try {
-            String sql = "INSERT INTO realbtl.professor (name, dob, address, sdt, sex, falcuty) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO realbtl.professor (name, dob, address, sdt, sex, faculty) VALUES(?,?,?,?,?,?)";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps = qr.getConnection().prepareStatement(sql);
             ps.setString(1, a.getTenGv());
@@ -41,8 +41,29 @@ public class ProfessorQuery {
         }
     }
 
-    ;
-    
+    public void updateProfessor(GiangVien a) {
+        try {
+            String sql = "UPDATE realbtl.professor SET name = ?, DoB=?, address=?, sdt=?, Sex=?, faculty= ? WHERE idProfessor = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps = qr.getConnection().prepareStatement(sql);
+            ps.setString(1, a.getTenGv());
+            ps.setDate(2, new Date(a.getDob().getTime()));
+            ps.setString(3, a.getAddress());
+            ps.setString(4, a.getSdt());
+            ps.setString(5, a.getGioitinh());
+            ps.setString(6, a.getKhoa());
+            ps.setInt(7, a.getMaGv());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Update Giang Vien thanh cong");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Update Giang Vien that bai");
+            e.printStackTrace();
+        }
+
+    }
+
     public ArrayList<GiangVien> getGiangVien() throws SQLException {
         ArrayList<GiangVien> res = new ArrayList();
         String sql = "SELECT * FROM realbtl.professor";

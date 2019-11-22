@@ -19,6 +19,7 @@ public class MonHoc implements Serializable{
     private int sotinchi;
     private String khoa;
 
+
     public String getKhoa() {
         return khoa;
     }
@@ -31,6 +32,11 @@ public class MonHoc implements Serializable{
         this.tenMon = tenMon;
         this.sotinchi = sotinchi;
         this.khoa = khoa;
+    }
+    
+    @Override
+    public String toString() {
+        return "MonHoc{" + "maMon=" + maMon + ", tenMon=" + tenMon + ", sotinchi=" + sotinchi + ", khoa=" + khoa + '}';
     }
 
     public MonHoc() {

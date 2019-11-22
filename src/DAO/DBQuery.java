@@ -1,6 +1,7 @@
 package DAO;
 
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ public class DBQuery {
 
     public Connection connectDB() {
         Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/songs?useSSL=false";
+        String url = "jdbc:mysql://localhost:3306/realbtl?useSSL=false";
         String username = "root";
         String password = "0963063105";
         try {            

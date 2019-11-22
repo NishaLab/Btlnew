@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package View.QuanLi.SinhVien;
-import  Model.*;
+
+import Model.*;
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 /**
  *
  * @author ducnam
@@ -24,7 +27,7 @@ public class SinhVienComponent extends javax.swing.JPanel {
         initComponents();
         int a = s.getMaSv();
         String tmp = String.format("%3d", a).replace(' ', '0');
-        this.getIdLabel().setText("B17DCCN"+tmp);
+        this.getIdLabel().setText("B17DCCN" + tmp);
         this.getNameLabel().setText(s.getTenSv());
         this.getDobLabel().setText(s.getDob().toString());
         this.getSexLabel().setText(s.getGioitinh());
@@ -119,6 +122,14 @@ public class SinhVienComponent extends javax.swing.JPanel {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JLabel sexLabel;
     // End of variables declaration//GEN-END:variables
+    public void setColorCustom(Color c) {
+        this.getIdLabel().setForeground(c);
+        this.getNameLabel().setForeground(c);
+        this.getDobLabel().setForeground(c);
+        this.getSexLabel().setForeground(c);
+        this.getPhoneLabel().setForeground(c);
+        this.getAddressLabel().setForeground(c);
+    }
 
     public JLabel getAddressLabel() {
         return addressLabel;

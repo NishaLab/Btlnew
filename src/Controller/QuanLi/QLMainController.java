@@ -9,6 +9,7 @@ import View.*;
 import Model.*;
 import View.QuanLi.QuanLiFrame;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
@@ -24,6 +25,14 @@ public class QLMainController {
 
     private QuanLiFrame frame;
 
+    public QuanLiFrame getFrame() {
+        return frame;
+    }
+
+    public void setFrame(QuanLiFrame frame) {
+        this.frame = frame;
+    }
+
     public QLMainController(QuanLiFrame frame) {
         this.frame = frame;
     }
@@ -31,16 +40,14 @@ public class QLMainController {
     public void init() {
         setStudentLabelAction();
         setProfessorLabelAction();
+        setCourseLabelAction();
+        setAddLabelAction();
+        setEditLableAction();
     }
 
     void setStudentLabelAction() {
         JLabel student = frame.getStudetnLabel();
-        student.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
+        student.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 QLViewController view = new QLViewController(frame);
@@ -52,6 +59,10 @@ public class QLMainController {
                 student.setOpaque(true);
                 student.setBackground(Color.DARK_GRAY);
                 student.setForeground(Color.CYAN);
+                frame.setIsStudent(true);
+                frame.setIsCourse(false);
+                frame.setIsProfessor(false);
+                frame.setIsCourseDetail(false);
             }
 
             @Override
@@ -60,23 +71,12 @@ public class QLMainController {
                 student.setBackground(Color.WHITE);
                 student.setForeground(Color.BLACK);
             }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
         });
     }
 
     void setProfessorLabelAction() {
         JLabel professor = frame.getLectureLabel();
-        professor.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
+        professor.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mousePressed(MouseEvent e) {
@@ -89,6 +89,10 @@ public class QLMainController {
                 professor.setOpaque(true);
                 professor.setBackground(Color.DARK_GRAY);
                 professor.setForeground(Color.CYAN);
+                frame.setIsStudent(false);
+                frame.setIsCourse(false);
+                frame.setIsProfessor(true);
+                frame.setIsCourseDetail(false);
             }
 
             @Override
@@ -98,12 +102,99 @@ public class QLMainController {
                 professor.setForeground(Color.BLACK);
             }
 
+        });
+    }
+
+    void setCourseLabelAction() {
+        JLabel course = frame.getCourseLabel();
+        course.addMouseListener(new MouseAdapter() {
+
             @Override
-            public void mouseEntered(MouseEvent e) {
+            public void mousePressed(MouseEvent e) {
+                QLViewController view = new QLViewController(frame);
+                try {
+                    view.setCouresView();
+                } catch (SQLException ex) {
+                    Logger.getLogger(QLMainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                course.setOpaque(true);
+                course.setBackground(Color.DARK_GRAY);
+                course.setForeground(Color.CYAN);
+                frame.setIsStudent(false);
+                frame.setIsCourse(true);
+                frame.setIsProfessor(false);
             }
 
             @Override
-            public void mouseExited(MouseEvent e) {
+            public void mouseReleased(MouseEvent e) {
+
+                course.setOpaque(false);
+                course.setBackground(Color.WHITE);
+                course.setForeground(Color.BLACK);
+            }
+
+        });
+    }
+
+    void setAddLabelAction() {
+        JLabel addLabel = frame.getAddLabel();
+        addLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                QLViewController qvc = new QLViewController(frame);
+                if (frame.isIsCourse()) {
+                    qvc.setAddCourseView();
+                } else if (frame.isIsStudent()) {
+                    qvc.setAddStudentView();
+                } else if (frame.isIsProfessor()) {
+                    qvc.setAddProfessorView();
+                } else if (frame.isIsCourse()) {
+                    qvc.setAddCourseView();
+                } else if (frame.isIsCourseDetail()) {
+                    qvc.setAddCourseDetailView();
+                }
+                addLabel.setOpaque(true);
+                addLabel.setBackground(Color.DARK_GRAY);
+                addLabel.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+                addLabel.setOpaque(false);
+                addLabel.setBackground(Color.WHITE);
+                addLabel.setForeground(Color.BLACK);
+            }
+        });
+
+    }
+
+    void setEditLableAction() {
+        JLabel edit = frame.getChangeLabel();
+        edit.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                QLEditController qvc = new QLEditController(frame);
+                if (frame.isIsCourse()) {
+                    qvc.setCourseEditView();
+                } else if (frame.isIsStudent()) {
+                    qvc.setStudentEditView();
+                } else if (frame.isIsProfessor()) {
+                    qvc.setProfessorEditView();
+                } else if (frame.isIsCourseDetail()) {
+                    qvc.setCourseDetailEditView();
+                }
+                edit.setOpaque(true);
+                edit.setBackground(Color.DARK_GRAY);
+                edit.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+                edit.setOpaque(false);
+                edit.setBackground(Color.WHITE);
+                edit.setForeground(Color.BLACK);
             }
         });
     }

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package View.QuanLi.SinhVien;
-
+import Model.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author ducnam
@@ -17,6 +19,28 @@ public class LichHocComponent extends javax.swing.JPanel {
     public LichHocComponent() {
         initComponents();
     }
+    
+     public LichHocComponent(Lich s) {
+        initComponents();
+        String tmp = String.format("%3d",s.getIdLich()).replace(' ', '0');
+        this.getIdLabel().setText(s.getKhoa()+tmp);
+        this.getNameLabel().setText(s.getTen());
+        this.getGvLabel().setText(s.getGv().getTenGv());
+        this.getRoomLabel().setText(s.getRoomNum());
+        this.getTimeLabel().setText(s.getTime());
+        this.getStartLabel().setText(s.getStart()+"");
+        this.getDayLabel().setText(s.getDay()+"");
+        this.getLichIDLabel().setText(s.getIdLich()+"");
+        
+    }
+
+    public JLabel getLichIDLabel() {
+        return lichIDLabel;
+    }
+
+    public void setLichIDLabel(JLabel lichIDLabel) {
+        this.lichIDLabel = lichIDLabel;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,33 +52,33 @@ public class LichHocComponent extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        idLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
+        startLabel = new javax.swing.JLabel();
+        dayLabel = new javax.swing.JLabel();
+        gvLabel = new javax.swing.JLabel();
+        roomLabel = new javax.swing.JLabel();
+        lichIDLabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        jLabel1.setText("INT1211");
+        idLabel.setText("Mã Môn");
 
-        jLabel2.setText("Cấu trúc dữ liệu và giải thuật");
+        nameLabel.setText("Tên Môn");
 
-        jLabel3.setText("Số tín chỉ");
+        timeLabel.setText("Thời gian");
 
-        jLabel4.setText("Thời gian");
+        startLabel.setText("Tiết bắt đầu");
 
-        jLabel5.setText("Tiết bắt đầu");
+        dayLabel.setText("Ngày");
 
-        jLabel6.setText("Ngày");
+        gvLabel.setText("Giảng Viên");
 
-        jLabel7.setText("Mã GV");
+        roomLabel.setText("Phòng");
 
-        jLabel8.setText("Phòng");
+        lichIDLabel.setText("Mã Lịch");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,36 +86,35 @@ public class LichHocComponent extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(77, 77, 77)
-                .addComponent(jLabel2)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addGap(63, 63, 63)
-                .addComponent(jLabel7)
-                .addGap(68, 68, 68)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(126, 126, 126)
-                .addComponent(jLabel5)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel6)
-                .addGap(28, 28, 28))
+                .addComponent(idLabel)
+                .addGap(18, 18, 18)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(roomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(startLabel)
+                .addGap(18, 18, 18)
+                .addComponent(dayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lichIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(idLabel)
+                    .addComponent(nameLabel)
+                    .addComponent(dayLabel)
+                    .addComponent(startLabel)
+                    .addComponent(timeLabel)
+                    .addComponent(gvLabel)
+                    .addComponent(roomLabel)
+                    .addComponent(lichIDLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -99,7 +122,7 @@ public class LichHocComponent extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,16 +130,81 @@ public class LichHocComponent extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getDayLabel() {
+        return dayLabel;
+    }
+
+    public void setDayLabel(JLabel dayLabel) {
+        this.dayLabel = dayLabel;
+    }
+
+    public JLabel getGvLabel() {
+        return gvLabel;
+    }
+
+    public void setGvLabel(JLabel gvLabel) {
+        this.gvLabel = gvLabel;
+    }
+
+    public JLabel getIdLabel() {
+        return idLabel;
+    }
+
+    public void setIdLabel(JLabel idLabel) {
+        this.idLabel = idLabel;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JLabel getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(JLabel nameLabel) {
+        this.nameLabel = nameLabel;
+    }
+
+    public JLabel getRoomLabel() {
+        return roomLabel;
+    }
+
+    public void setRoomLabel(JLabel roomLabel) {
+        this.roomLabel = roomLabel;
+    }
+
+    public JLabel getStartLabel() {
+        return startLabel;
+    }
+
+    public void setStartLabel(JLabel startLabel) {
+        this.startLabel = startLabel;
+    }
+
+    public JLabel getTimeLabel() {
+        return timeLabel;
+    }
+
+    public void setTimeLabel(JLabel timeLabel) {
+        this.timeLabel = timeLabel;
+    }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel dayLabel;
+    private javax.swing.JLabel gvLabel;
+    private javax.swing.JLabel idLabel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lichIDLabel;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel roomLabel;
+    private javax.swing.JLabel startLabel;
+    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 }
