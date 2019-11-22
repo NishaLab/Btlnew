@@ -31,6 +31,15 @@ public class QuanLiFrame extends javax.swing.JFrame {
     private MonHoc mh = new MonHoc();
     private SinhVien sv = new SinhVien();
     private GiangVien gv = new GiangVien();
+    private Lich lich = new Lich();
+
+    public Lich getLich() {
+        return lich;
+    }
+
+    public void setLich(Lich lich) {
+        this.lich = lich;
+    }
 
     public GiangVien getGv() {
         return gv;

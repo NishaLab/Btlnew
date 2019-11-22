@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package View.QuanLi.SinhVien;
+
 import Model.*;
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 /**
  *
  * @author ducnam
@@ -19,19 +22,31 @@ public class LichHocComponent extends javax.swing.JPanel {
     public LichHocComponent() {
         initComponents();
     }
-    
-     public LichHocComponent(Lich s) {
+
+    public LichHocComponent(Lich s) {
         initComponents();
-        String tmp = String.format("%3d",s.getIdLich()).replace(' ', '0');
-        this.getIdLabel().setText(s.getKhoa()+tmp);
+        String tmp = String.format("%3d", s.getIdLich()).replace(' ', '0');
+        this.getIdLabel().setText(s.getKhoa() + tmp);
         this.getNameLabel().setText(s.getTen());
         this.getGvLabel().setText(s.getGv().getTenGv());
         this.getRoomLabel().setText(s.getRoomNum());
         this.getTimeLabel().setText(s.getTime());
-        this.getStartLabel().setText(s.getStart()+"");
-        this.getDayLabel().setText(s.getDay()+"");
-        this.getLichIDLabel().setText(s.getIdLich()+"");
-        
+        this.getStartLabel().setText(s.getStart() + "");
+        this.getDayLabel().setText(s.getDay() + "");
+        this.getLichIDLabel().setText(s.getIdLich() + "");
+
+    }
+
+    public void setColorCustom(Color c) {
+        this.getIdLabel().setForeground(c);
+        this.getNameLabel().setForeground(c);
+        this.getGvLabel().setForeground(c);
+        this.getRoomLabel().setForeground(c);
+        this.getTimeLabel().setForeground(c);
+        this.getStartLabel().setForeground(c);
+        this.getDayLabel().setForeground(c);
+        this.getLichIDLabel().setForeground(c);
+
     }
 
     public JLabel getLichIDLabel() {
@@ -193,7 +208,6 @@ public class LichHocComponent extends javax.swing.JPanel {
     public void setTimeLabel(JLabel timeLabel) {
         this.timeLabel = timeLabel;
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
