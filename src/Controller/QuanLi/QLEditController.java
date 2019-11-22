@@ -164,12 +164,16 @@ public class QLEditController {
     }
 
     public void setCourseDetailEditView() {
-        System.out.println("course detail");
-
+        Lich a = frame.getLich();
+        CourseDetailAddPanel cdap = setCourseDetailEditAction(a);
+        main.removeAll();
+        setMainPanel(cdap);
+        main.revalidate();
+        main.repaint();
     }
 
     public CourseDetailAddPanel setCourseDetailEditAction(Lich a) {
-        CourseDetailAddPanel cdap = new CourseDetailAddPanel();
+        CourseDetailAddPanel cdap = new CourseDetailAddPanel(a);
         JButton ok = cdap.getOkBtt();
         ArrayList<GiangVien> gv = frame.getGvList();
         JComboBox<String> cb = cdap.getGvCB();
@@ -192,10 +196,33 @@ public class QLEditController {
                 String khoa = a.getKhoa();
                 int C_id = a.getIdMon();
                 TimetableQuery tq = new TimetableQuery();
-                tq.addTimetable(C_id, time, start, day, room, pid, khoa);
+                tq.updateTimetable(a.getIdLich(), C_id, time, start, day, room, pid, khoa);
             }
         });
         return cdap;
     }
 
+    public void DeleteStudent() {
+        SinhVien a = frame.getSv();
+        StudentQuery sq = new StudentQuery();
+        sq.deleteStudent(a);
+    }
+
+    public void DeleteCourse() {
+        MonHoc a = frame.getMh();
+        CourseQuery sq = new CourseQuery();
+        sq.deleteCourse(a);
+    }
+
+    public void DeleteProfessor() {
+        GiangVien a = frame.getGv();
+        ProfessorQuery sq = new ProfessorQuery();
+        sq.deleteProfessor(a);
+    }
+
+    public void DeleteCourseDetail() {
+        Lich a = frame.getLich();
+        TimetableQuery sq = new TimetableQuery();
+        sq.deleteCourseDetail(a);
+    }
 }

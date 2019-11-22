@@ -12,6 +12,7 @@ import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 /**
  *
  * @author LEGION
@@ -25,7 +26,14 @@ public class CourseDetailAddPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    
+    public CourseDetailAddPanel(Lich a) {
+        initComponents();
+        getTimeField().setText(a.getTime());
+        getDayField().setText(a.getDay()+"");
+        getPeriodField().setText(a.getStart()+"");
+        getRoomField().setText(a.getRoomNum());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,7 +189,6 @@ public class CourseDetailAddPanel extends javax.swing.JPanel {
     public void setTimeField(JTextField timeField) {
         this.timeField = timeField;
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -43,7 +43,7 @@ public class TimetableQuery {
         }
     }
 
-    public void updateTimtable(int idCT, int C_id, String time, int period, int day, String phong, int p_id, String khoa) {
+    public void updateTimetable(int idCT, int C_id, String time, int period, int day, String phong, int p_id, String khoa) {
         try {
             String sql = "UPDATE  realbtl.course_time set idCourse= ? ,time=?,tietBatdau=?, day=?,phong=?,P_ID=?, khoa=? WHERE idCT=?";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
@@ -59,6 +59,20 @@ public class TimetableQuery {
             JOptionPane.showMessageDialog(null, "Update Lich thanh cong");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Update khong hop le");
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteCourseDetail(Lich a) {
+        try {
+            String sql = "Delete FROM realbtl.course_time WHERE idCT = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getIdLich());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen()+"  Thanh Cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen()+"  That Bai");
+
             e.printStackTrace();
         }
     }

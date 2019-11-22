@@ -64,7 +64,24 @@ public class StudentQuery {
             JOptionPane.showMessageDialog(null, "Update Sinh Vien that bai");
 
         }
+    }
 
+    public void deleteStudent(SinhVien a) {
+        try {
+            String sql = "Delete FROM realbtl.student WHERE idStudent = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getMaSv());
+            ps.executeUpdate();
+            sql = "Delete FROM realbtl.user WHERE idUser = ?";
+            ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getMaSv());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Xoa Sinh Vien Thanh Cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Xoa Sinh Vien That Bai");
+
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<SinhVien> getSinhVien() throws SQLException {
