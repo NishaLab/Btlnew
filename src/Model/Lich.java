@@ -87,7 +87,7 @@ public class Lich {
     }
 
 
-    private int idLich;
+    private int idMon;
     private String ten;
 
     public String getTen() {
@@ -100,6 +100,7 @@ public class Lich {
     private String time;
     private int start;
     private int day;
+    private int idLich;
     private String roomNum;
     private GiangVien gv;
     private String khoa;    

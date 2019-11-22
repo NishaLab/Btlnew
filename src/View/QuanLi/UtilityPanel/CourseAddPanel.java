@@ -7,6 +7,7 @@ package View.QuanLi.UtilityPanel;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import Model.*;
 
 /**
  *
@@ -19,6 +20,13 @@ public class CourseAddPanel extends javax.swing.JPanel {
      */
     public CourseAddPanel() {
         initComponents();
+    }
+
+    public CourseAddPanel(MonHoc a) {
+        initComponents();
+        getNameField().setText(a.getTenMon());
+        getFacultyField().setText(a.getKhoa());
+        getCreditsField().setText(a.getSotinchi()+"");
     }
 
     /**

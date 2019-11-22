@@ -5,6 +5,7 @@
  */
 package Controller.QuanLi;
 
+import DAO.CourseQuery;
 import DAO.ProfessorQuery;
 import DAO.StudentQuery;
 import Model.GiangVien;
@@ -132,8 +133,29 @@ public class QLEditController {
     }
 
     public void setCourseEditView() {
-        System.out.println("course");
-
+        MonHoc a = frame.getMh();
+        CourseAddPanel cep = new CourseAddPanel(a);
+        main.removeAll();
+        setMainPanel(cep);
+        main.revalidate();
+        main.repaint();
+    }
+    
+    public CourseAddPanel setCourseEditPanelAction(MonHoc a){
+        CourseAddPanel cep = new CourseAddPanel(a);
+        JButton ok  = cep.getOkBtt();
+        ok.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CourseQuery cq = new CourseQuery();
+                MonHoc a = new MonHoc();
+                a.setTenMon(cep.getNameField().getText());
+                a.setKhoa(cep.getFacultyField().getText());
+                a.setSotinchi(Integer.parseInt(cep.getCreditsField().getText()));
+                cq.addCourse(a);
+            }
+        });
+        return cep;
     }
 
     public void setCourseDetailEditView() {
