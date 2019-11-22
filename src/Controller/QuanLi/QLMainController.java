@@ -43,6 +43,7 @@ public class QLMainController {
         setCourseLabelAction();
         setAddLabelAction();
         setEditLableAction();
+        setDeleteLableAction();
     }
 
     void setStudentLabelAction() {
@@ -195,6 +196,35 @@ public class QLMainController {
                 edit.setOpaque(false);
                 edit.setBackground(Color.WHITE);
                 edit.setForeground(Color.BLACK);
+            }
+        });
+    }
+    
+    void setDeleteLableAction(){
+        JLabel delete = frame.getDeleteLabel();
+        delete.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                QLEditController qvc = new QLEditController(frame);
+                if (frame.isIsCourse()) {
+                    qvc.DeleteCourse();
+                } else if (frame.isIsStudent()) {
+                    qvc.DeleteStudent();
+                } else if (frame.isIsProfessor()) {
+                    qvc.DeleteProfessor();
+                } else if (frame.isIsCourseDetail()) {
+                    qvc.DeleteCourseDetail();
+                }
+                delete.setOpaque(true);
+                delete.setBackground(Color.DARK_GRAY);
+                delete.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                delete.setOpaque(false);
+                delete.setBackground(Color.WHITE);
+                delete.setForeground(Color.BLACK);
             }
         });
     }

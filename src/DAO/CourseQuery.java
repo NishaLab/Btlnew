@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Model.GiangVien;
 import Model.MonHoc;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -54,6 +55,20 @@ public class CourseQuery {
             JOptionPane.showMessageDialog(null, "Update Mon Hoc thanh cong");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Update Mon Hoc that bai");
+            e.printStackTrace();
+        }
+    }
+    
+    public void deleteCourse(MonHoc a) {
+        try {
+            String sql = "Delete FROM realbtl.course WHERE idCourse = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getMaMon());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Xoa Mon Hoc Thanh Cong");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Xoa Moc Hoc That Bai");
+
             e.printStackTrace();
         }
     }
