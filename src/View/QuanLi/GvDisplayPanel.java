@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import Model.*;
 import View.QuanLi.SinhVien.GiangVienComponent;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -27,7 +28,8 @@ public class GvDisplayPanel extends javax.swing.JPanel {
      */
     public GvDisplayPanel(ArrayList<GiangVien> gv,QuanLiFrame frame) {
         initComponents();
-        setLayout(new BorderLayout(0,0));
+                setLayout(new FlowLayout());
+
         JScrollPane sp = new JScrollPane(createGvList(gv,frame));
         add(sp);
     }
