@@ -30,14 +30,14 @@ public class CoursePanel extends javax.swing.JPanel {
     /**
      * Creates new form CoursePanel
      */
-    public CoursePanel(ArrayList<MonHoc> mh) throws SQLException {
+    public CoursePanel(ArrayList<MonHoc> mh,RegisterPanel reg) throws SQLException {
         initComponents();
         setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh));
+        JScrollPane sp = new JScrollPane(createMhList(mh,reg));
         add(sp);
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh) throws SQLException {
+    public static JPanel createMhList(ArrayList<MonHoc> mh,RegisterPanel reg) throws SQLException {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(mh.size(), 1, 0, 0));
         for (MonHoc a : mh) {
@@ -46,7 +46,7 @@ public class CoursePanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    System.out.println("YEs");
+                    reg.createMainPanel(a);
                 }
 
                 @Override

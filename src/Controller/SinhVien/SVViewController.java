@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -118,12 +119,33 @@ public class SVViewController {
     }
 
     public void setRegisterView() throws SQLException {
-        RegisterPanel a = new RegisterPanel(frame);
+        RegisterPanel a = setRegisterViewAction();
         main.removeAll();
         setMainPanel(a);
         main.revalidate();
         main.repaint();
-
     }
 
+    public RegisterPanel setRegisterViewAction() throws SQLException {
+        RegisterPanel rp = new RegisterPanel(frame);
+        JButton show = rp.getShowButton();
+        show.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayList<Lich> lich = rp.getListLich();
+                frame.setListLich(lich);
+                ListTimetableView();
+            }
+        });
+        return rp;
+    }
+
+    public void ListTimetableView() {
+        ArrayList<Lich> lich = frame.getListLich();
+        for (Lich lich1 : lich) {
+            System.out.println(lich1);
+
+        }
+
+    }
 }
