@@ -9,6 +9,7 @@ import Model.*;
 import View.*;
 import View.QuanLi.QuanLiFrame;
 import View.SinhVien.SVFrame;
+import View.SinhVien.SVMainFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -73,9 +74,8 @@ public class LoginController {
                         ps.setString(1, user);
                         ps.setString(2, pass);
                         rs = ps.executeQuery();
-
                         if (rs.next()) {
-                            SVFrame form = new SVFrame();
+                            SVMainFrame form = new SVMainFrame();
                             form.setVisible(true);
                             form.pack();
                             form.setLocationRelativeTo(null);

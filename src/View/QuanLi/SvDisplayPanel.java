@@ -27,8 +27,7 @@ public class SvDisplayPanel extends javax.swing.JPanel {
      */
     public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         initComponents();
-                setLayout(new FlowLayout());
-
+        setLayout(new FlowLayout());
         JScrollPane sp = new JScrollPane(createSvList(sv,frame));
         add(sp);
     }
