@@ -5,6 +5,17 @@
  */
 package View.SinhVien.Panels;
 
+import Model.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.*;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 /**
  *
  * @author LEGION
@@ -14,8 +25,41 @@ public class ListPanel extends javax.swing.JPanel {
     /**
      * Creates new form ListPanel
      */
-    public ListPanel() {
+    public ListPanel(ArrayList<Lich> lich) {
         initComponents();
+        setLayout(new FlowLayout());
+        JScrollPane sp = new JScrollPane(pn(lich));
+        add(sp);
+
+    }
+
+    public JPanel pn(ArrayList<Lich> lich) {
+        JPanel p1 = new JPanel();
+        p1.setLayout(new GridLayout(lich.size(), 1, 0, 0));
+        for (Lich lich1 : lich) {
+            LichHocComponent tmp = new LichHocComponent(lich1);
+            tmp.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    tmp.setOpaque(true);
+                    tmp.setBackground(Color.DARK_GRAY);
+                    tmp.setForeground(Color.CYAN);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    tmp.setOpaque(false);
+                    tmp.setBackground(Color.WHITE);
+                    tmp.setForeground(Color.BLACK);
+                }
+            });
+            p1.add(tmp);
+        }
+        return p1;
     }
 
     /**
