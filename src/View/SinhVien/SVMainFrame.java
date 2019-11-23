@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import Controller.SinhVien.*;
 import Model.*;
 import java.util.ArrayList;
+import DAO.*;
+
 /**
  *
  * @author ducnam
@@ -56,12 +58,27 @@ public class SVMainFrame extends javax.swing.JFrame {
     public void setListGV(ArrayList<GiangVien> listGV) {
         this.listGV = listGV;
     }
-    
-    
+
     public SVMainFrame() {
         initComponents();
         SVMainController sv = new SVMainController(this);
         sv.init();
+    }
+
+    public SVMainFrame(SinhVien a) {
+        this.sv = a;
+        initComponents();
+        try {
+            CourseQuery cq = new CourseQuery();
+            this.listMon = cq.getMonHoc();
+            ProfessorQuery pq = new ProfessorQuery();
+            this.listGV = pq.getGiangVien();
+            getProfileLabel().setText(a.getTenSv());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        SVMainController svctr = new SVMainController(this);
+        svctr.init();
     }
 
     /**

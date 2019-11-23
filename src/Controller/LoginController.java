@@ -8,6 +8,7 @@ package Controller;
 import Model.*;
 import View.*;
 import View.QuanLi.QuanLiFrame;
+import DAO.*;
 import View.SinhVien.SVFrame;
 import View.SinhVien.SVMainFrame;
 import java.awt.event.ActionEvent;
@@ -58,12 +59,13 @@ public class LoginController {
         AbstractAction logPressed = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String sql = "SELECT username, password FROM realbtl.user WHERE username = ? AND password = ?";
                 try {
-                    PreparedStatement ps = conn.prepareStatement(sql);
-                    ResultSet rs;
                     String user = frame.getUsr().getText();
                     String pass = String.valueOf(frame.getPswrd().getPassword());
+                    System.out.println(pass);
+                    String sql = "SELECT * FROM realbtl.user WHERE usr = '" + user + "' AND pswd = '" + pass + "'";
+                    PreparedStatement ps = conn.prepareStatement(sql);
+
                     if (user.equals("admin") && pass.equals("123456")) {  // neu nhap admin thi vao form quan li(them sua xoa)
                         QuanLiFrame form = new QuanLiFrame();
                         form.setVisible(true);
@@ -71,11 +73,13 @@ public class LoginController {
                         frame.dispose();
 
                     } else {   // con neu nhap nguoi dung thi vao frame nguoi dung(pick tkb)
-                        ps.setString(1, user);
-                        ps.setString(2, pass);
-                        rs = ps.executeQuery();
+                        ResultSet rs = ps.executeQuery();
                         if (rs.next()) {
-                            SVMainFrame form = new SVMainFrame();
+                            int ma = rs.getInt(1);
+                            StudentQuery sq = new StudentQuery();
+                            SinhVien a = sq.getSinhVien2(ma);
+                            System.out.println(a);
+                            SVMainFrame form = new SVMainFrame(a);
                             form.setVisible(true);
                             form.pack();
                             form.setLocationRelativeTo(null);
@@ -154,10 +158,9 @@ public class LoginController {
             }
         });
 
-
     }
-    
-    public RegisterFrame setException(){
+
+    public RegisterFrame setException() {
         RegisterFrame register = new RegisterFrame();
         register.getTenSV().addFocusListener(new FocusListener() {
             @Override
@@ -166,7 +169,7 @@ public class LoginController {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if(register.getTenSV().getText().trim().equals("")){
+                if (register.getTenSV().getText().trim().equals("")) {
                     register.getNameLabel().setText("Vui Long Nhap ten Sinh Vien");
                 }
             }
