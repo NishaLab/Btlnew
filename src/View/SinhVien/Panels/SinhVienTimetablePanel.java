@@ -50,7 +50,7 @@ public class SinhVienTimetablePanel extends javax.swing.JPanel {
             }
             for (int i = 0; i < a.size(); i++) {
                 Lich lich = a.get(i);
-                if (lich.getTime().charAt(i) != 'x') {
+                if (lich.getTime().charAt(k) != 'x') {
                     data[lich.getStart() - 1][lich.getDay() - 2] = lich.getTen() + " Phong " + lich.getRoomNum();
                     data[lich.getStart()][lich.getDay() - 2] = lich.getTen() + " Phong " + lich.getRoomNum();
                 }

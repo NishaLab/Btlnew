@@ -5,34 +5,17 @@
  */
 package View.QuanLi.SinhVien;
 
-import Model.*;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 /**
  *
- * @author ducnam
+ * @author Duc Nam
  */
-public class SinhVienComponent extends javax.swing.JPanel {
+public class GiangVienCollumPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SinhVienComponent
+     * Creates new form GiangVienCollumPanel
      */
-    public SinhVienComponent() {
+    public GiangVienCollumPanel() {
         initComponents();
-    }
-
-    public SinhVienComponent(SinhVien s) {
-        initComponents();
-        int a = s.getMaSv();
-        String tmp = String.format("%3d", a).replace(' ', '0');
-        this.getIdLabel().setText("B17DCCN" + tmp);
-        this.getNameLabel().setText(s.getTenSv());
-        this.getDobLabel().setText(s.getDob().toString());
-        this.getSexLabel().setText(s.getGioitinh());
-        this.getPhoneLabel().setText(s.getSdt());
-        this.getAddressLabel().setText(s.getAddress());
     }
 
     /**
@@ -47,42 +30,42 @@ public class SinhVienComponent extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         idLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        dobLabel = new javax.swing.JLabel();
-        sexLabel = new javax.swing.JLabel();
         phoneLabel = new javax.swing.JLabel();
         addressLabel = new javax.swing.JLabel();
+        dobLabel = new javax.swing.JLabel();
+        sexLabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        idLabel.setText("D17DCCN252");
+        idLabel.setText("Mã GV");
 
-        nameLabel.setText("Nguyễn Gì Gì Đó");
+        nameLabel.setText("Họ Tên");
 
-        dobLabel.setText("29/02/2019");
+        phoneLabel.setText("Số điện thoại");
 
-        sexLabel.setText("Nữ");
+        addressLabel.setText("Địa chỉ");
 
-        phoneLabel.setText("09125125125");
+        dobLabel.setText("Ngày sinh");
 
-        addressLabel.setText("Hà Nội");
+        sexLabel.setText("Giới tính");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(idLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sexLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sexLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(addressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,9 +74,9 @@ public class SinhVienComponent extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel)
                     .addComponent(nameLabel)
-                    .addComponent(dobLabel)
                     .addComponent(addressLabel)
                     .addComponent(phoneLabel)
+                    .addComponent(dobLabel)
                     .addComponent(sexLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -113,75 +96,18 @@ public class SinhVienComponent extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel addressLabel1;
     private javax.swing.JLabel dobLabel;
+    private javax.swing.JLabel dobLabel1;
     private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel idLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel phoneLabel1;
     private javax.swing.JLabel sexLabel;
+    private javax.swing.JLabel sexLabel1;
     // End of variables declaration//GEN-END:variables
-    public void setColorCustom(Color c) {
-        this.getIdLabel().setForeground(c);
-        this.getNameLabel().setForeground(c);
-        this.getDobLabel().setForeground(c);
-        this.getSexLabel().setForeground(c);
-        this.getPhoneLabel().setForeground(c);
-        this.getAddressLabel().setForeground(c);
-    }
-
-    public JLabel getAddressLabel() {
-        return addressLabel;
-    }
-
-    public void setAddressLabel(JLabel addressLabel) {
-        this.addressLabel = addressLabel;
-    }
-
-    public JLabel getDobLabel() {
-        return dobLabel;
-    }
-
-    public void setDobLabel(JLabel dobLabel) {
-        this.dobLabel = dobLabel;
-    }
-
-    public JLabel getIdLabel() {
-        return idLabel;
-    }
-
-    public void setIdLabel(JLabel idLabel) {
-        this.idLabel = idLabel;
-    }
-
-    public JPanel getjPanel1() {
-        return jPanel1;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
-    }
-
-    public JLabel getNameLabel() {
-        return nameLabel;
-    }
-
-    public void setNameLabel(JLabel nameLabel) {
-        this.nameLabel = nameLabel;
-    }
-
-    public JLabel getPhoneLabel() {
-        return phoneLabel;
-    }
-
-    public void setPhoneLabel(JLabel phoneLabel) {
-        this.phoneLabel = phoneLabel;
-    }
-
-    public JLabel getSexLabel() {
-        return sexLabel;
-    }
-
-    public void setSexLabel(JLabel sexLabel) {
-        this.sexLabel = sexLabel;
-    }
 }

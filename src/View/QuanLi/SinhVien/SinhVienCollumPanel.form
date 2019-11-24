@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -42,33 +42,33 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="idLabel" pref="177" max="32767" attributes="0"/>
+                  <Component id="idLabel" min="-2" pref="176" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="nameLabel" min="-2" pref="176" max="-2" attributes="0"/>
+                  <Component id="nameLabel" pref="180" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dobLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Component id="dobLabel" min="-2" pref="130" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="sexLabel" min="-2" pref="89" max="-2" attributes="0"/>
+                  <Component id="sexLabel" min="-2" pref="86" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="phoneLabel" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="phoneLabel" min="-2" pref="124" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="addressLabel" min="-2" pref="72" max="-2" attributes="0"/>
+                  <Component id="addressLabel" min="-2" pref="75" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="dobLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="phoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="sexLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sexLabel" alignment="3" max="32767" attributes="0"/>
+                      <Component id="nameLabel" alignment="3" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -76,32 +76,32 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="idLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="D17DCCN252"/>
+            <Property name="text" type="java.lang.String" value="M&#xe3; Sinh Vi&#xea;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nguy&#x1ec5;n G&#xec; G&#xec; &#x110;&#xf3;"/>
+            <Property name="text" type="java.lang.String" value="H&#x1ecd; T&#xea;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dobLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="29/02/2019"/>
+            <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="sexLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#x1eef;"/>
+            <Property name="text" type="java.lang.String" value="Gi&#x1edb;i t&#xed;nh"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="phoneLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="09125125125"/>
+            <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="addressLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="H&#xe0; N&#x1ed9;i"/>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
           </Properties>
         </Component>
       </SubComponents>
