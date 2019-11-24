@@ -8,6 +8,11 @@ package View.SinhVien.Panels;
 import Model.*;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -17,6 +22,8 @@ import javax.swing.JLabel;
  * @author LEGION
  */
 public class SVProfilePanel extends javax.swing.JPanel {
+
+    private BufferedImage img;
 
     /**
      * Creates new form SVProfilePanel
@@ -33,6 +40,8 @@ public class SVProfilePanel extends javax.swing.JPanel {
         getPhoneField().setText(a.getSdt());
         getDobField().setText(a.getDob().toString());
         getGenderIcon().setText(a.getGioitinh());
+        img = profileImageLoader(Integer.toString(a.getMaSv()));
+        setProfilePicture(img);
     }
 
     /**
@@ -52,7 +61,7 @@ public class SVProfilePanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         genderIcon = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        ProfilePicture = new javax.swing.JLabel();
         nameField = new javax.swing.JLabel();
         addressField = new javax.swing.JLabel();
         dobField = new javax.swing.JLabel();
@@ -77,7 +86,7 @@ public class SVProfilePanel extends javax.swing.JPanel {
 
         genderIcon.setText("Gender");
 
-        jLabel2.setText("Profile");
+        ProfilePicture.setText("Profile");
 
         nameField.setText("Name");
 
@@ -118,7 +127,7 @@ public class SVProfilePanel extends javax.swing.JPanel {
                     .addComponent(dobField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,7 +157,7 @@ public class SVProfilePanel extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 39, Short.MAX_VALUE))
         );
 
@@ -171,6 +180,21 @@ public class SVProfilePanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private BufferedImage profileImageLoader(String filename) {
+        String imagePath = "\\View\\SinhVien\\ProfilePicture\\" + filename + ".png";            // create image path string
+        try {
+            InputStream in = getClass().getResourceAsStream(imagePath);                        // read file with input stream
+            return ImageIO.read(in);                                                           //read image via imageio
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void setProfilePicture(Image img){                                                  // only accept iconImage
+        ImageIcon icon = new ImageIcon(img);                                                   //create icon from image file
+        ProfilePicture.setIcon(icon);                                                          //just set 
+    };
+    
     public JLabel getAddressField() {
         return addressField;
     }
@@ -220,20 +244,20 @@ public class SVProfilePanel extends javax.swing.JPanel {
     }
 
     public JLabel getProfileLabel() {
-        return jLabel2;
+        return ProfilePicture;
     }
 
     public void setProfileLabel(JLabel profileLabel) {
-        this.jLabel2 = profileLabel;
+        this.ProfilePicture = profileLabel;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ProfilePicture;
     private javax.swing.JLabel addressField;
     private javax.swing.JLabel dobField;
     private javax.swing.JLabel genderIcon;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
