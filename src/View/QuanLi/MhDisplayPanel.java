@@ -30,7 +30,7 @@ public class MhDisplayPanel extends javax.swing.JPanel {
      */
     public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
-        setLayout(new BorderLayout());
+        setLayout(new FlowLayout());
         JScrollPane sp = new JScrollPane(createMhList(mh, frame));
         add(sp);
     }

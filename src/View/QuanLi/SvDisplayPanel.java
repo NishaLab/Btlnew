@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import View.QuanLi.SinhVien.*;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -26,7 +27,7 @@ public class SvDisplayPanel extends javax.swing.JPanel {
      */
     public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         initComponents();
-        setLayout(new BorderLayout());
+        setLayout(new FlowLayout());
         JScrollPane sp = new JScrollPane(createSvList(sv,frame));
         add(sp);
     }
