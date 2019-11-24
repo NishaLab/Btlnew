@@ -9,7 +9,6 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import java.util.ArrayList;
 import Model.*;
-import View.QuanLi.SinhVien.GiangVienCollumPanel;
 import View.QuanLi.SinhVien.GiangVienComponent;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -36,8 +35,8 @@ public class GvDisplayPanel extends javax.swing.JPanel {
 
     public JPanel createGvList(ArrayList<GiangVien> gv, QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(gv.size() + 1, 1, 0, 0));
-        GiangVienCollumPanel a = new GiangVienCollumPanel();
+        p1.setLayout(new GridLayout(gv.size() + 1, 1, 1, 1));
+        GiangVienComponent a = new GiangVienComponent();
         p1.add(a);
         ArrayList<GiangVienComponent> list = new ArrayList<>();
         for (GiangVien giang : gv) {
@@ -53,6 +52,16 @@ public class GvDisplayPanel extends javax.swing.JPanel {
 
             });
         }
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
         return p1;
     }
 

@@ -39,9 +39,9 @@ public class LichDisplayPanel extends javax.swing.JPanel {
 
     public JPanel createLichList(ArrayList<Lich> lich,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 1, 1));
         ArrayList<LichHocComponent> list = new ArrayList<>();
-        LichCollumPanel a = new LichCollumPanel();
+        LichHocComponent a = new LichHocComponent();
         p1.add(a);
         for (Lich li:lich) {
             LichHocComponent tmp = new LichHocComponent(li);
@@ -55,6 +55,16 @@ public class LichDisplayPanel extends javax.swing.JPanel {
                 }
             });
         }
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
         return p1;
     }
 
