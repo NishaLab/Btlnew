@@ -7,9 +7,12 @@ package View.SinhVien.Panels;
 
 import Model.*;
 import java.awt.FlowLayout;
+import java.awt.FontFormatException;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
@@ -23,7 +26,7 @@ import javax.swing.JLabel;
  */
 public class SVProfilePanel extends javax.swing.JPanel {
 
-    private BufferedImage img;
+    private BufferedImage img,img2;
 
     /**
      * Creates new form SVProfilePanel
@@ -41,6 +44,7 @@ public class SVProfilePanel extends javax.swing.JPanel {
         getDobField().setText(a.getDob().toString());
         getGenderIcon().setText(a.getGioitinh());
         img = profileImageLoader(Integer.toString(a.getMaSv()));
+        Image resizedImg = img.getScaledInstance(223, 212  , Image.SCALE_DEFAULT);      // resize image
         setProfilePicture(img);
     }
 
@@ -183,10 +187,17 @@ public class SVProfilePanel extends javax.swing.JPanel {
     private BufferedImage profileImageLoader(String filename) {
         String imagePath = "\\View\\SinhVien\\ProfilePicture\\" + filename + ".png";            // create image path string
         try {
+            File f = new File(imagePath);                                                      //check file existance
+            if(f.exists()&&f.isDirectory()){
+                
+            } else {
+                imagePath = "\\View\\SinhVien\\ProfilePicture\\default.png";                   //if not, load default image
+            }
             InputStream in = getClass().getResourceAsStream(imagePath);                        // read file with input stream
             return ImageIO.read(in);                                                           //read image via imageio
         }catch(IOException e){
             e.printStackTrace();
+            
         }
         return null;
     }
@@ -194,7 +205,9 @@ public class SVProfilePanel extends javax.swing.JPanel {
         ImageIcon icon = new ImageIcon(img);                                                   //create icon from image file
         ProfilePicture.setIcon(icon);                                                          //just set 
     };
-    
+    public void resizer(String path1, String path2,int witdh,int heigh){
+        
+    }
     public JLabel getAddressField() {
         return addressField;
     }
