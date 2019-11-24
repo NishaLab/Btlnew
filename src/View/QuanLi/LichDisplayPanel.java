@@ -9,6 +9,7 @@ import Model.*;
 import View.QuanLi.SinhVien.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -30,7 +31,8 @@ public class LichDisplayPanel extends javax.swing.JPanel {
 
     public LichDisplayPanel(ArrayList<Lich> lich,QuanLiFrame frame) {
         initComponents();
-        setLayout(new BorderLayout());
+                setLayout(new FlowLayout());
+
         JScrollPane sp = new JScrollPane(createLichList(lich,frame));
         add(sp);
     }
@@ -39,7 +41,7 @@ public class LichDisplayPanel extends javax.swing.JPanel {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         ArrayList<LichHocComponent> list = new ArrayList<>();
-        LichHocComponent a = new LichHocComponent();
+        LichCollumPanel a = new LichCollumPanel();
         p1.add(a);
         for (Lich li:lich) {
             LichHocComponent tmp = new LichHocComponent(li);

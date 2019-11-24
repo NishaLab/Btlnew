@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" pref="817" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -42,22 +42,22 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <Component id="idLabel" min="-2" pref="87" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="nameLabel" min="-2" pref="228" max="-2" attributes="0"/>
+                  <Component id="nameLabel" min="-2" pref="196" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="gvLabel" min="-2" pref="168" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="roomLabel" min="-2" pref="78" max="-2" attributes="0"/>
+                  <Component id="roomLabel" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="timeLabel" max="32767" attributes="0"/>
+                  <Component id="timeLabel" min="-2" pref="115" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="startLabel" linkSize="1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="startLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="dayLabel" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="dayLabel" linkSize="1" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lichIDLabel" min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="lichIDLabel" linkSize="1" min="-2" pref="57" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -68,12 +68,12 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="startLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="gvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="roomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lichIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="gvLabel" alignment="3" max="32767" attributes="0"/>
+                      <Component id="dayLabel" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>

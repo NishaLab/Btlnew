@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import View.QuanLi.SinhVien.*;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -26,14 +27,16 @@ public class SvDisplayPanel extends javax.swing.JPanel {
      */
     public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         initComponents();
-        setLayout(new BorderLayout());
+        setLayout(new FlowLayout());
         JScrollPane sp = new JScrollPane(createSvList(sv,frame));
         add(sp);
     }
 
     public JPanel createSvList(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(sv.size(), 1, 0, 0));
+        p1.setLayout(new GridLayout(sv.size()+1, 1, 0, 0));
+        SinhVienCollumPanel a = new SinhVienCollumPanel();
+        p1.add(a);
         ArrayList<SinhVienComponent> list = new ArrayList<>();
         for (SinhVien sinh:sv) {
             SinhVienComponent tmp = new SinhVienComponent(sinh);

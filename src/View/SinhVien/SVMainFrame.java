@@ -6,6 +6,12 @@
 package View.SinhVien;
 
 import java.awt.Cursor;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import Controller.SinhVien.*;
+import Model.*;
+import java.util.ArrayList;
+import DAO.*;
 
 /**
  *
@@ -13,11 +19,77 @@ import java.awt.Cursor;
  */
 public class SVMainFrame extends javax.swing.JFrame {
 
+    public SinhVien getSv() {
+        return sv;
+    }
+
+    public void setSv(SinhVien sv) {
+        this.sv = sv;
+    }
+
+    public ArrayList<Lich> getListLich() {
+        return listLich;
+    }
+
+    public void setListLich(ArrayList<Lich> listLich) {
+        this.listLich = listLich;
+    }
+
+    public ArrayList<MonHoc> getListMon() {
+        return listMon;
+    }
+
     /**
      * Creates new form MainFrame
      */
+    public void setListMon(ArrayList<MonHoc> listMon) {
+        this.listMon = listMon;
+    }
+
+    private SinhVien sv;
+    private Lich lichChon;
+
+    public Lich getLichChon() {
+        return lichChon;
+    }
+
+    public void setLichChon(Lich lichChon) {
+        this.lichChon = lichChon;
+    }
+    
+    
+    private ArrayList<Lich> listLich = new ArrayList<>();
+    private ArrayList<MonHoc> listMon = new ArrayList<>();
+    private ArrayList<GiangVien> listGV = new ArrayList<>();
+
+    public ArrayList<GiangVien> getListGV() {
+        return listGV;
+    }
+
+    public void setListGV(ArrayList<GiangVien> listGV) {
+        this.listGV = listGV;
+    }
+
     public SVMainFrame() {
         initComponents();
+        SVMainController sv = new SVMainController(this);
+        sv.init();
+    }
+
+    public SVMainFrame(SinhVien a) {
+        this.sv = a;
+        initComponents();
+        try {
+            CourseQuery cq = new CourseQuery();
+            this.listMon = cq.getMonHoc();
+            ProfessorQuery pq = new ProfessorQuery();
+            this.listGV = pq.getGiangVien();
+            getProfileLabel().setText(a.getTenSv());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        SVMainController svctr = new SVMainController(this);
+        svctr.init();
     }
 
     /**
@@ -31,15 +103,15 @@ public class SVMainFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        timetableLabel = new javax.swing.JLabel();
+        lecturesLabel = new javax.swing.JLabel();
+        homeLabel = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
+        StudentLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        logoutLabel = new javax.swing.JLabel();
+        profileLabel = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(223, 217, 242));
 
@@ -59,77 +131,77 @@ public class SVMainFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(130, 210, 234));
 
-        jLabel3.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/timetable.png"))); // NOI18N
-        jLabel3.setText("TimeTable");
+        timetableLabel.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
+        timetableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timetableLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/timetable.png"))); // NOI18N
+        timetableLabel.setText("TimeTable");
 
-        jLabel5.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/lecture.png"))); // NOI18N
-        jLabel5.setText("Lectures");
+        lecturesLabel.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
+        lecturesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lecturesLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/lecture.png"))); // NOI18N
+        lecturesLabel.setText("Lectures");
 
-        jLabel4.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/menu.png"))); // NOI18N
-        jLabel4.setText("Home");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        homeLabel.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
+        homeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/menu.png"))); // NOI18N
+        homeLabel.setText("Home");
+        homeLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        homeLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel4MouseMoved(evt);
+                homeLabelMouseMoved(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/register.png"))); // NOI18N
-        jLabel7.setText("Register");
+        registerLabel.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/register.png"))); // NOI18N
+        registerLabel.setText("Register");
 
-        jLabel6.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/student.png"))); // NOI18N
-        jLabel6.setText("Students");
+        StudentLabel.setFont(new java.awt.Font("aakar", 0, 20)); // NOI18N
+        StudentLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        StudentLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/student.png"))); // NOI18N
+        StudentLabel.setText("Students");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addComponent(registerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(timetableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(lecturesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addGap(0, 245, Short.MAX_VALUE))
+                .addComponent(StudentLabel)
+                .addGap(0, 288, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel3, jLabel4, jLabel5, jLabel6, jLabel7});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {StudentLabel, homeLabel, lecturesLabel, registerLabel});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel7)
-                .addComponent(jLabel3)
-                .addComponent(jLabel5)
-                .addComponent(jLabel6))
+                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerLabel)
+                .addComponent(timetableLabel)
+                .addComponent(lecturesLabel)
+                .addComponent(StudentLabel))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, jLabel4, jLabel5, jLabel6, jLabel7});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {StudentLabel, homeLabel, lecturesLabel, registerLabel, timetableLabel});
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/logout.png"))); // NOI18N
-        jLabel8.setText("Log out");
+        logoutLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/logout.png"))); // NOI18N
+        logoutLabel.setText("Log out");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/profile.png"))); // NOI18N
-        jLabel9.setText("Nguyễn Đức Nam");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        profileLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/profile.png"))); // NOI18N
+        profileLabel.setText("Nguyễn Đức Nam");
+        profileLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                profileLabelMouseClicked(evt);
             }
         });
 
@@ -138,10 +210,10 @@ public class SVMainFrame extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel8)
+                .addGap(48, 48, 48)
+                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(logoutLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -149,21 +221,21 @@ public class SVMainFrame extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(logoutLabel)
+                    .addComponent(profileLabel))
                 .addContainerGap())
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 250, 245));
+        mainPanel.setBackground(new java.awt.Color(255, 250, 245));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 319, Short.MAX_VALUE)
         );
 
@@ -176,7 +248,7 @@ public class SVMainFrame extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -188,22 +260,22 @@ public class SVMainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel9MouseClicked
+    }//GEN-LAST:event_profileLabelMouseClicked
 
-    private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
+    private void homeLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeLabelMouseMoved
         // TODO add your handling code here:
         Cursor handCuror = new Cursor(Cursor.HAND_CURSOR);
-        jLabel4.setCursor(handCuror);
-    }//GEN-LAST:event_jLabel4MouseMoved
+        homeLabel.setCursor(handCuror);
+    }//GEN-LAST:event_homeLabelMouseMoved
 
     /**
      * @param args the command line arguments
@@ -241,17 +313,107 @@ public class SVMainFrame extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getStudentLabel() {
+        return StudentLabel;
+    }
+
+    public void setStudentLabel(JLabel StudentLabel) {
+        this.StudentLabel = StudentLabel;
+    }
+
+    public JLabel getHomeLabel() {
+        return homeLabel;
+    }
+
+    public void setHomeLabel(JLabel homeLabel) {
+        this.homeLabel = homeLabel;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanel4() {
+        return jPanel4;
+    }
+
+    public void setjPanel4(JPanel jPanel4) {
+        this.jPanel4 = jPanel4;
+    }
+
+    public JLabel getLecturesLabel() {
+        return lecturesLabel;
+    }
+
+    public void setLecturesLabel(JLabel lecturesLabel) {
+        this.lecturesLabel = lecturesLabel;
+    }
+
+    public JLabel getLogoutLabel() {
+        return logoutLabel;
+    }
+
+    public void setLogoutLabel(JLabel logoutLabel) {
+        this.logoutLabel = logoutLabel;
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public void setMainPanel(JPanel mainPanel) {
+        this.mainPanel = mainPanel;
+    }
+
+    public JLabel getProfileLabel() {
+        return profileLabel;
+    }
+
+    public void setProfileLabel(JLabel profileLabel) {
+        this.profileLabel = profileLabel;
+    }
+
+    public JLabel getRegisterLabel() {
+        return registerLabel;
+    }
+
+    public void setRegisterLabel(JLabel registerLabel) {
+        this.registerLabel = registerLabel;
+    }
+
+    public JLabel getTimetableLabel() {
+        return timetableLabel;
+    }
+
+    public void setTimetableLabel(JLabel timetableLabel) {
+        this.timetableLabel = timetableLabel;
+    }
+    
+  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel StudentLabel;
+    private javax.swing.JLabel homeLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lecturesLabel;
+    private javax.swing.JLabel logoutLabel;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel profileLabel;
+    private javax.swing.JLabel registerLabel;
+    private javax.swing.JLabel timetableLabel;
     // End of variables declaration//GEN-END:variables
 }

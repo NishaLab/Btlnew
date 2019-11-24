@@ -17,6 +17,7 @@ public class SVFrame extends javax.swing.JFrame {
     public SVFrame() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

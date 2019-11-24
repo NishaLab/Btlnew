@@ -76,19 +76,17 @@ public class GiangVienComponent extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(idLabel)
-                .addGap(44, 44, 44)
-                .addComponent(nameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(phoneLabel)
-                .addGap(65, 65, 65)
-                .addComponent(addressLabel)
-                .addGap(89, 89, 89)
-                .addComponent(dobLabel)
-                .addGap(65, 65, 65)
-                .addComponent(sexLabel)
-                .addGap(54, 54, 54))
+                .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sexLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +106,7 @@ public class GiangVienComponent extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,11 +173,27 @@ public class GiangVienComponent extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel addressLabel1;
+    private javax.swing.JLabel dayLabel1;
     private javax.swing.JLabel dobLabel;
+    private javax.swing.JLabel dobLabel1;
+    private javax.swing.JLabel gvLabel1;
     private javax.swing.JLabel idLabel;
+    private javax.swing.JLabel idLabel1;
+    private javax.swing.JLabel idLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lichIDLabel;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameLabel1;
+    private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel phoneLabel;
+    private javax.swing.JLabel phoneLabel1;
+    private javax.swing.JLabel roomLabel1;
     private javax.swing.JLabel sexLabel;
+    private javax.swing.JLabel sexLabel1;
+    private javax.swing.JLabel startLabel1;
+    private javax.swing.JLabel timeLabel1;
     // End of variables declaration//GEN-END:variables
 }

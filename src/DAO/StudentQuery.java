@@ -84,6 +84,23 @@ public class StudentQuery {
         }
     }
 
+    public SinhVien getSinhVien2(int ma) throws SQLException {
+        String sql = "SELECT * FROM realbtl.student WHERE idStudent = ? ; ";
+        PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+        ps.setInt(1, ma);
+        ResultSet rs = ps.executeQuery();
+        SinhVien s = new SinhVien();
+        if (rs.next()) {
+            s.setMaSv(rs.getInt(1));
+            s.setTenSv(rs.getString(2));
+            s.setDob(rs.getDate(3));
+            s.setAddress(rs.getString(4));
+            s.setSdt(rs.getString(5));
+            s.setGioitinh(rs.getString(6));
+        }
+        return s;
+    }
+
     public ArrayList<SinhVien> getSinhVien() throws SQLException {
         ArrayList<SinhVien> res = new ArrayList();
         String sql = "SELECT * FROM realbtl.student";
