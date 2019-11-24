@@ -58,7 +58,7 @@ public class SVViewController {
     }
 
     public SinhVienTimetablePanel setTimetableViewAction() {
-        SinhVienTimetablePanel svtp = new SinhVienTimetablePanel(frame.getListLich());
+        SinhVienTimetablePanel svtp = new SinhVienTimetablePanel(frame.getListLich(),frame.getSv());
         // bắt sự kiện ở đây
         return svtp;
     }
