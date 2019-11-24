@@ -28,7 +28,7 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class SVEditPanel extends javax.swing.JPanel {
 
-    private BufferedImage img;
+    private BufferedImage img,img2;
 
     /**
      * Creates new form SVProfilePanel
@@ -194,6 +194,7 @@ public class SVEditPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SelectFileBtActionPerformed(java.awt.event.ActionEvent evt) {
+        boolean choose = true;
         JFileChooser f = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());       //call the jfilechooser
         f.setAcceptAllFileFilterUsed(false);                                                        //set accept all file = false
         f.setDialogTitle("Select a PNG file");                                                //open dialog title
@@ -204,9 +205,15 @@ public class SVEditPanel extends javax.swing.JPanel {
             directoryPath.setText(f.getSelectedFile().getAbsolutePath());
         } else {
             directoryPath.setText("No file was choosen");
+            choose = false;
+        }String path = null;
+        if(choose){
+            path = directoryPath.getText();
         }
-        img = profileImageLoader(directoryPath.getText());
-        setProfilePicture(img);
+        else path = "\\View\\SinhVien\\ProfilePicture\\default.png";
+        img = profileImageLoader(path);
+        Image resizedImg = img.getScaledInstance(223, 212, Image.SCALE_DEFAULT);
+        setProfilePicture(resizedImg);
     }
 
     public boolean moveFile(String sourcePath, String destinationPath) {
@@ -228,8 +235,6 @@ public class SVEditPanel extends javax.swing.JPanel {
         ImageIcon icon = new ImageIcon(img);                                                   //create icon from image file
         ProfilePicture.setIcon(icon);                                                          //just set 
     }
-
-    ;
 
     public String getDirectoryPath() {
         return directoryPath.getText();
