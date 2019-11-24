@@ -14,13 +14,18 @@ import View.SinhVien.Panels.SVProfilePanel;
 import javax.swing.JPanel;
 import View.SinhVien.Panels.SinhVienTimetablePanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import DAO.*;
 
 /**
  *
@@ -133,7 +138,9 @@ public class SVViewController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ArrayList<Lich> lich = rp.getListLich();
-                frame.setListLich(lich);
+                ArrayList<Lich> lich2 = frame.getListLich();
+                lich2.addAll(lich);
+                frame.setListLich(lich2);
                 ListTimetableView();
             }
         });
@@ -142,10 +149,65 @@ public class SVViewController {
 
     public void ListTimetableView() {
         ArrayList<Lich> lich = frame.getListLich();
-        ListPanel lp = new ListPanel(lich,frame);
+        ListPanel lp = setListTimetableViewAction(lich);
         main.removeAll();
         setMainPanel(lp);
         main.revalidate();
         main.repaint();
+    }
+
+    public ListPanel setListTimetableViewAction(ArrayList<Lich> lich) {
+        ListPanel lp = new ListPanel(lich, frame);
+        JLabel delete = lp.getDeleteLabel();
+        delete.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                Lich tmp = frame.getLichChon();
+                if (lich.contains(tmp)) {
+                    lich.remove(tmp);
+                    System.out.println(tmp);
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                delete.setOpaque(true);
+                delete.setBackground(Color.DARK_GRAY);
+                delete.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                delete.setOpaque(false);
+                delete.setBackground(Color.WHITE);
+                delete.setForeground(Color.BLACK);
+            }
+        });
+        JLabel save = lp.getSaveLabel();
+        save.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                TimetableStudentQuery tsq = new TimetableStudentQuery();
+                for (Lich lich1 : lich) {
+                    tsq.addTimetable(frame.getSv().getMaSv(), lich1.getIdLich());
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                save.setOpaque(true);
+                save.setBackground(Color.DARK_GRAY);
+                save.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                save.setOpaque(false);
+                save.setBackground(Color.WHITE);
+                save.setForeground(Color.BLACK);
+            }
+        });
+        return lp;
+
     }
 }

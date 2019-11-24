@@ -56,9 +56,9 @@ public class SVMainFrame extends javax.swing.JFrame {
     public void setLichChon(Lich lichChon) {
         this.lichChon = lichChon;
     }
-    private ArrayList<Lich> listLich;
-    private ArrayList<MonHoc> listMon;
-    private ArrayList<GiangVien> listGV;
+    private ArrayList<Lich> listLich = new ArrayList<>();
+    private ArrayList<MonHoc> listMon = new ArrayList<>();
+    private ArrayList<GiangVien> listGV = new ArrayList<>();
 
     public ArrayList<GiangVien> getListGV() {
         return listGV;
