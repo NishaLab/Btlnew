@@ -142,7 +142,7 @@ public class SVViewController {
 
     public void ListTimetableView() {
         ArrayList<Lich> lich = frame.getListLich();
-        ListPanel lp = new ListPanel(lich);
+        ListPanel lp = new ListPanel(lich,frame);
         main.removeAll();
         setMainPanel(lp);
         main.revalidate();

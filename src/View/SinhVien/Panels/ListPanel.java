@@ -15,6 +15,7 @@ import java.awt.event.MouseEvent;
 import java.util.*;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import View.SinhVien.SVMainFrame;
 
 /**
  *
@@ -25,15 +26,14 @@ public class ListPanel extends javax.swing.JPanel {
     /**
      * Creates new form ListPanel
      */
-    public ListPanel(ArrayList<Lich> lich) {
+    public ListPanel(ArrayList<Lich> lich,SVMainFrame frame) {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(pn(lich));
+        JScrollPane sp = new JScrollPane(pn(lich,frame));
         add(sp);
 
     }
 
-    public JPanel pn(ArrayList<Lich> lich) {
+    public JPanel pn(ArrayList<Lich> lich,SVMainFrame frame) {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(lich.size(), 1, 0, 0));
         for (Lich lich1 : lich) {
@@ -41,6 +41,7 @@ public class ListPanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                    frame.setLichChon(lich1);
                 }
 
                 @Override
@@ -71,19 +72,30 @@ public class ListPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/delete.png"))); // NOI18N
+        jLabel1.setText("Xóa Lịch");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(301, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 245, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

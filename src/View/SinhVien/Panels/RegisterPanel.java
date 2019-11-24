@@ -13,7 +13,7 @@ import java.awt.FlowLayout;
 import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 import DAO.*;
 import java.awt.Color;
 import java.awt.GridLayout;
@@ -31,14 +31,15 @@ public class RegisterPanel extends javax.swing.JPanel {
      */
     private ArrayList<GiangVien> gv = new ArrayList();
     private ArrayList<Lich> listLich = new ArrayList<>();
+
     public RegisterPanel(SVMainFrame frame) throws SQLException {
         initComponents();
         gv = frame.getListGV();
         ArrayList<MonHoc> mh = frame.getListMon();
-        CoursePanel cp = new CoursePanel(mh,this);
+        CoursePanel cp = new CoursePanel(mh, this);
         setAuxPanel(cp);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,29 +140,34 @@ public class RegisterPanel extends javax.swing.JPanel {
     public void setShowButton(JButton showButton) {
         this.showButton = showButton;
     }
-    public void saveCourse(Lich e){
+
+    public void saveCourse(Lich e) {
         this.listLich.add(e);
     }
-    
-    public void createMainPanel(MonHoc a){
+
+    public void createMainPanel(MonHoc a) {
         System.out.println(a);
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         TimetableQuery tq = new TimetableQuery();
         ArrayList<Lich> lich = new ArrayList<>();
         try {
-            lich = tq.getLich(a,gv);
+            lich = tq.getLich(a, gv);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        p2.setLayout(new GridLayout(lich.size(),1,0,0));
+        p2.setLayout(new GridLayout(lich.size(), 1, 0, 0));
         for (Lich lich1 : lich) {
             LichHocComponent tmp = new LichHocComponent(lich1);
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    saveCourse(lich1);
-                    System.out.println(lich1);
+                    if (JOptionPane.showConfirmDialog(null, "Ban co muon them Lich " + lich1.getTen() + " " + lich1.getIdLich(),
+                            "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                        saveCourse(lich1);
+                        System.out.println(lich1);
+                    }
+
                 }
 
                 @Override
@@ -179,7 +185,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                 }
             });
             p2.add(tmp);
-            
+
         }
         JScrollPane sp = new JScrollPane(p2);
         p1.add(sp);
