@@ -16,13 +16,255 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="maJLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="tenJLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="maJTextField" pref="157" max="32767" attributes="0"/>
+                                          <Component id="tenJTextField" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lopJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nganhJLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="tuanJLabel" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="tuanJTextField" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="nganhJTextField" pref="157" max="32767" attributes="0"/>
+                                  <Component id="lopJTextField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane2" min="-2" pref="51" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="434" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="dauJButton" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="truocJButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="keJButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cuoiJButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tenJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tenJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lopJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lopJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="maJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="maJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nganhJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nganhJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tuanJTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tuanJLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jScrollPane2" min="-2" pref="220" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="220" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="dauJButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="truocJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="keJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cuoiJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="thuJTable">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="7" rowCount="12">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                <Column editable="true" title="Title 5" type="java.lang.Object"/>
+                <Column editable="true" title="Title 6" type="java.lang.Object"/>
+                <Column editable="true" title="Title 7" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tietJTable">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="1" rowCount="12">
+                <Column editable="true" title="Title 1" type="java.lang.Object">
+                  <Data value="Tiet 1"/>
+                  <Data value="Tiet 2"/>
+                  <Data value="Tiet 3"/>
+                  <Data value="Tiet 4"/>
+                  <Data value="Tiet 5"/>
+                  <Data value="Tiet 6"/>
+                  <Data value="Tiet 7"/>
+                  <Data value="Tiet 8"/>
+                  <Data value="Tiet 9"/>
+                  <Data value="Tiet 10"/>
+                  <Data value="Tiet 11"/>
+                  <Data value="Tiet 12"/>
+                </Column>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="tenJLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="H&#x1ecd; t&#xea;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="maJLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="M&#xe3; sinh vi&#xea;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tenJTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="maJTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maJTextFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lopJLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="L&#x1edb;p"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nganhJLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ng&#xe0;nh"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="lopJTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField3"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nganhJTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField4"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nganhJTextFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tuanJLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tu&#x1ea7;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="tuanJTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextField5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="dauJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tuan dau"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dauJButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="truocJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tuan truoc"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Tuan truoc"/>
+      </AccessibilityProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="truocJButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="keJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tuan ke"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keJButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cuoiJButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tuan cuoi"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuoiJButtonActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>

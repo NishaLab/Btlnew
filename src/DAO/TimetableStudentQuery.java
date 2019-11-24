@@ -7,6 +7,8 @@ package DAO;
 
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import Model.*;
 
 /**
  *
@@ -33,4 +35,20 @@ public class TimetableStudentQuery {
             e.printStackTrace();
         }
     }
+
+    public GiangVien searchGv(ArrayList<GiangVien> gv, int id) {
+        GiangVien res = new GiangVien();
+        for (int i = 0; i < gv.size(); i++) {
+            if (gv.get(i).getMaGv() == id) {
+                return gv.get(i);
+            }
+        }
+        return res;
+    }
+
+    public ArrayList<Lich> getTimeTable(ArrayList<GiangVien> gv) {
+        ArrayList<Lich> res = new ArrayList<>();
+        return res;
+    }
+
 }
