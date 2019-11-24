@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import Model.*;
-
+import java.sql.*;
 /**
  *
  * @author LEGION
@@ -36,18 +36,21 @@ public class TimetableStudentQuery {
         }
     }
 
-    public GiangVien searchGv(ArrayList<GiangVien> gv, int id) {
-        GiangVien res = new GiangVien();
-        for (int i = 0; i < gv.size(); i++) {
-            if (gv.get(i).getMaGv() == id) {
-                return gv.get(i);
-            }
-        }
-        return res;
-    }
-
-    public ArrayList<Lich> getTimeTable(ArrayList<GiangVien> gv) {
+    public ArrayList<Lich> getTimeTable(ArrayList<GiangVien> gv,ArrayList<MonHoc>mh, int svId) {
         ArrayList<Lich> res = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM realbtl.timetable WHERE idS = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, svId);
+            ResultSet rs = ps.executeQuery();
+            TimetableQuery tq = new TimetableQuery();
+            while(rs.next()){
+                int lichID = rs.getInt(2);
+                res.add(tq.get1Lich(mh, gv, lichID));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return res;
     }
 

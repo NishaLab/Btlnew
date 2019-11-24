@@ -69,9 +69,9 @@ public class TimetableQuery {
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, a.getIdLich());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen()+"  Thanh Cong");
+            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen() + "  Thanh Cong");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen()+"  That Bai");
+            JOptionPane.showMessageDialog(null, "Xoa Lich Hoc Mon " + a.getTen() + "  That Bai");
 
             e.printStackTrace();
         }
@@ -83,6 +83,38 @@ public class TimetableQuery {
             if (gv.get(i).getMaGv() == id) {
                 return gv.get(i);
             }
+        }
+        return res;
+    }
+
+    public MonHoc searchMh(ArrayList<MonHoc> mh, int id) {
+        MonHoc res = new MonHoc();
+        for (int i = 0; i < mh.size(); i++) {
+            if (mh.get(i).getMaMon() == id) {
+                return mh.get(i);
+            }
+        }
+        return res;
+    }
+
+    public Lich get1Lich(ArrayList<MonHoc> mh, ArrayList<GiangVien> gv, int ID) throws SQLException {
+        Lich res = new Lich();
+        String sql = "SELECT * FROM realbtl.course_time WHERE idCT = ? ";
+        PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+        ps.setInt(1, ID);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            Lich s = new Lich();
+            s.setIdLich(rs.getInt(1));
+            s.setIdMon(rs.getInt(2));
+            s.setTime(rs.getString(3));
+            s.setStart(rs.getInt(4));
+            s.setDay(rs.getInt(5));
+            s.setRoomNum(rs.getString(6));
+            s.setGv(searchGv(gv, rs.getInt(7)));
+            s.setKhoa(rs.getString(8));
+            s.setTen(searchMh(mh, s.getIdMon()).getTenMon());
+            res = s;
         }
         return res;
     }

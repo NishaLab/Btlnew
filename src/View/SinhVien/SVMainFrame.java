@@ -82,6 +82,8 @@ public class SVMainFrame extends javax.swing.JFrame {
             this.listMon = cq.getMonHoc();
             ProfessorQuery pq = new ProfessorQuery();
             this.listGV = pq.getGiangVien();
+            TimetableStudentQuery tsq = new TimetableStudentQuery();
+            this.listLich = tsq.getTimeTable(listGV, listMon, a.getMaSv());
             getProfileLabel().setText(a.getTenSv());
         } catch (Exception e) {
             e.printStackTrace();
