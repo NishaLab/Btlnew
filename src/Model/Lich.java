@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.Objects;
+
 /**
  *
  * @author LEGION
@@ -102,6 +104,53 @@ public class Lich {
     public void setIdMon(int idMon) {
         this.idMon = idMon;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + this.idMon;
+        hash = 59 * hash + this.idLich;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Lich other = (Lich) obj;
+        if (this.idMon == other.idMon) {
+            return true;
+        }
+        if (Math.abs(this.start - other.start) < 2) {
+            return false;
+        }
+        if (this.day != other.day) {
+            return false;
+        }
+        if (this.idLich != other.idLich) {
+            return false;
+        }
+        if (!Objects.equals(this.time, other.time)) {
+            if (this.day == other.day && this.start == other.start) {
+                for (int i = 0; i < this.time.length(); i++) {
+                    if (this.time.charAt(i) != 'x' && other.time.charAt(i) != 'x') {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return true;
+    }
+
     private String ten;
     private String time;
     private int start;
