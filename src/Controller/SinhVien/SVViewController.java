@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -111,6 +112,9 @@ public class SVViewController {
                     sv.setSdt(sep.getPhoneField().getText());
                     sv.setTenSv(sep.getNameField().getText());
                     sv.setGioitinh(sep.getGenderIcon().getText());
+                    String src = sep.getDirectoryPath();
+                    String des = "\\View\\SinhVien\\ProfilePicture\\"+Integer.toString(a.getMaSv());
+                    sep.moveFile(src,des);
                     StudentQuery sq = new StudentQuery();
                     sq.updateStudent(sv);
                     frame.setSv(sv);
