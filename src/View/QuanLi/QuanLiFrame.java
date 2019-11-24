@@ -89,7 +89,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
         studetnLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         courseLabel = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
+        logoutLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         displayPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -171,9 +171,9 @@ public class QuanLiFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/logout.png"))); // NOI18N
-        logout.setText("Log out");
-        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/SinhVien/ImageIcon/logout.png"))); // NOI18N
+        logoutLabel1.setText("Log out");
+        logoutLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -189,7 +189,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
 
@@ -198,18 +198,18 @@ public class QuanLiFrame extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(logout)
-                        .addGap(28, 28, 28))))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(logoutLabel1)))
+                .addContainerGap())
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel2, jPanel3, jPanel4});
@@ -440,6 +440,14 @@ public class QuanLiFrame extends javax.swing.JFrame {
     public void setDeleteLabel(JLabel deleteLabel) {
         this.deleteLabel = deleteLabel;
     }
+    
+    public JLabel getLogoutLabel1() {
+        return logoutLabel1;
+    }
+
+    public void setLogoutLabel1(JLabel logoutLabel) {
+        this.logoutLabel1 = logoutLabel;
+    }
     private boolean isStudent = false;
     private boolean isProfessor = false;
     private boolean isCourse = false;
@@ -457,7 +465,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lectureLabel;
-    private javax.swing.JLabel logout;
+    private javax.swing.JLabel logoutLabel1;
     private javax.swing.JLabel studetnLabel;
     private javax.swing.JLabel titlePanel;
     // End of variables declaration//GEN-END:variables

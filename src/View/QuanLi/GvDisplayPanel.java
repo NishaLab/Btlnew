@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import java.util.ArrayList;
 import Model.*;
+import View.QuanLi.SinhVien.GiangVienCollumPanel;
 import View.QuanLi.SinhVien.GiangVienComponent;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -26,18 +27,20 @@ public class GvDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form GvDisplayPanel
      */
-    public GvDisplayPanel(ArrayList<GiangVien> gv,QuanLiFrame frame) {
+    public GvDisplayPanel(ArrayList<GiangVien> gv, QuanLiFrame frame) {
         initComponents();
-                setLayout(new FlowLayout());
-
-        JScrollPane sp = new JScrollPane(createGvList(gv,frame));
+        setLayout(new FlowLayout());
+        JScrollPane sp = new JScrollPane(createGvList(gv, frame));
         add(sp);
     }
-     public JPanel createGvList(ArrayList<GiangVien> gv,QuanLiFrame frame) {
+
+    public JPanel createGvList(ArrayList<GiangVien> gv, QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(gv.size(), 1, 0, 0));
+        p1.setLayout(new GridLayout(gv.size() + 1, 1, 0, 0));
+        GiangVienCollumPanel a = new GiangVienCollumPanel();
+        p1.add(a);
         ArrayList<GiangVienComponent> list = new ArrayList<>();
-        for (GiangVien giang:gv) {
+        for (GiangVien giang : gv) {
             GiangVienComponent tmp = new GiangVienComponent(giang);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
@@ -52,6 +55,7 @@ public class GvDisplayPanel extends javax.swing.JPanel {
         }
         return p1;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

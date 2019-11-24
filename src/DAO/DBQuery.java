@@ -25,8 +25,8 @@ public class DBQuery {
     public Connection connectDB() {
         Connection con = null;
         String url = "jdbc:mysql://localhost:3306/realbtl?useSSL=false";
-        String username = "root";
-        String password = "0963063105";
+        String username = "newuser";
+        String password = "123456";
         try {            
             con = DriverManager.getConnection(url, username, password);
         } catch ( SQLException  e) {
