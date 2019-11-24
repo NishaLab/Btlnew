@@ -6,20 +6,45 @@
 package View.SinhVien.Panels;
 import Model.Lich;
 import java.util.ArrayList;
+import javax.swing.table.*;
+import javax.swing.*;
 /**
  *
  * @author LEGION
  */
 public class SinhVienTimetablePanel extends javax.swing.JPanel {
-
+    private int tuan=1;
     /**
      * Creates new form SinhVienTimetablePanel
      */
+    public void setTuan(int tuan){
+        this.tuan=tuan;
+    }
     public SinhVienTimetablePanel() {
         initComponents();
+        
     }
     public SinhVienTimetablePanel(ArrayList<Lich> a) {
         initComponents();
+        ArrayList<DefaultTableModel> listTable = new ArrayList<DefaultTableModel>();
+        Object[] collums=new Object[]{"T2","T3","T4","T5","T6","T7","CN"};
+        for(int k=0;k<16;k++){
+            Object[][] data=new Object[12][collums.length];
+            for(int i=0;i<12;i++){
+                for(int j=0;j<collums.length;j++) data[i][j]="";
+            }
+            for(int i=0;i<a.size();i++){
+                Lich lich = a.get(i);
+                if(lich.getTime().charAt(i)!='x'){
+                    data[lich.getStart()-1][lich.getDay()-2]=lich.getTen()+" Phong "+lich.getRoomNum();
+                    data[lich.getStart()][lich.getDay()-2]=lich.getTen()+" Phong "+lich.getRoomNum();
+                }
+            }
+            listTable.add(new DefaultTableModel(data,collums));
+        }
+        thuJTable=new JTable(listTable.get(tuan));
+        thuJTable.setFillsViewportHeight(true);
+        jScrollPane1.setViewportView(thuJTable);
     }    /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,19 +54,264 @@ public class SinhVienTimetablePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lopJTextField = new javax.swing.JTextField();
+        tuanJTextField = new javax.swing.JTextField();
+        tenJTextField = new javax.swing.JTextField();
+        nganhJLabel = new javax.swing.JLabel();
+        dauJButton = new javax.swing.JButton();
+        lopJLabel = new javax.swing.JLabel();
+        truocJButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tietJTable = new javax.swing.JTable();
+        keJButton = new javax.swing.JButton();
+        tuanJLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        thuJTable = new javax.swing.JTable();
+        nganhJTextField = new javax.swing.JTextField();
+        cuoiJButton = new javax.swing.JButton();
+        maJTextField = new javax.swing.JTextField();
+        tenJLabel = new javax.swing.JLabel();
+        maJLabel = new javax.swing.JLabel();
+
+        nganhJLabel.setText("Ngành");
+
+        dauJButton.setText("Tuần đầu");
+        dauJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dauJButtonActionPerformed(evt);
+            }
+        });
+
+        lopJLabel.setText("Lớp");
+
+        truocJButton.setText("Tuần trước");
+        truocJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                truocJButtonActionPerformed(evt);
+            }
+        });
+
+        tietJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Tiet 1"},
+                {"Tiet 2"},
+                {"Tiet 3"},
+                {"Tiet 4"},
+                {"Tiet 5"},
+                {"Tiet 6"},
+                {"Tiet 7"},
+                {"Tiet 8"},
+                {"Tiet 9"},
+                {"Tiet 10"},
+                {"Tiet 11"},
+                {"Tiet 12"}
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
+        jScrollPane2.setViewportView(tietJTable);
+
+        keJButton.setText("Tuần kế");
+        keJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keJButtonActionPerformed(evt);
+            }
+        });
+
+        tuanJLabel.setText("Tuần");
+
+        thuJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ));
+        jScrollPane1.setViewportView(thuJTable);
+
+        nganhJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nganhJTextFieldActionPerformed(evt);
+            }
+        });
+
+        cuoiJButton.setText("Tuần cuối");
+        cuoiJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuoiJButtonActionPerformed(evt);
+            }
+        });
+
+        maJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maJTextFieldActionPerformed(evt);
+            }
+        });
+
+        tenJLabel.setText("Họ tên");
+
+        maJLabel.setText("Mã sinh viên");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(maJLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(tenJLabel)
+                                .addGap(37, 37, 37)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(maJTextField)
+                            .addComponent(tenJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(168, 168, 168)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lopJLabel)
+                                    .addComponent(nganhJLabel))
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nganhJTextField)
+                                    .addComponent(lopJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(tuanJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tuanJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(161, 161, 161)))
+                        .addGap(0, 179, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(dauJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(truocJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(keJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuoiJButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tenJLabel)
+                    .addComponent(tenJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lopJLabel)
+                    .addComponent(lopJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(maJLabel)
+                    .addComponent(maJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nganhJLabel)
+                    .addComponent(nganhJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tuanJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tuanJLabel))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dauJButton)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(truocJButton)
+                        .addComponent(keJButton)
+                        .addComponent(cuoiJButton)))
+                .addContainerGap())
+        );
+
+        truocJButton.getAccessibleContext().setAccessibleDescription("Tuan truoc");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void maJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maJTextFieldActionPerformed
+
+    private void nganhJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nganhJTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nganhJTextFieldActionPerformed
+
+    private void dauJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dauJButtonActionPerformed
+        setTuan(1);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dauJButtonActionPerformed
+
+    private void truocJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_truocJButtonActionPerformed
+        // TODO add your handling code here:
+        setTuan(this.tuan-1);
+    }//GEN-LAST:event_truocJButtonActionPerformed
+
+    private void keJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keJButtonActionPerformed
+        // TODO add your handling code here:
+        setTuan(this.tuan+1);
+    }//GEN-LAST:event_keJButtonActionPerformed
+
+    private void cuoiJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuoiJButtonActionPerformed
+        // TODO add your handling code here:
+        setTuan(16);
+    }//GEN-LAST:event_cuoiJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cuoiJButton;
+    private javax.swing.JButton dauJButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton keJButton;
+    private javax.swing.JLabel lopJLabel;
+    private javax.swing.JTextField lopJTextField;
+    private javax.swing.JLabel maJLabel;
+    private javax.swing.JTextField maJTextField;
+    private javax.swing.JLabel nganhJLabel;
+    private javax.swing.JTextField nganhJTextField;
+    private javax.swing.JLabel tenJLabel;
+    private javax.swing.JTextField tenJTextField;
+    private javax.swing.JTable thuJTable;
+    private javax.swing.JTable tietJTable;
+    private javax.swing.JButton truocJButton;
+    private javax.swing.JLabel tuanJLabel;
+    private javax.swing.JTextField tuanJTextField;
     // End of variables declaration//GEN-END:variables
 }

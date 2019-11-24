@@ -3,31 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/ImageIcon/logout.png</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/SinhVien/SinhVienComponent.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/SinhVien/LichCollumPanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/LichDisplayPanel.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/SVFrame.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/ListPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/RegisterPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/SVEditPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/SinhVien/LichHocComponent.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/ProfessorQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLEditController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/CoursePanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLViewController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/UtilityPanel/SvEditPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/LoginController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Model/Lich.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/LichHocComponent.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/SinhVien/SVViewController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/CourseQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/Components/CourseComponent.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/StudentQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/SVMainFrame.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/SinhVien/SVMainController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLMainController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/SVProfilePanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Model/Lich.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/SinhVienTimetablePanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/CoursePanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableStudentQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/GvDisplayPanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/QuanLiFrame.java</file>
         </group>
     </open-files>
 </project-private>
