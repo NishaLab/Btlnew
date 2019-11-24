@@ -34,9 +34,7 @@ public class SvDisplayPanel extends javax.swing.JPanel {
 
     public JPanel createSvList(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(sv.size()+1, 1, 0, 0));
-        SinhVienCollumPanel a = new SinhVienCollumPanel();
-        p1.add(a);
+        p1.setLayout(new GridLayout(sv.size(), 1, 0, 0));
         ArrayList<SinhVienComponent> list = new ArrayList<>();
         for (SinhVien sinh:sv) {
             SinhVienComponent tmp = new SinhVienComponent(sinh);

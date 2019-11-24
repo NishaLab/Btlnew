@@ -41,7 +41,7 @@ public class LichDisplayPanel extends javax.swing.JPanel {
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         ArrayList<LichHocComponent> list = new ArrayList<>();
-        LichCollumPanel a = new LichCollumPanel();
+        LichHocComponent a = new LichHocComponent();
         p1.add(a);
         for (Lich li:lich) {
             LichHocComponent tmp = new LichHocComponent(li);

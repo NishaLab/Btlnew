@@ -16,17 +16,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" min="-2" pref="817" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fe" green="fe" red="fe" type="rgb"/>
@@ -42,22 +42,21 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="idLabel1" min="-2" pref="87" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="nameLabel1" min="-2" pref="196" max="-2" attributes="0"/>
+                  <Component id="idLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="nameLabel" min="-2" pref="228" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="gvLabel1" min="-2" pref="168" max="-2" attributes="0"/>
+                  <Component id="gvLabel" min="-2" pref="168" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="roomLabel1" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="roomLabel" min="-2" pref="78" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="timeLabel1" min="-2" pref="115" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="startLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="timeLabel" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dayLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lichIDLabel" min="-2" pref="57" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="startLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="dayLabel" min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -66,14 +65,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nameLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="startLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="timeLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="roomLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lichIDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="gvLabel1" alignment="3" max="32767" attributes="0"/>
-                      <Component id="dayLabel1" alignment="3" max="32767" attributes="0"/>
+                      <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dayLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="startLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="gvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="roomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -81,44 +79,41 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="idLabel1">
+        <Component class="javax.swing.JLabel" name="idLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="M&#xe3; M&#xf4;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="nameLabel1">
+        <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="T&#xea;n M&#xf4;n"/>
+            <Property name="text" type="java.lang.String" value="                            T&#xea;n M&#xf4;n"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="timeLabel1">
+        <Component class="javax.swing.JLabel" name="timeLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Th&#x1edd;i gian"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="startLabel1">
+        <Component class="javax.swing.JLabel" name="startLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ti&#x1ebf;t b&#x1eaf;t &#x111;&#x1ea7;u"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="dayLabel1">
+        <Component class="javax.swing.JLabel" name="dayLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="gvLabel1">
+        <Component class="javax.swing.JLabel" name="gvLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Gi&#x1ea3;ng Vi&#xea;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="roomLabel1">
+        <Component class="javax.swing.JLabel" name="roomLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ph&#xf2;ng"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lichIDLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xe3; L&#x1ecb;ch"/>
           </Properties>
         </Component>
       </SubComponents>

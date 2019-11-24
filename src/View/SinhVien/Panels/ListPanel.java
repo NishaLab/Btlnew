@@ -16,7 +16,6 @@ import java.util.*;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import View.SinhVien.SVMainFrame;
-import javax.swing.JLabel;
 
 /**
  *
@@ -27,20 +26,16 @@ public class ListPanel extends javax.swing.JPanel {
     /**
      * Creates new form ListPanel
      */
-    public ListPanel(ArrayList<Lich> lich, SVMainFrame frame) {
+    public ListPanel(ArrayList<Lich> lich,SVMainFrame frame) {
         initComponents();
-        JScrollPane sp = new JScrollPane(pn(lich, frame));
-        JPanel p1 = new JPanel();
-        p1.add(sp);
-        setMainPanel(p1);
+        JScrollPane sp = new JScrollPane(pn(lich,frame));
+        add(sp);
 
     }
 
-    public JPanel pn(ArrayList<Lich> lich, SVMainFrame frame) {
+    public JPanel pn(ArrayList<Lich> lich,SVMainFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size()+1, 1, 0, 0));
-        LichHocComponent a = new LichHocComponent();
-        p1.add(a);
+        p1.setLayout(new GridLayout(lich.size(), 1, 0, 0));
         for (Lich lich1 : lich) {
             LichHocComponent tmp = new LichHocComponent(lich1);
             tmp.addMouseListener(new MouseAdapter() {
@@ -52,42 +47,20 @@ public class ListPanel extends javax.swing.JPanel {
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     tmp.setOpaque(true);
-                    tmp.setColorCustom(Color.CYAN);
+                    tmp.setBackground(Color.DARK_GRAY);
+                    tmp.setForeground(Color.CYAN);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
                     tmp.setOpaque(false);
-                    tmp.setColorCustom(Color.BLACK);
+                    tmp.setBackground(Color.WHITE);
+                    tmp.setForeground(Color.BLACK);
                 }
             });
             p1.add(tmp);
         }
         return p1;
-    }
-
-    public void setMainPanel(JPanel mainPanel) {
-        this.mainPanel.removeAll();
-        this.mainPanel.setLayout(new FlowLayout());
-        this.mainPanel.add(mainPanel);
-        this.mainPanel.revalidate();
-        this.mainPanel.repaint();
-    }
-
-    public JLabel getDeleteLabel() {
-        return deleteLabel;
-    }
-
-    public void setDeleteLabel(JLabel deleteLabel) {
-        this.deleteLabel = deleteLabel;
-    }
-
-    public JLabel getSaveLabel() {
-        return saveLabel;
-    }
-
-    public void setSaveLabel(JLabel saveLabel) {
-        this.saveLabel = saveLabel;
     }
 
     /**
@@ -99,76 +72,30 @@ public class ListPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        mainPanel = new javax.swing.JPanel();
-        deleteLabel = new javax.swing.JLabel();
-        saveLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        deleteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/delete.png"))); // NOI18N
-        deleteLabel.setText("Xóa Lịch");
-
-        saveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/course.png"))); // NOI18N
-        saveLabel.setText("Lưu Lịch");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(deleteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/QuanLi/ImageIcon/delete.png"))); // NOI18N
+        jLabel1.setText("Xóa Lịch");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(301, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 245, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel deleteLabel;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel saveLabel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

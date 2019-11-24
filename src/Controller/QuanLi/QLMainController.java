@@ -228,30 +228,4 @@ public class QLMainController {
             }
         });
     }
-    public void setLogoutLabelAction() {
-        JLabel logout = frame.getLogoutLabel1();
-        logout.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                logout.setOpaque(true);
-                logout.setBackground(Color.DARK_GRAY);
-                logout.setForeground(Color.CYAN);
-            }
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                frame.dispose();
-                LoginFrame a = new LoginFrame();
-                a.setVisible(true);
-                a.setLocationRelativeTo(null);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                logout.setOpaque(false);
-                logout.setBackground(Color.WHITE);
-                logout.setForeground(Color.BLACK);
-            }
-        });
-    }
 }
