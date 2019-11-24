@@ -27,67 +27,70 @@ public class LichCollumPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        idLabel = new javax.swing.JLabel();
-        nameLabel = new javax.swing.JLabel();
-        timeLabel = new javax.swing.JLabel();
-        startLabel = new javax.swing.JLabel();
-        dayLabel = new javax.swing.JLabel();
-        gvLabel = new javax.swing.JLabel();
-        roomLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        idLabel1 = new javax.swing.JLabel();
+        nameLabel1 = new javax.swing.JLabel();
+        timeLabel1 = new javax.swing.JLabel();
+        startLabel1 = new javax.swing.JLabel();
+        dayLabel1 = new javax.swing.JLabel();
+        gvLabel1 = new javax.swing.JLabel();
+        roomLabel1 = new javax.swing.JLabel();
+        lichIDLabel = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(254, 254, 254));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
+        jPanel2.setBackground(new java.awt.Color(254, 254, 254));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        idLabel.setText("Mã Môn");
+        idLabel1.setText("Mã Môn");
 
-        nameLabel.setText("                            Tên Môn");
-        nameLabel.setToolTipText("");
-        nameLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nameLabel1.setText("Tên Môn");
 
-        timeLabel.setText("Thời gian");
+        timeLabel1.setText("Thời gian");
 
-        startLabel.setText("Tiết bắt đầu");
+        startLabel1.setText("Tiết bắt đầu");
 
-        dayLabel.setText("Ngày");
+        dayLabel1.setText("Ngày");
 
-        gvLabel.setText("Giảng Viên");
+        gvLabel1.setText("Giảng Viên");
 
-        roomLabel.setText("Phòng");
+        roomLabel1.setText("Phòng");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(idLabel)
-                .addGap(18, 18, 18)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+        lichIDLabel.setText("Mã Lịch");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(idLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gvLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(roomLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(startLabel)
-                .addGap(18, 18, 18)
-                .addComponent(dayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(timeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(startLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dayLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lichIDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(nameLabel)
-                    .addComponent(dayLabel)
-                    .addComponent(startLabel)
-                    .addComponent(timeLabel)
-                    .addComponent(gvLabel)
-                    .addComponent(roomLabel))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel1)
+                    .addComponent(nameLabel1)
+                    .addComponent(startLabel1)
+                    .addComponent(timeLabel1)
+                    .addComponent(roomLabel1)
+                    .addComponent(lichIDLabel)
+                    .addComponent(gvLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dayLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -95,23 +98,24 @@ public class LichCollumPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel dayLabel;
-    private javax.swing.JLabel gvLabel;
-    private javax.swing.JLabel idLabel;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel roomLabel;
-    private javax.swing.JLabel startLabel;
-    private javax.swing.JLabel timeLabel;
+    private javax.swing.JLabel dayLabel1;
+    private javax.swing.JLabel gvLabel1;
+    private javax.swing.JLabel idLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lichIDLabel;
+    private javax.swing.JLabel nameLabel1;
+    private javax.swing.JLabel roomLabel1;
+    private javax.swing.JLabel startLabel1;
+    private javax.swing.JLabel timeLabel1;
     // End of variables declaration//GEN-END:variables
 }

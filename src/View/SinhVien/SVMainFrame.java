@@ -56,6 +56,8 @@ public class SVMainFrame extends javax.swing.JFrame {
     public void setLichChon(Lich lichChon) {
         this.lichChon = lichChon;
     }
+    
+    
     private ArrayList<Lich> listLich = new ArrayList<>();
     private ArrayList<MonHoc> listMon = new ArrayList<>();
     private ArrayList<GiangVien> listGV = new ArrayList<>();
@@ -82,8 +84,6 @@ public class SVMainFrame extends javax.swing.JFrame {
             this.listMon = cq.getMonHoc();
             ProfessorQuery pq = new ProfessorQuery();
             this.listGV = pq.getGiangVien();
-            TimetableStudentQuery tsq = new TimetableStudentQuery();
-            this.listLich = tsq.getTimeTable(listGV, listMon, a.getMaSv());
             getProfileLabel().setText(a.getTenSv());
         } catch (Exception e) {
             e.printStackTrace();
@@ -171,15 +171,15 @@ public class SVMainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timetableLabel)
+                .addComponent(timetableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lecturesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StudentLabel)
-                .addGap(0, 245, Short.MAX_VALUE))
+                .addGap(0, 288, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {StudentLabel, homeLabel, lecturesLabel, registerLabel, timetableLabel});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {StudentLabel, homeLabel, lecturesLabel, registerLabel});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +210,9 @@ public class SVMainFrame extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(48, 48, 48)
+                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(logoutLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -236,7 +236,7 @@ public class SVMainFrame extends javax.swing.JFrame {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 319, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +259,7 @@ public class SVMainFrame extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -400,6 +400,8 @@ public class SVMainFrame extends javax.swing.JFrame {
     public void setTimetableLabel(JLabel timetableLabel) {
         this.timetableLabel = timetableLabel;
     }
+    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel StudentLabel;
