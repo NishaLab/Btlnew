@@ -19,6 +19,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashSet;
 
 /**
  *
@@ -31,6 +32,15 @@ public class RegisterPanel extends javax.swing.JPanel {
      */
     private ArrayList<GiangVien> gv = new ArrayList();
     private ArrayList<Lich> listLich = new ArrayList<>();
+    private HashSet<Lich> setLich = new HashSet<>();
+
+    public HashSet<Lich> getSetLich() {
+        return setLich;
+    }
+
+    public void setSetLich(HashSet<Lich> setLich) {
+        this.setLich = setLich;
+    }
 
     public RegisterPanel(SVMainFrame frame) throws SQLException {
         initComponents();
@@ -58,7 +68,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 919, Short.MAX_VALUE)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,12 +95,11 @@ public class RegisterPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(auxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(showButton)
-                        .addGap(0, 296, Short.MAX_VALUE)))
+                        .addComponent(showButton)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,11 +118,13 @@ public class RegisterPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -154,6 +165,10 @@ public class RegisterPanel extends javax.swing.JPanel {
     }
 
     public void saveCourse(Lich e) {
+        this.setLich.add(e);
+    }
+
+    public void saveCourse2(Lich e) {
         this.listLich.add(e);
     }
 
@@ -168,7 +183,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        p2.setLayout(new GridLayout(lich.size(), 1, 0, 0));
+
+        p2.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
+        p2.add(new LichHocComponent());
         for (Lich lich1 : lich) {
             LichHocComponent tmp = new LichHocComponent(lich1);
             tmp.addMouseListener(new MouseAdapter() {
@@ -177,6 +194,7 @@ public class RegisterPanel extends javax.swing.JPanel {
                     if (JOptionPane.showConfirmDialog(null, "Ban co muon them Lich " + lich1.getTen() + " " + lich1.getIdLich(),
                             "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
                         saveCourse(lich1);
+                        saveCourse2(lich1);
                         System.out.println(lich1);
                     }
 

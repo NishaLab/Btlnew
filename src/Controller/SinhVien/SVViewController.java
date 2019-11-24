@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import DAO.*;
+import java.util.HashSet;
 
 /**
  *
@@ -58,7 +59,8 @@ public class SVViewController {
     }
 
     public SinhVienTimetablePanel setTimetableViewAction() {
-        SinhVienTimetablePanel svtp = new SinhVienTimetablePanel(frame.getListLich(),frame.getSv());
+        ArrayList<Lich> list = new ArrayList<>(frame.getSetLich());
+        SinhVienTimetablePanel svtp = new SinhVienTimetablePanel(list, frame.getSv());
         // bắt sự kiện ở đây
         return svtp;
     }
@@ -137,10 +139,13 @@ public class SVViewController {
         show.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ArrayList<Lich> lich = rp.getListLich();
-                ArrayList<Lich> lich2 = frame.getListLich();
+                ArrayList<Lich> moi = rp.getListLich();
+                frame.setListLichMoi(moi);
+//                ArrayList<Lich> lich2 = frame.getListLich();
+                HashSet<Lich> lich = rp.getSetLich();
+                HashSet<Lich> lich2 = frame.getSetLich();
                 lich2.addAll(lich);
-                frame.setListLich(lich2);
+                frame.setSetLich(lich2);
                 ListTimetableView();
             }
         });
@@ -148,7 +153,7 @@ public class SVViewController {
     }
 
     public void ListTimetableView() {
-        ArrayList<Lich> lich = frame.getListLich();
+        HashSet<Lich> lich = frame.getSetLich();
         ListPanel lp = setListTimetableViewAction(lich);
         main.removeAll();
         setMainPanel(lp);
@@ -156,7 +161,7 @@ public class SVViewController {
         main.repaint();
     }
 
-    public ListPanel setListTimetableViewAction(ArrayList<Lich> lich) {
+    public ListPanel setListTimetableViewAction(HashSet<Lich> lich) {
         ListPanel lp = new ListPanel(lich, frame);
         JLabel delete = lp.getDeleteLabel();
         delete.addMouseListener(new MouseAdapter() {
@@ -188,7 +193,7 @@ public class SVViewController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 TimetableStudentQuery tsq = new TimetableStudentQuery();
-                for (Lich lich1 : lich) {
+                for (Lich lich1 : frame.getListLichMoi()) {
                     tsq.addTimetable(frame.getSv().getMaSv(), lich1.getIdLich());
                 }
             }
