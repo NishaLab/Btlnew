@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import Model.*;
 import java.sql.*;
+
 /**
  *
  * @author LEGION
@@ -36,7 +37,7 @@ public class TimetableStudentQuery {
         }
     }
 
-    public ArrayList<Lich> getTimeTable(ArrayList<GiangVien> gv,ArrayList<MonHoc>mh, int svId) {
+    public ArrayList<Lich> getTimeTable(ArrayList<GiangVien> gv, ArrayList<MonHoc> mh, int svId) {
         ArrayList<Lich> res = new ArrayList<>();
         try {
             String sql = "SELECT * FROM realbtl.timetable WHERE idS = ?";
@@ -44,7 +45,7 @@ public class TimetableStudentQuery {
             ps.setInt(1, svId);
             ResultSet rs = ps.executeQuery();
             TimetableQuery tq = new TimetableQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 int lichID = rs.getInt(2);
                 res.add(tq.get1Lich(mh, gv, lichID));
             }
@@ -52,6 +53,21 @@ public class TimetableStudentQuery {
             e.printStackTrace();
         }
         return res;
+    }
+
+    public void deleteTimeTable(Lich a, SinhVien sv) {
+        try {
+            String sql = "DELETE  FROM realbtl.timetable WHERE idS = ? AND idC=?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, sv.getMaSv());
+            ps.setInt(2, a.getIdLich());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Xoa Lich " + a.getIdLich() + " thanh cong");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Xoa Lich " + a.getIdLich() + " thanh cong");
+
+        }
     }
 
 }

@@ -44,6 +44,7 @@ public class QLMainController {
         setAddLabelAction();
         setEditLableAction();
         setDeleteLableAction();
+        setLogoutLabelAction();
     }
 
     void setStudentLabelAction() {

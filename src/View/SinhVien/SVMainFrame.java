@@ -69,12 +69,14 @@ public class SVMainFrame extends javax.swing.JFrame {
     }
     private ArrayList<MonHoc> listMon = new ArrayList<>();
     private ArrayList<GiangVien> listGV = new ArrayList<>();
-    private HashSet<Lich> setLich = new HashSet<>();
+    private HashSet<Lich> setLich = new HashSet<Lich>();
 
     public HashSet<Lich> getSetLich() {
         return setLich;
     }
-
+    public void addSet(Lich e){
+        this.setLich.add(e);
+    }
     public void setSetLich(HashSet<Lich> setLich) {
         this.setLich = setLich;
     }
@@ -258,7 +260,7 @@ public class SVMainFrame extends javax.swing.JFrame {
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 391, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,8 +284,8 @@ public class SVMainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();

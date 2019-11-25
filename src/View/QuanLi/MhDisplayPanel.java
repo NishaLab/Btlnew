@@ -7,7 +7,6 @@ package View.QuanLi;
 
 import Model.*;
 import Controller.QuanLi.*;
-import View.QuanLi.SinhVien.MonHocCollumPanel;
 import View.QuanLi.SinhVien.MonHocComponent1;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -31,16 +30,19 @@ public class MhDisplayPanel extends javax.swing.JPanel {
      */
     public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh, frame));
+        setLayout(new BorderLayout());
+        JScrollPane sp = new JScrollPane(createMhList(mh, frame),
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
+    public JPanel createMhList(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(mh.size()+1, 1, 0, 0));
-        MonHocCollumPanel b = new MonHocCollumPanel();
+        p1.setLayout(new GridLayout(mh.size() + 1, 1, 1, 1));
+        MonHocComponent1 b = new MonHocComponent1();
         p1.add(b);
+
         for (MonHoc a : mh) {
             MonHocComponent1 tmp = new MonHocComponent1(a);
             p1.add(tmp);
@@ -48,9 +50,13 @@ public class MhDisplayPanel extends javax.swing.JPanel {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     if (tmp.isClick() == false) {
-                        frame.setMh(a);
-                        tmp.setColorCustom(Color.red);
-                        tmp.setClick(true);
+                        if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon Mon Hoc " + a.getTenMon() + " " + a.getMaMon(),
+                                "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                            frame.setMh(a);
+                            tmp.setColorCustom(Color.red);
+                            tmp.setClick(true);
+                        }
+
                     } else if (tmp.isClick()) {
                         QLViewController qvc = new QLViewController(frame);
                         try {
@@ -64,8 +70,23 @@ public class MhDisplayPanel extends javax.swing.JPanel {
                         }
                     }
                 }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    tmp.setOpaque(true);
+                    tmp.setBackground(Color.DARK_GRAY);
+                    tmp.setColorCustom(Color.CYAN);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    tmp.setOpaque(false);
+                    tmp.setBackground(Color.WHITE);
+                    tmp.setColorCustom(Color.BLACK);
+                }
             });
         }
+
         return p1;
     }
 

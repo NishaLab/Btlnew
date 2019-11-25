@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import View.SinhVien.SVMainFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,18 +28,20 @@ public class ListPanel extends javax.swing.JPanel {
     /**
      * Creates new form ListPanel
      */
-    public ListPanel(HashSet<Lich> lich, SVMainFrame frame) {
+    public ListPanel(SVMainFrame frame) {
         initComponents();
-        JScrollPane sp = new JScrollPane(pn(lich, frame));
+        JScrollPane sp = new JScrollPane(pn(frame));
         JPanel p1 = new JPanel();
         p1.add(sp);
         setMainPanel(p1);
 
     }
 
-    public JPanel pn(HashSet<Lich> lich, SVMainFrame frame) {
+    public JPanel pn(SVMainFrame frame) {
+        HashSet<Lich> lich2 = frame.getSetLich();
+        ArrayList<Lich> lich = new ArrayList<>(lich2);
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size()+1, 1, 0, 0));
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         LichHocComponent a = new LichHocComponent();
         p1.add(a);
         for (Lich lich1 : lich) {
@@ -46,21 +49,27 @@ public class ListPanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    frame.setLichChon(lich1);
+                    if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon Lich " + lich1.getTen()+ " " + lich1.getIdLich(),
+                            "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                        frame.setLichChon(lich1);
+                    }
                 }
 
                 @Override
-                public void mouseEntered(MouseEvent e) {
+                public void mouseEntered(MouseEvent e
+                ) {
                     tmp.setOpaque(true);
                     tmp.setColorCustom(Color.CYAN);
                 }
 
                 @Override
-                public void mouseExited(MouseEvent e) {
+                public void mouseExited(MouseEvent e
+                ) {
                     tmp.setOpaque(false);
                     tmp.setColorCustom(Color.BLACK);
                 }
-            });
+            }
+            );
             p1.add(tmp);
         }
         return p1;

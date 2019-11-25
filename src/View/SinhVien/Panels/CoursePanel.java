@@ -9,6 +9,7 @@ import Model.MonHoc;
 import Controller.SinhVien.*;
 import View.SinhVien.*;
 import View.SinhVien.Panels.Components.CourseComponent;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -30,23 +31,22 @@ public class CoursePanel extends javax.swing.JPanel {
     /**
      * Creates new form CoursePanel
      */
-    public CoursePanel(ArrayList<MonHoc> mh,RegisterPanel reg) throws SQLException {
+    public CoursePanel(ArrayList<MonHoc> mh, RegisterPanel reg,SVMainFrame frame) throws SQLException {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh,reg));
-        add(sp);
+        setLayout(new BorderLayout());
+        add(createMhList(mh, reg,frame));
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh,RegisterPanel reg) throws SQLException {
+    public static JPanel createMhList(ArrayList<MonHoc> mh, RegisterPanel reg,SVMainFrame frame) throws SQLException {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(mh.size(), 1, 0, 0));
+        p1.setLayout(new GridLayout(mh.size(), 1, 1, 1));
         for (MonHoc a : mh) {
             CourseComponent tmp = new CourseComponent(a);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    reg.createMainPanel(a);
+                    reg.createMainPanel(a,frame);
                 }
 
                 @Override

@@ -29,21 +29,25 @@ public class LichDisplayPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public LichDisplayPanel(ArrayList<Lich> lich,QuanLiFrame frame) {
+    public LichDisplayPanel(ArrayList<Lich> lich, QuanLiFrame frame) {
         initComponents();
-                setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
 
-        JScrollPane sp = new JScrollPane(createLichList(lich,frame));
+        JScrollPane sp = new JScrollPane(createLichList(lich, frame), 
+                
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        
         add(sp);
     }
 
-    public JPanel createLichList(ArrayList<Lich> lich,QuanLiFrame frame) {
+    public JPanel createLichList(ArrayList<Lich> lich, QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 1, 1));
         ArrayList<LichHocComponent> list = new ArrayList<>();
-        LichCollumPanel a = new LichCollumPanel();
+        LichHocComponent a = new LichHocComponent();
         p1.add(a);
-        for (Lich li:lich) {
+        for (Lich li : lich) {
             LichHocComponent tmp = new LichHocComponent(li);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
@@ -55,6 +59,9 @@ public class LichDisplayPanel extends javax.swing.JPanel {
                 }
             });
         }
+        
+        
+        
         return p1;
     }
 

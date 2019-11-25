@@ -5,13 +5,14 @@
  */
 package Model;
 
+import java.util.HashSet;
 import java.util.Objects;
 
 /**
  *
  * @author LEGION
  */
-public class Lich {
+public class Lich extends HashSet<Object> {
 
     public int getIdLich() {
         return idLich;
@@ -105,49 +106,102 @@ public class Lich {
         this.idMon = idMon;
     }
 
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            System.out.println("YEs 1");
+//            return true;
+//        }
+//        if (obj == null) {
+//            System.out.println("yes 2");
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            System.out.println("yes 3");
+//            return false;
+//        }
+//        Lich other = (Lich) obj;
+//        if (this.time == null) {
+//            if (other.time != null) {
+//                System.out.println("yes 4");
+//                return false;
+//            }
+//        } else if (!this.time.equalsIgnoreCase(other.time)) {
+//            if (this.day == other.day && this.start == other.start) {
+//                for (int i = 0; i < time.length(); i++) {
+//                    if (this.time.charAt(i) != 'x' && other.time.charAt(i)!='x') {
+//                        System.out.println(i + " " + this.time.charAt(i) + " " + other.time.charAt(i));
+//                        return true;
+//                    }
+//                }
+//                return false;
+//            }
+//        }
+//        if (this.day != other.day) {
+//            System.out.println("yes 5");
+//            return false;
+//        }
+//        if (this.start != other.start) {
+//            System.out.println("yes 6");
+//            return false;
+//        }
+//        return true;
+//    }
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + this.idMon;
-        hash = 59 * hash + this.idLich;
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.time);
+        hash = 53 * hash + this.start;
+        hash = 53 * hash + this.day;
+        hash = 53 * hash + this.idLich;
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
+            System.out.println("yes 1");
             return true;
         }
         if (obj == null) {
+            System.out.println("yes 2");
+
             return false;
         }
         if (getClass() != obj.getClass()) {
+            System.out.println("yes 3");
+
             return false;
         }
         final Lich other = (Lich) obj;
-        if (this.idMon == other.idMon) {
-            return true;
-        }
-        if (Math.abs(this.start - other.start) < 2) {
+        if (this.start != other.start) {
+            System.out.println("yes 4");
+
             return false;
         }
         if (this.day != other.day) {
+            System.out.println("yes 5");
+
             return false;
         }
-        if (this.idLich != other.idLich) {
-            return false;
-        }
+
         if (!Objects.equals(this.time, other.time)) {
-            if (this.day == other.day && this.start == other.start) {
-                for (int i = 0; i < this.time.length(); i++) {
-                    if (this.time.charAt(i) != 'x' && other.time.charAt(i) != 'x') {
-                        return true;
-                    }
+            System.out.println("yes 7");
+            for (int i = 0; i < time.length(); i++) {
+                if (time.charAt(i) != 'x' && other.time.charAt(i) != 'x') {
+                    System.out.println(i + " " + time.charAt(i) + " " + other.time.charAt(i));
+                    return true;
                 }
-                return false;
             }
             return false;
         }
+        if (this.idLich != other.idLich) {
+            System.out.println("yes 6");
+
+            return false;
+        }
+        System.out.println("yes 8");
+
         return true;
     }
 
