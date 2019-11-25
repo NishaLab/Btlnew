@@ -3,68 +3,65 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.SinhVien.Panels;
+package View.QuanLi;
 
-import Model.MonHoc;
-import Controller.SinhVien.*;
-import View.SinhVien.*;
-import View.SinhVien.Panels.Components.CourseComponent;
+import Model.*;
+import View.QuanLi.SinhVien.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 /**
  *
  * @author LEGION
  */
-public class CoursePanel extends javax.swing.JPanel {
+public class LichDisplayPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CoursePanel
+     * Creates new form LichDisplayPanel
      */
-    public CoursePanel(ArrayList<MonHoc> mh, RegisterPanel reg) throws SQLException {
+    public LichDisplayPanel() {
         initComponents();
-        setLayout(new BorderLayout());
-        add(createMhList(mh, reg));
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh, RegisterPanel reg) throws SQLException {
+    public LichDisplayPanel(ArrayList<Lich> lich, QuanLiFrame frame) {
+        initComponents();
+        setLayout(new BorderLayout());
+
+        JScrollPane sp = new JScrollPane(createLichList(lich, frame), 
+                
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        
+        add(sp);
+    }
+
+    public JPanel createLichList(ArrayList<Lich> lich, QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(mh.size(), 1, 1, 1));
-        for (MonHoc a : mh) {
-            CourseComponent tmp = new CourseComponent(a);
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 1, 1));
+        ArrayList<LichHocComponent> list = new ArrayList<>();
+        LichHocComponent a = new LichHocComponent();
+        p1.add(a);
+        for (Lich li : lich) {
+            LichHocComponent tmp = new LichHocComponent(li);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    reg.createMainPanel(a);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
+                    frame.setLich(li);
                     tmp.setOpaque(true);
-                    tmp.setBackground(Color.DARK_GRAY);
-                    tmp.setForeground(Color.CYAN);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    tmp.setOpaque(false);
-                    tmp.setBackground(Color.WHITE);
-                    tmp.setForeground(Color.BLACK);
+                    tmp.setColorCustom(Color.RED);
                 }
             });
-
         }
+        
+        
+        
         return p1;
     }
 

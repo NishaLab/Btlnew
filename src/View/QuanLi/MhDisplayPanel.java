@@ -3,68 +3,73 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View.SinhVien.Panels;
+package View.QuanLi;
 
-import Model.MonHoc;
-import Controller.SinhVien.*;
-import View.SinhVien.*;
-import View.SinhVien.Panels.Components.CourseComponent;
+import Model.*;
+import Controller.QuanLi.*;
+import View.QuanLi.SinhVien.MonHocComponent1;
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.*;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 /**
  *
  * @author LEGION
  */
-public class CoursePanel extends javax.swing.JPanel {
+public class MhDisplayPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form CoursePanel
+     * Creates new form MhDisplayPanel
      */
-    public CoursePanel(ArrayList<MonHoc> mh, RegisterPanel reg) throws SQLException {
+    public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
         setLayout(new BorderLayout());
-        add(createMhList(mh, reg));
+        JScrollPane sp = new JScrollPane(createMhList(mh, frame), 
+                
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        add(sp);
     }
 
-    public static JPanel createMhList(ArrayList<MonHoc> mh, RegisterPanel reg) throws SQLException {
+    public JPanel createMhList(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(mh.size(), 1, 1, 1));
+        p1.setLayout(new GridLayout(mh.size()+1, 1, 1, 1));
+        MonHocComponent1 b = new MonHocComponent1();
+        p1.add(b);
+        
         for (MonHoc a : mh) {
-            CourseComponent tmp = new CourseComponent(a);
+            MonHocComponent1 tmp = new MonHocComponent1(a);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    reg.createMainPanel(a);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    tmp.setOpaque(true);
-                    tmp.setBackground(Color.DARK_GRAY);
-                    tmp.setForeground(Color.CYAN);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    tmp.setOpaque(false);
-                    tmp.setBackground(Color.WHITE);
-                    tmp.setForeground(Color.BLACK);
+                    if (tmp.isClick() == false) {
+                        frame.setMh(a);
+                        tmp.setColorCustom(Color.red);
+                        tmp.setClick(true);
+                    } else if (tmp.isClick()) {
+                        QLViewController qvc = new QLViewController(frame);
+                        try {
+                            qvc.setCourseDetail(a);
+                            frame.setIsStudent(false);
+                            frame.setIsCourse(false);
+                            frame.setIsProfessor(false);
+                            frame.setIsCourseDetail(true);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MhDisplayPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
                 }
             });
-
         }
+        
         return p1;
     }
 

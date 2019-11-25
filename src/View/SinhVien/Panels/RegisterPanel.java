@@ -15,7 +15,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.*;
 import DAO.*;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -47,7 +49,8 @@ public class RegisterPanel extends javax.swing.JPanel {
         gv = frame.getListGV();
         ArrayList<MonHoc> mh = frame.getListMon();
         CoursePanel cp = new CoursePanel(mh, this);
-        setAuxPanel(cp);
+        JScrollPane sp = new JScrollPane(cp, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        setAuxPanel(sp);
     }
 
     /**
@@ -64,28 +67,33 @@ public class RegisterPanel extends javax.swing.JPanel {
         showButton = new javax.swing.JButton();
         auxPanel = new javax.swing.JPanel();
 
+        mainPanel.setPreferredSize(new java.awt.Dimension(800, 300));
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 919, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 169, Short.MAX_VALUE)
         );
 
         showButton.setText("DS Đăng kí");
+
+        auxPanel.setAutoscrolls(true);
+        auxPanel.setPreferredSize(new java.awt.Dimension(300, 250));
 
         javax.swing.GroupLayout auxPanelLayout = new javax.swing.GroupLayout(auxPanel);
         auxPanel.setLayout(auxPanelLayout);
         auxPanelLayout.setHorizontalGroup(
             auxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 266, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         auxPanelLayout.setVerticalGroup(
             auxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -95,23 +103,23 @@ public class RegisterPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(auxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(showButton)))
-                .addContainerGap())
+                        .addComponent(showButton))
+                    .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(auxPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(auxPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(showButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -119,12 +127,13 @@ public class RegisterPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,9 +145,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         return listLich;
     }
 
-    public void setAuxPanel(JPanel auxPanel) {
+    public void setAuxPanel(JScrollPane auxPanel) {
         this.auxPanel.removeAll();
-        this.auxPanel.setLayout(new FlowLayout());
+        this.auxPanel.setLayout(new BorderLayout());
         this.auxPanel.add(auxPanel);
         this.auxPanel.revalidate();
         this.auxPanel.repaint();
@@ -148,9 +157,9 @@ public class RegisterPanel extends javax.swing.JPanel {
         return mainPanel;
     }
 
-    public void setMainPanel(JPanel mainPanel) {
+    public void setMainPanel(JScrollPane mainPanel) {
         this.mainPanel.removeAll();
-        this.mainPanel.setLayout(new FlowLayout());
+        this.mainPanel.setLayout(new BorderLayout());
         this.mainPanel.add(mainPanel);
         this.mainPanel.revalidate();
         this.mainPanel.repaint();
@@ -217,9 +226,10 @@ public class RegisterPanel extends javax.swing.JPanel {
             p2.add(tmp);
 
         }
-        JScrollPane sp = new JScrollPane(p2);
-        p1.add(sp);
-        setMainPanel(p1);
+        JScrollPane sp = new JScrollPane(p2,
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        setMainPanel(sp);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
