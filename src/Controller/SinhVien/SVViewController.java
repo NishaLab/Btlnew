@@ -205,8 +205,28 @@ public class SVViewController {
                 HashSet<Lich> lich1 = rp.getSetLich();
                 HashSet<Lich> lich2 = frame.getSetLich();
                 lich2.addAll(lich1);
-                frame.setSetLich(lich2);
+                ArrayList<Lich> tbl = new ArrayList<>(lich2);
+                HashSet<Integer> set = new HashSet<>();
+                for (int i = 0; i < tbl.size() - 1; i++) {
+                    for (int j = i + 1; j < tbl.size(); j++) {
+                        if (tbl.get(i).getStart() == tbl.get(j).getStart() && tbl.get(i).getDay()== tbl.get(j).getDay()) {
+                            for(int k=0;k<tbl.get(i).getTime().length();k++){
+                                if(tbl.get(i).getTime().charAt(k)!='x'&&tbl.get(j).getTime().charAt(k)== tbl.get(i).getTime().charAt(k)){
+                                    set.add(j);
+                                }
+                            }
+                        }
+                    }
+                }
+                ArrayList<Integer> xoa = new ArrayList<>(set);
+                for(int i =0;i<xoa.size();i++){
+                    int tmp = xoa.get(i);
+                    tbl.remove(tmp);
+                }
+                HashSet<Lich> data = new HashSet<>(tbl);
+                frame.setSetLich(data);
                 ListTimetableView();
+
             }
         });
         return rp;
