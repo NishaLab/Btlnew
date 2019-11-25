@@ -8,9 +8,12 @@ package View.SinhVien.Panels;
 import Model.*;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.io.*;
+import javax.swing.Icon;
 
 /**
  *
@@ -33,6 +36,20 @@ public class SVProfilePanel extends javax.swing.JPanel {
         getPhoneField().setText(a.getSdt());
         getDobField().setText(a.getDob().toString());
         getGenderIcon().setText(a.getGioitinh());
+        File file = new File("src/View/SinhVien/ProfilePicture/" + a.getMaSv() + ".png");
+        if (file.exists()) {
+            ImageIcon icon = new ImageIcon("src/View/SinhVien/ProfilePicture/" + a.getMaSv() + ".png");
+            Image image = icon.getImage();
+            Image newimg = image.getScaledInstance(222, 222, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon real = new ImageIcon(newimg);
+            getProfileLabel().setIcon(real);
+        } else {
+            ImageIcon icon = new ImageIcon("src/View/SinhVien/ProfilePicture/default.png");
+            Image image = icon.getImage();
+            Image newimg = image.getScaledInstance(222, 222, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon real = new ImageIcon(newimg);
+            getProfileLabel().setIcon(real);
+        }
     }
 
     /**

@@ -85,7 +85,7 @@ public class GiangVienCollumPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,18 +96,11 @@ public class GiangVienCollumPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JLabel addressLabel1;
     private javax.swing.JLabel dobLabel;
-    private javax.swing.JLabel dobLabel1;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JLabel idLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel phoneLabel;
-    private javax.swing.JLabel phoneLabel1;
     private javax.swing.JLabel sexLabel;
-    private javax.swing.JLabel sexLabel1;
     // End of variables declaration//GEN-END:variables
 }

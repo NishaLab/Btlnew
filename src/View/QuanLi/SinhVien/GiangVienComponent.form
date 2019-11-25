@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -76,22 +76,22 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="idLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CNTT001"/>
+            <Property name="text" type="java.lang.String" value="M&#xe3; GV"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nguy&#x1ec5;n G&#xec; G&#xec; &#x110;&#xf3;"/>
+            <Property name="text" type="java.lang.String" value="H&#x1ecd; T&#xea;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="phoneLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="09125125125"/>
+            <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="addressLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="H&#xe0; N&#x1ed9;i"/>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dobLabel">

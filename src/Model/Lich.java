@@ -134,10 +134,8 @@ public class Lich {
         if (this.day != other.day) {
             return false;
         }
-        if (this.idLich != other.idLich) {
-            return false;
-        }
-        if (!Objects.equals(this.time, other.time)) {
+
+        if (this.time.equalsIgnoreCase(other.time)==true) {
             if (this.day == other.day && this.start == other.start) {
                 for (int i = 0; i < this.time.length(); i++) {
                     if (this.time.charAt(i) != 'x' && other.time.charAt(i) != 'x') {
@@ -146,8 +144,8 @@ public class Lich {
                 }
                 return false;
             }
-            return false;
         }
+
         return true;
     }
 

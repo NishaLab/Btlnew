@@ -178,7 +178,7 @@ public class LoginController {
     }
 
     public void addSV(String usr, String pswrd, SinhVien a) {
-        String sql = "INSERT INTO realbtl.user(username,password) VALUES (?,?)";
+        String sql = "INSERT INTO realbtl.user(usr,pswd) VALUES (?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usr);

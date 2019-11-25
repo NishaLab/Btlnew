@@ -59,13 +59,13 @@ public class GiangVienComponent extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
 
-        idLabel.setText("CNTT001");
+        idLabel.setText("Mã GV");
 
-        nameLabel.setText("Nguyễn Gì Gì Đó");
+        nameLabel.setText("Họ Tên");
 
-        phoneLabel.setText("09125125125");
+        phoneLabel.setText("Số điện thoại");
 
-        addressLabel.setText("Hà Nội");
+        addressLabel.setText("Địa chỉ");
 
         dobLabel.setText("01/01/1999");
 
@@ -106,7 +106,7 @@ public class GiangVienComponent extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,27 +173,11 @@ public class GiangVienComponent extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JLabel addressLabel1;
-    private javax.swing.JLabel dayLabel1;
     private javax.swing.JLabel dobLabel;
-    private javax.swing.JLabel dobLabel1;
-    private javax.swing.JLabel gvLabel1;
     private javax.swing.JLabel idLabel;
-    private javax.swing.JLabel idLabel1;
-    private javax.swing.JLabel idLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lichIDLabel;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameLabel1;
-    private javax.swing.JLabel nameLabel2;
     private javax.swing.JLabel phoneLabel;
-    private javax.swing.JLabel phoneLabel1;
-    private javax.swing.JLabel roomLabel1;
     private javax.swing.JLabel sexLabel;
-    private javax.swing.JLabel sexLabel1;
-    private javax.swing.JLabel startLabel1;
-    private javax.swing.JLabel timeLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,7 +26,12 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import DAO.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashSet;
+import javax.swing.JFileChooser;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -52,8 +57,11 @@ public class SVViewController {
 
     public void setTimetableView() {
         SinhVienTimetablePanel svtp = setTimetableViewAction();
+        JScrollPane sp = new JScrollPane(svtp);
+        JPanel p2 = new JPanel();
+        p2.add(sp);
         main.removeAll();
-        setMainPanel(svtp);
+        setMainPanel(p2);
         main.revalidate();
         main.repaint();
     }
@@ -122,7 +130,59 @@ public class SVViewController {
 
             }
         });
+        JButton choose = sep.getChooseBtt();
+        JFileChooser file = new JFileChooser();
+        choose.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int returnval = file.showOpenDialog(null);
+                if (returnval == JFileChooser.APPROVE_OPTION) {
+                    java.io.File tmp = file.getSelectedFile();
+                    String path = tmp.getPath();
+                    String fname = "C:\\Users\\LEGION\\Documents\\NetBeansProjects\\BaiTapLon\\src\\View\\SinhVien\\ProfilePicture\\" + frame.getSv().getMaSv() + ".png";
+                    System.out.println(path);
+                    try {
+                        write_image_to_source(path, fname);
+                    } catch (Exception f) {
+                        f.printStackTrace();
+                    }
+                }
+            }
+        });
         return sep;
+    }
+
+    public void write_image_to_source(String absPath, String fileName) throws IOException {
+//        String resultPath = "src/View/SinhVien/ProfilePictures/"+fileName ;
+//        FileOutputStream fos = new FileOutputStream(new java.io.File(resultPath));
+//        FileInputStream fis = new FileInputStream(new java.io.File(absPath));
+//        byte[] buf = new byte[1024];
+//        int hasRead = 0;
+//        while ((hasRead = fis.read(buf)) > 0) {
+//            fos.write(buf, 0, hasRead);
+//            System.out.println("Yes");
+//        }
+//        fis.close();
+//        fos.close();
+        try {
+            System.out.println(fileName);
+            FileInputStream fis = new FileInputStream(new java.io.File(absPath));
+            FileOutputStream fos = new FileOutputStream(new java.io.File(fileName));
+            byte[] buffer = new byte[1024];
+            int length;
+            //copy the file content in bytes 
+            while ((length = fis.read(buffer)) > 0) {
+
+                fos.write(buffer, 0, length);
+
+            }
+            fis.close();
+            fos.close();
+            System.out.println("File copied");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void setRegisterView() throws SQLException {

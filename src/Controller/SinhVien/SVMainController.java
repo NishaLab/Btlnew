@@ -30,6 +30,7 @@ public class SVMainController {
         setLogoutLabelAction();
         setProfileLabelAction();
         setRegisterLabelAction();
+        setStudenLabelAction();
     }
 
     public void setTimetableLabelAction() {
@@ -146,6 +147,30 @@ public class SVMainController {
             }
         });
     }
-    
-    
+
+    void setStudenLabelAction() {
+        JLabel profile = frame.getStudentLabel();
+        profile.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                profile.setOpaque(true);
+                profile.setBackground(Color.DARK_GRAY);
+                profile.setForeground(Color.CYAN);
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                SVViewController ctr = new SVViewController(frame);
+                ctr.setProfileView();
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                profile.setOpaque(false);
+                profile.setBackground(Color.WHITE);
+                profile.setForeground(Color.BLACK);
+            }
+        });
+    }
 }
