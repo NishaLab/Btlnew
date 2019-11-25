@@ -124,28 +124,28 @@ public class Lich {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Lich other = (Lich) obj;
-        if (this.idMon == other.idMon) {
-            return true;
-        }
-        if (Math.abs(this.start - other.start) < 2) {
-            return false;
-        }
-        if (this.day != other.day) {
-            return false;
-        }
-
-        if (this.time.equalsIgnoreCase(other.time)==true) {
-            if (this.day == other.day && this.start == other.start) {
-                for (int i = 0; i < this.time.length(); i++) {
-                    if (this.time.charAt(i) != 'x' && other.time.charAt(i) != 'x') {
+        Lich other = (Lich) obj;
+        if (time == null) {
+            if (other.time != null) {
+                return false;
+            }
+        } else if (!time.equals(other.time)) {
+            if (day == other.day && start == other.start) {
+                for (int i = 0; i < time.length(); i++) {
+                    if (time.charAt(i) != 'x' && time.charAt(i) == other.time.charAt(i)) {
+                        System.out.println(i + " " + time.charAt(i) + " " + other.time.charAt(i));
                         return true;
                     }
                 }
                 return false;
             }
         }
-
+        if (day != other.day) {
+            return false;
+        }
+        if (start != other.start) {
+            return false;
+        }
         return true;
     }
 

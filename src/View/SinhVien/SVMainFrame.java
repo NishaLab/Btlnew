@@ -69,12 +69,14 @@ public class SVMainFrame extends javax.swing.JFrame {
     }
     private ArrayList<MonHoc> listMon = new ArrayList<>();
     private ArrayList<GiangVien> listGV = new ArrayList<>();
-    private HashSet<Lich> setLich = new HashSet<>();
+    private HashSet<Lich> setLich = new HashSet<Lich>();
 
     public HashSet<Lich> getSetLich() {
         return setLich;
     }
-
+    public void addSet(Lich e){
+        this.setLich.add(e);
+    }
     public void setSetLich(HashSet<Lich> setLich) {
         this.setLich = setLich;
     }

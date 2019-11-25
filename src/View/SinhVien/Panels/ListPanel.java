@@ -28,16 +28,18 @@ public class ListPanel extends javax.swing.JPanel {
     /**
      * Creates new form ListPanel
      */
-    public ListPanel(HashSet<Lich> lich, SVMainFrame frame) {
+    public ListPanel(SVMainFrame frame) {
         initComponents();
-        JScrollPane sp = new JScrollPane(pn(lich, frame));
+        JScrollPane sp = new JScrollPane(pn(frame));
         JPanel p1 = new JPanel();
         p1.add(sp);
         setMainPanel(p1);
 
     }
 
-    public JPanel pn(HashSet<Lich> lich, SVMainFrame frame) {
+    public JPanel pn(SVMainFrame frame) {
+        HashSet<Lich> lich2 = frame.getSetLich();
+        ArrayList<Lich> lich = new ArrayList<>(lich2);
         JPanel p1 = new JPanel();
         p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         LichHocComponent a = new LichHocComponent();

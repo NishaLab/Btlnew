@@ -202,9 +202,9 @@ public class SVViewController {
                 ArrayList<Lich> moi = rp.getListLich();
                 frame.setListLichMoi(moi);
 //                ArrayList<Lich> lich2 = frame.getListLich();
-                HashSet<Lich> lich = rp.getSetLich();
+                HashSet<Lich> lich1 = rp.getSetLich();
                 HashSet<Lich> lich2 = frame.getSetLich();
-                lich2.addAll(lich);
+                lich2.addAll(lich1);
                 frame.setSetLich(lich2);
                 ListTimetableView();
             }
@@ -222,7 +222,7 @@ public class SVViewController {
     }
 
     public ListPanel setListTimetableViewAction(HashSet<Lich> lich) {
-        ListPanel lp = new ListPanel(lich, frame);
+        ListPanel lp = new ListPanel(frame);
         JLabel delete = lp.getDeleteLabel();
         delete.addMouseListener(new MouseAdapter() {
             @Override
@@ -230,6 +230,8 @@ public class SVViewController {
                 Lich tmp = frame.getLichChon();
                 if (lich.contains(tmp)) {
                     lich.remove(tmp);
+                    TimetableStudentQuery tsq = new TimetableStudentQuery();
+                    tsq.deleteTimeTable(tmp, frame.getSv());
                     System.out.println(tmp);
                 }
             }
@@ -253,7 +255,8 @@ public class SVViewController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 TimetableStudentQuery tsq = new TimetableStudentQuery();
-                for (Lich lich1 : frame.getListLichMoi()) {
+                ArrayList<Lich> listLich = new ArrayList<>(frame.getListLichMoi());
+                for (Lich lich1 : listLich) {
                     tsq.addTimetable(frame.getSv().getMaSv(), lich1.getIdLich());
                 }
             }

@@ -48,7 +48,7 @@ public class RegisterPanel extends javax.swing.JPanel {
         initComponents();
         gv = frame.getListGV();
         ArrayList<MonHoc> mh = frame.getListMon();
-        CoursePanel cp = new CoursePanel(mh, this);
+        CoursePanel cp = new CoursePanel(mh, this,frame);
         JScrollPane sp = new JScrollPane(cp, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         setAuxPanel(sp);
     }
@@ -142,8 +142,8 @@ public class RegisterPanel extends javax.swing.JPanel {
     }
 
     public ArrayList<Lich> getListLich() {
-        return listLich;
-    }
+        return listLich ;
+    }   
 
     public void setAuxPanel(JScrollPane auxPanel) {
         this.auxPanel.removeAll();
@@ -173,15 +173,19 @@ public class RegisterPanel extends javax.swing.JPanel {
         this.showButton = showButton;
     }
 
-    public void saveCourse(Lich e) {
-        this.setLich.add(e);
+    public boolean saveCourse(Lich e) {
+        return this.setLich.add(e);
     }
 
-    public void saveCourse2(Lich e) {
-        this.listLich.add(e);
+     public void saveCourse2(Lich e){
+         this.listLich.add(e);
+     }
+    public ArrayList<Lich> getCourse(Lich e) {
+        listLich = new ArrayList<>(this.setLich);
+        return listLich;
     }
 
-    public void createMainPanel(MonHoc a) {
+    public void createMainPanel(MonHoc a,SVMainFrame frame) {
         System.out.println(a);
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
@@ -202,9 +206,8 @@ public class RegisterPanel extends javax.swing.JPanel {
                 public void mouseClicked(MouseEvent e) {
                     if (JOptionPane.showConfirmDialog(null, "Ban co muon them Lich " + lich1.getTen() + " " + lich1.getIdLich(),
                             "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
-                        saveCourse(lich1);
+                        if(saveCourse(lich1))
                         saveCourse2(lich1);
-                        System.out.println(lich1);
                     }
 
                 }
