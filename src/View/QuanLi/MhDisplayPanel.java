@@ -30,8 +30,11 @@ public class MhDisplayPanel extends javax.swing.JPanel {
      */
     public MhDisplayPanel(ArrayList<MonHoc> mh, QuanLiFrame frame) throws SQLException {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createMhList(mh, frame));
+        setLayout(new BorderLayout());
+        JScrollPane sp = new JScrollPane(createMhList(mh, frame), 
+                
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
@@ -66,16 +69,7 @@ public class MhDisplayPanel extends javax.swing.JPanel {
                 }
             });
         }
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        
         return p1;
     }
 

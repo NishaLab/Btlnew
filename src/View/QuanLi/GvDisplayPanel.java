@@ -28,8 +28,11 @@ public class GvDisplayPanel extends javax.swing.JPanel {
      */
     public GvDisplayPanel(ArrayList<GiangVien> gv, QuanLiFrame frame) {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createGvList(gv, frame));
+        setLayout(new BorderLayout());
+        JScrollPane sp = new JScrollPane(createGvList(gv, frame), 
+                
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
@@ -52,16 +55,7 @@ public class GvDisplayPanel extends javax.swing.JPanel {
 
             });
         }
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        
         return p1;
     }
 
