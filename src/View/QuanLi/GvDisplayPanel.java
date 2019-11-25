@@ -15,6 +15,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -29,9 +30,9 @@ public class GvDisplayPanel extends javax.swing.JPanel {
     public GvDisplayPanel(ArrayList<GiangVien> gv, QuanLiFrame frame) {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createGvList(gv, frame), 
-        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
-        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane sp = new JScrollPane(createGvList(gv, frame),
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
@@ -47,14 +48,28 @@ public class GvDisplayPanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    frame.setGv(giang);
+                    if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon GV " + giang.getTenGv() + " " + giang.getMaGv(),
+                            "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                        frame.setGv(giang);
+                    }
+                }
+
+                public void mouseEntered(MouseEvent e) {
                     tmp.setOpaque(true);
-                    tmp.setColorCustom(Color.RED);
+                    tmp.setBackground(Color.DARK_GRAY);
+                    tmp.setColorCustom(Color.CYAN);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    tmp.setOpaque(false);
+                    tmp.setBackground(Color.WHITE);
+                    tmp.setColorCustom(Color.BLACK);
                 }
 
             });
         }
-        
+
         return p1;
     }
 

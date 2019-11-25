@@ -25,35 +25,50 @@ public class SvDisplayPanel extends javax.swing.JPanel {
     /**
      * Creates new form SvDisplayPanel
      */
-    public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
+    public SvDisplayPanel(ArrayList<SinhVien> sv, QuanLiFrame frame) {
         initComponents();
         setLayout(new BorderLayout());
-        JScrollPane sp = new JScrollPane(createSvList(sv, frame), 
-        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
-        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        JScrollPane sp = new JScrollPane(createSvList(sv, frame),
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
-    public JPanel createSvList(ArrayList<SinhVien> sv,QuanLiFrame frame) {
+    public JPanel createSvList(ArrayList<SinhVien> sv, QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(sv.size()+1, 1, 0, 0));
+        p1.setLayout(new GridLayout(sv.size() + 1, 1, 0, 0));
         SinhVienComponent a = new SinhVienComponent();
         p1.add(a);
         ArrayList<SinhVienComponent> list = new ArrayList<>();
-        for (SinhVien sinh:sv) {
+        for (SinhVien sinh : sv) {
             SinhVienComponent tmp = new SinhVienComponent(sinh);
             p1.add(tmp);
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    frame.setSv(sinh);
-                    tmp.setOpaque(true);
-                    tmp.setColorCustom(Color.RED);
+                    if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon Mon Hoc " + sinh.getTenSv() + " " + sinh.getMaSv(),
+                            "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                        frame.setSv(sinh);
+                    }
                 }
 
-            });
+                public void mouseEntered(MouseEvent e) {
+                    tmp.setOpaque(true);
+                    tmp.setBackground(Color.DARK_GRAY);
+                    tmp.setColorCustom(Color.CYAN);
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    tmp.setOpaque(false);
+                    tmp.setBackground(Color.WHITE);
+                    tmp.setColorCustom(Color.BLACK);
+                }
+
+            }
+            );
         }
-        
+
         return p1;
     }
 

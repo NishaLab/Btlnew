@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import View.SinhVien.SVMainFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +39,7 @@ public class ListPanel extends javax.swing.JPanel {
 
     public JPanel pn(HashSet<Lich> lich, SVMainFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(lich.size()+1, 1, 0, 0));
+        p1.setLayout(new GridLayout(lich.size() + 1, 1, 0, 0));
         LichHocComponent a = new LichHocComponent();
         p1.add(a);
         for (Lich lich1 : lich) {
@@ -46,21 +47,27 @@ public class ListPanel extends javax.swing.JPanel {
             tmp.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    frame.setLichChon(lich1);
+                    if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon Lich " + lich1.getTen()+ " " + lich1.getIdLich(),
+                            "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
+                        frame.setLichChon(lich1);
+                    }
                 }
 
                 @Override
-                public void mouseEntered(MouseEvent e) {
+                public void mouseEntered(MouseEvent e
+                ) {
                     tmp.setOpaque(true);
                     tmp.setColorCustom(Color.CYAN);
                 }
 
                 @Override
-                public void mouseExited(MouseEvent e) {
+                public void mouseExited(MouseEvent e
+                ) {
                     tmp.setOpaque(false);
                     tmp.setColorCustom(Color.BLACK);
                 }
-            });
+            }
+            );
             p1.add(tmp);
         }
         return p1;
