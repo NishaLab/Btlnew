@@ -5,13 +5,9 @@
         <group>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/SinhVien/SVViewController.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/SVMainFrame.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/GvDisplayPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/ProfessorQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableQuery.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/SVFrame.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/CoursePanel.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/ListPanel.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Model/Lich.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/MhDisplayPanel.java</file>
             <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/RegisterPanel.java</file>
         </group>
     </open-files>
