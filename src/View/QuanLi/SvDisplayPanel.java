@@ -27,14 +27,16 @@ public class SvDisplayPanel extends javax.swing.JPanel {
      */
     public SvDisplayPanel(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         initComponents();
-        setLayout(new FlowLayout());
-        JScrollPane sp = new JScrollPane(createSvList(sv,frame));
+        setLayout(new BorderLayout());
+        JScrollPane sp = new JScrollPane(createSvList(sv, frame), 
+        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         add(sp);
     }
 
     public JPanel createSvList(ArrayList<SinhVien> sv,QuanLiFrame frame) {
         JPanel p1 = new JPanel();
-        p1.setLayout(new GridLayout(sv.size()+1, 1, 1, 1));
+        p1.setLayout(new GridLayout(sv.size()+1, 1, 0, 0));
         SinhVienComponent a = new SinhVienComponent();
         p1.add(a);
         ArrayList<SinhVienComponent> list = new ArrayList<>();
@@ -51,16 +53,7 @@ public class SvDisplayPanel extends javax.swing.JPanel {
 
             });
         }
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        
         return p1;
     }
 
