@@ -31,6 +31,30 @@ public class RegisterFrame extends javax.swing.JFrame {
         canAdd=true;
     }
 
+    public JLabel getPswdLabel() {
+        return pswdLabel;
+    }
+
+    public void setPswdLabel(JLabel pswdLabel) {
+        this.pswdLabel = pswdLabel;
+    }
+
+    public JLabel getPswrd2Label() {
+        return pswrd2Label;
+    }
+
+    public void setPswrd2Label(JLabel pswrd2Label) {
+        this.pswrd2Label = pswrd2Label;
+    }
+
+    public JLabel getUsrLabel() {
+        return usrLabel;
+    }
+
+    public void setUsrLabel(JLabel usrLabel) {
+        this.usrLabel = usrLabel;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,9 +87,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         maleCheckbox = new javax.swing.JCheckBox();
         nameLabel = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        usrLabel = new javax.swing.JLabel();
+        pswrd2Label = new javax.swing.JLabel();
+        pswdLabel = new javax.swing.JLabel();
 
         genderCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
         genderCB.addActionListener(new java.awt.event.ActionListener() {
@@ -123,14 +147,14 @@ public class RegisterFrame extends javax.swing.JFrame {
         nameLabel.setForeground(new java.awt.Color(248, 21, 7));
         nameLabel.setText("*");
 
-        jLabel12.setForeground(new java.awt.Color(248, 21, 7));
-        jLabel12.setText("*");
+        usrLabel.setForeground(new java.awt.Color(248, 21, 7));
+        usrLabel.setText("*");
 
-        jLabel13.setForeground(new java.awt.Color(248, 21, 7));
-        jLabel13.setText("*");
+        pswrd2Label.setForeground(new java.awt.Color(248, 21, 7));
+        pswrd2Label.setText("*");
 
-        jLabel14.setForeground(new java.awt.Color(248, 21, 7));
-        jLabel14.setText("*");
+        pswdLabel.setForeground(new java.awt.Color(248, 21, 7));
+        pswdLabel.setText("*");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,7 +195,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(usr, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel12))
+                                        .addComponent(usrLabel))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(maleCheckbox)
                                         .addGap(40, 40, 40)
@@ -183,8 +207,8 @@ public class RegisterFrame extends javax.swing.JFrame {
                                             .addComponent(psrd2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14))))))
+                                            .addComponent(pswrd2Label)
+                                            .addComponent(pswdLabel))))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(okBtt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -219,17 +243,17 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel12))
+                    .addComponent(usrLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pwrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel14))
+                    .addComponent(pswdLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(psrd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel13))
+                    .addComponent(pswrd2Label))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(termAccept)
@@ -422,9 +446,6 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox femaleChechbox;
     private javax.swing.JComboBox<String> genderCB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -439,9 +460,12 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JButton okBtt;
     private javax.swing.JTextField phoneNUM;
     private javax.swing.JPasswordField psrd2;
+    private javax.swing.JLabel pswdLabel;
+    private javax.swing.JLabel pswrd2Label;
     private javax.swing.JPasswordField pwrd;
     private javax.swing.JTextField tenSV;
     private javax.swing.JRadioButton termAccept;
     private javax.swing.JTextField usr;
+    private javax.swing.JLabel usrLabel;
     // End of variables declaration//GEN-END:variables
 }
