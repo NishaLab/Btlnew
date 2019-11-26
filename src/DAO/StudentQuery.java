@@ -68,6 +68,8 @@ public class StudentQuery {
 
     public void deleteStudent(SinhVien a) {
         try {
+            TimetableStudentQuery tsq = new TimetableStudentQuery();
+            tsq.deleteTimeTableByIdStudent(a.getMaSv());
             String sql = "Delete FROM realbtl.student WHERE idStudent = ?";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, a.getMaSv());

@@ -19,13 +19,13 @@ import javax.swing.JOptionPane;
  * @author LEGION
  */
 public class CourseQuery {
-
+    
     private DBQuery qr;
-
+    
     public CourseQuery() {
         this.qr = new DBQuery();
     }
-
+    
     public void addCourse(MonHoc a) {
         try {
             String sql = "INSERT INTO realbtl.course (name, sotinchi, khoa) VALUES(?,?,?)";
@@ -41,7 +41,7 @@ public class CourseQuery {
             e.printStackTrace();
         }
     }
-
+    
     public void updateCourse(MonHoc a) {
         try {
             String sql = "UPDATE realbtl.course SET name = ?, sotinchi = ?,khoa = ? WHERE idCourse = ?";
@@ -61,6 +61,8 @@ public class CourseQuery {
     
     public void deleteCourse(MonHoc a) {
         try {
+            TimetableQuery tq = new TimetableQuery();
+            tq.deleteCourseDetailByCourse(a);
             String sql = "Delete FROM realbtl.course WHERE idCourse = ?";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, a.getMaMon());
@@ -68,11 +70,11 @@ public class CourseQuery {
             JOptionPane.showMessageDialog(null, "Xoa Mon Hoc Thanh Cong");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Xoa Moc Hoc That Bai");
-
+            
             e.printStackTrace();
         }
     }
-
+    
     public ArrayList<MonHoc> getMonHoc() throws SQLException {
         ArrayList<MonHoc> res = new ArrayList();
         String sql = "SELECT * FROM realbtl.course";
@@ -86,6 +88,6 @@ public class CourseQuery {
             res.add(s);
         }
         return res;
-
+        
     }
 }

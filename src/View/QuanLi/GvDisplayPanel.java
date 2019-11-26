@@ -51,6 +51,7 @@ public class GvDisplayPanel extends javax.swing.JPanel {
                     if (JOptionPane.showConfirmDialog(null, "Ban co muon Chon GV " + giang.getTenGv() + " " + giang.getMaGv(),
                             "Pick", JOptionPane.YES_OPTION, JOptionPane.NO_OPTION) == 0) {
                         frame.setGv(giang);
+                        System.out.println(giang);
                     }
                 }
 

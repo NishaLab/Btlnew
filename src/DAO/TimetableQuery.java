@@ -77,6 +77,46 @@ public class TimetableQuery {
         }
     }
 
+    public void deleteCourseDetailByProfessor(GiangVien a) {
+        try {
+            String sql = "Select idCT FROM realbtl.course_time WHERE P_ID = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getMaGv());
+            ResultSet rs = ps.executeQuery();
+            TimetableStudentQuery tsq = new TimetableStudentQuery();
+            while (rs.next()) {
+                int idC = rs.getInt(1);
+                tsq.deleteTimeTableById(idC);
+            }
+            sql = "Delete FROM realbtl.course_time WHERE P_ID = ?";
+            ps = qr.getConnection().prepareCall(sql);
+            ps.setInt(1, a.getMaGv());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteCourseDetailByCourse(MonHoc a) {
+        try {
+            String sql = "Select idCT FROM realbtl.course_time WHERE idCourse = ?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, a.getMaMon());
+            ResultSet rs = ps.executeQuery();
+            TimetableStudentQuery tsq = new TimetableStudentQuery();
+            while (rs.next()) {
+                int idC = rs.getInt(1);
+                tsq.deleteTimeTableById(idC);
+            }
+            sql = "Delete FROM realbtl.course_time WHERE idCourse = ?";
+            ps = qr.getConnection().prepareCall(sql);
+            ps.setInt(1, a.getMaMon());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public GiangVien searchGv(ArrayList<GiangVien> gv, int id) {
         GiangVien res = new GiangVien();
         for (int i = 0; i < gv.size(); i++) {
