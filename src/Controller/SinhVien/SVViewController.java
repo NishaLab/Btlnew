@@ -29,8 +29,10 @@ import DAO.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashSet;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 /**
@@ -203,8 +205,8 @@ public class SVViewController {
                 frame.setListLichMoi(moi);
 //                ArrayList<Lich> lich2 = frame.getListLich();
                 HashSet<Lich> lich1 = rp.getSetLich();
-                HashSet<Lich> lich2 = frame.getSetLich();
-                lich2.addAll(lich1);
+                HashSet<Lich> lich2 = frame.getSetLich(); // hàm equals của HashSet không hoạt động đúng -> chuyển tạm sang xử lí
+                lich2.addAll(lich1);                       // ArrayList
                 ArrayList<Lich> tbl = new ArrayList<>(lich2);
                 HashSet<Integer> set = new HashSet<>();
                 for (int i = 0; i < tbl.size() - 1; i++) {
@@ -219,8 +221,10 @@ public class SVViewController {
                     }
                 }
                 ArrayList<Integer> xoa = new ArrayList<>(set);
+                Collections.sort(xoa,Collections.reverseOrder());
                 for(int i =0;i<xoa.size();i++){
                     int tmp = xoa.get(i);
+                    JOptionPane.showMessageDialog(null, "Lich ma " + tbl.get(tmp).getIdLich() + " Khong hop le");
                     tbl.remove(tmp);
                 }
                 HashSet<Lich> data = new HashSet<>(tbl);
