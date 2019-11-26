@@ -70,4 +70,26 @@ public class TimetableStudentQuery {
         }
     }
 
+    public void deleteTimeTableById(int idC) {
+        try {
+            String sql = "DELETE  FROM realbtl.timetable WHERE idC=?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, idC);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+        public void deleteTimeTableByIdStudent(int idS) {
+        try {
+            String sql = "DELETE  FROM realbtl.timetable WHERE idS=?";
+            PreparedStatement ps = qr.getConnection().prepareStatement(sql);
+            ps.setInt(1, idS);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

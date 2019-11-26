@@ -66,10 +66,12 @@ public class ProfessorQuery {
 
     public void deleteProfessor(GiangVien a) {
         try {
+            
             String sql = "Delete FROM realbtl.professor WHERE idProfessor = ?";
             PreparedStatement ps = qr.getConnection().prepareStatement(sql);
             ps.setInt(1, a.getMaGv());
             ps.executeUpdate();
+            
             JOptionPane.showMessageDialog(null, "Xoa Giang Vien Thanh Cong");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Xoa Giang Vien That Bai");

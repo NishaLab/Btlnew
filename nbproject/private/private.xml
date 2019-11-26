@@ -3,10 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/SinhVien/SVViewController.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/CoursePanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/ListPanel.java</file>
-            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/SinhVien/Panels/RegisterPanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Model/GiangVien.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/SvDisplayPanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/View/QuanLi/GvDisplayPanel.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLEditController.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/ProfessorQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLMainController.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/Controller/QuanLi/QLViewController.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/CourseQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/TimetableStudentQuery.java</file>
+            <file>file:/C:/Users/LEGION/Documents/NetBeansProjects/BaiTapLon/src/DAO/StudentQuery.java</file>
         </group>
     </open-files>
 </project-private>

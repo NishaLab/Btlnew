@@ -165,6 +165,9 @@ public class LoginController {
         register.getTenSV().addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
+                if (!register.getTenSV().getText().trim().equals("")) {
+                    register.getNameLabel().setText("*");
+                }
             }
 
             @Override
@@ -174,6 +177,54 @@ public class LoginController {
                 }
             }
         });
+        register.getUsr().addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!register.getUsr().getText().trim().equals("")) {
+                    register.getUsrLabel().setText("*");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (register.getUsr().getText().trim().equals("")) {
+                    register.getUsrLabel().setText("Vui Long Nhap Username");
+                }
+            }
+        });
+        register.getPwrd().addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!String.valueOf(register.getPwrd().getPassword()).trim().equals("")) {
+                    register.getPswdLabel().setText("*");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (String.valueOf(register.getPwrd().getPassword()).trim().equals("")) {
+                    register.getPswdLabel().setText("Vui long nhap PassWord");
+                }
+            }
+        });
+        register.getPwrd().addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!String.valueOf(register.getPwrd().getPassword()).trim().equals(
+                        String.valueOf(register.getPsrd2().getPassword()).trim())) {
+                    register.getPswrd2Label().setText("*");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                  if (!String.valueOf(register.getPwrd().getPassword()).trim().equals(
+                        String.valueOf(register.getPsrd2().getPassword()).trim())) {
+                    register.getPswrd2Label().setText("2 PassWord k trung nhau");
+                }
+            }
+        });
+
         return register;
     }
 

@@ -80,6 +80,13 @@ public class GiangVien implements Serializable {
     public void setKhoa(String khoa) {
         this.khoa = khoa;
     }
+
+    @Override
+    public String toString() {
+        return "GiangVien{" + "maGv=" + maGv + ", tenGv=" + tenGv + ", khoa=" + khoa + ", gioitinh=" + gioitinh + ", address=" + address + ", sdt=" + sdt + ", dob=" + dob + '}';
+    }
+    
+        
     private int maGv;
     private Name tenGv;
     private String khoa;

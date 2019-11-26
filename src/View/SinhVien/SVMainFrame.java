@@ -96,6 +96,7 @@ public class SVMainFrame extends javax.swing.JFrame {
     }
 
     public SVMainFrame(SinhVien a) {
+        setResizable(false);
         this.sv = a;
         initComponents();
         try {

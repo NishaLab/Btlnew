@@ -22,6 +22,7 @@ public class QuanLiFrame extends javax.swing.JFrame {
      * Creates new form QuanLiFrame
      */
     public QuanLiFrame() {
+        setResizable(false);
         initComponents();
         QLMainController ctr = new QLMainController(this);
         ctr.init();
